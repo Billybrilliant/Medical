@@ -1,0 +1,91 @@
+.navbar-nav>li>a {
+    color: #fff !important;
+    /* margin-right: 80px; */
+}
+
+.navbar {
+    height   : 60px;
+    font-size: 18px;
+
+}
+
+.navbar-nav>li {
+    padding   : 20px;
+    text-align: center;
+}
+
+#search {
+    background   : transparent;
+    outline      : none;
+    border       : none;
+    border-bottom: 1px solid #fff;
+    margin-top   : 6px;
+    color        : #fff;
+    width        : 330px;
+    font-size    : 14px;
+}
+
+#search::-webkit-input-placeholder {
+    color    : #fff;
+    font-size: 14px;
+}
+
+#searchicon {
+    width : 22px;
+    height: 22px;
+    cursor: pointer;
+}
+
+#top_top {
+    background: #000;
+    height    : 44px;
+    color     : #fff;
+}
+
+#top_top h6 {
+    line-height: 44px;
+    font-size  : 12px;
+
+}
+
+.active {
+    background: #c03131;
+}
+
+#top_mid {
+    line-height: 100px;
+    text-align : center;
+}
+
+#sign {
+    /* float        : right; */
+    width        : 164px;
+    font-size    : 18px;
+    height       : 46px;
+    border-radius: 23px;
+    /* margin-top   : 27px; */
+    /* margin-left: 100px; */
+    background: #84c225;
+}
+
+#sign_box {
+    text-align: right
+}
+
+#phone-icon {
+    width : 18px;
+    height: 16px;
+}
+
+#telphone {
+    font-size  : 12px;
+    line-height: 44px;
+    text-align : right
+}
+
+#telphone span {
+    display: inline-block;
+    /* line-height: 20px; */
+    margin-left: 5px;
+    /* margin-top : 5px; */
+}
