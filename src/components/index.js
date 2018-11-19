@@ -5,3 +5,4 @@ export Doctor from './Doctor';
 export Medicine from './Medicine';
 export Article from './Article';
 export Appointment from './Appointment';
+export Footer from './Footer';

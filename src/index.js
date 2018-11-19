@@ -8,7 +8,8 @@ import {
   Doctor,
   Medicine,
   Article,
-  Appointment
+  Appointment,
+  Footer
 } from './components';
 import { Provider } from 'react-redux';
 import store from './store';
@@ -26,6 +27,7 @@ ReactDOM.render(
           <Route path="/chart" component={Chart} />
           <Route path="/medicine" component={Medicine} />
         </Switch>
+        <Footer />
       </div>
     </Router>
   </Provider>,

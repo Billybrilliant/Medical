@@ -1,0 +1,65 @@
+.footer {
+    background : #353633;
+    height     : 380px;
+    padding-top: 53px;
+    color      : #fffffe;
+
+    #logo_btm {
+        height: 58px;
+        width : 192px;
+    }
+
+    h5 {
+        font-size    : 22px;
+        margin-bottom: 33px;
+
+        >img {
+            width       : 24px;
+            height      : 24px;
+            margin-right: 12px;
+        }
+    }
+
+    .btm-mid {
+
+        >.phone {
+            font-size    : 18px;
+            margin-bottom: 22px;
+
+        }
+
+        >hr {
+            background: #b5b5b5;
+        }
+
+        #mid-mid {
+            >p {
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    .btm-right {
+        text-align: right;
+
+        p {
+            >a {
+                >img {
+                    width : 28px;
+                    height: 28px;
+                }
+
+                margin-right: 10px;
+            }
+        }
+    }
+
+    >hr {
+        background: #dcdcdc;
+    }
+
+    .btm-btm {
+        text-align: center;
+        font-size : 12px;
+    }
+}
