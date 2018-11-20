@@ -11,7 +11,7 @@
 }
 
 .footer h5 {
-  font-size: 22px;
+  font-size: 20px;
   margin-bottom: 33px;
 }
 
@@ -23,10 +23,10 @@
 
 .footer .btm-mid > .phone {
   font-size: 18px;
-  margin-bottom: 22px;
+  margin-bottom: 20px;
 }
 
-.footer .btm-mid > hr {
+.footer .btm-mid hr {
   background: #b5b5b5;
 }
 
@@ -34,11 +34,16 @@
   margin-bottom: 20px;
 }
 
+.footer p {
+  font-size: 16px;
+}
+
 .footer .btm-right {
-  text-align: right;
+  text-align: center;
 }
 
 .footer .btm-right p > a {
+  display: inline-block;
   margin-right: 10px;
 }
 

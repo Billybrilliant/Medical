@@ -10,7 +10,7 @@
     }
 
     h5 {
-        font-size    : 22px;
+        font-size    : 20px;
         margin-bottom: 33px;
 
         >img {
@@ -24,11 +24,11 @@
 
         >.phone {
             font-size    : 18px;
-            margin-bottom: 22px;
+            margin-bottom: 20px;
 
         }
 
-        >hr {
+        hr {
             background: #b5b5b5;
         }
 
@@ -39,11 +39,18 @@
         }
     }
 
+    p {
+        font-size: 16px;
+    }
+
     .btm-right {
-        text-align: right;
+        text-align: center;
 
         p {
+
             >a {
+                display: inline-block;
+
                 >img {
                     width : 28px;
                     height: 28px;
