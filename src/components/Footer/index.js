@@ -17,7 +17,7 @@ export default class Footer extends Component {
               <Row>
                 <Col md={{ size: 4, offset: 2 }}>
                   <h5>
-                    <img src={require('../../assets/images//电话 (1).png')} />
+                    <img src={require('../../assets/images/符号-电话.png')} />
                     全国统一电话
                   </h5>
                   <p className="phone">4008-115-160</p>

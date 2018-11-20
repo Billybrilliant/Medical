@@ -6,7 +6,14 @@ import {
   Row,
   Col,
   Container,
-  Button
+  Button,
+  Card,
+  CardImg,
+  CardText,
+  CardBody,
+  CardLink,
+  CardTitle,
+  CardSubtitle
 } from 'reactstrap';
 import Axios from 'axios';
 
@@ -46,40 +53,50 @@ export default class Home extends Component {
       url   : '  http://localhost:3000/people',
       method: 'get'
     }).then(res => {
-      console.log(res.data);
+      // console.log(res.data);
       var data     = res.data;
       var dataList = [];
-      console.log(data);
+      // console.log(data);
       for (let i = 0; i < data.length; i++) {
-        dataList.push(<div>{data[i].dname}</div>);
+        if (data[i].is_hot && dataList.length < 3) {
+          dataList.push(
+            <Col key={i} md="4" style={{ padding: 0 }}>
+              <Card>
+                <img width="120" src={data[i].dimg} />
+                <CardBody>
+                  <CardTitle>
+                    {data[i].dname}
+                    <span>{data[i].Level}</span>
+                  </CardTitle>
+                  <CardSubtitle>{data[i].hospital}</CardSubtitle>
+                  <CardSubtitle>{data[i].Section}</CardSubtitle>
+                  <CardText>
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </CardText>
+                  <div className="link-tip">
+                    <CardLink href="#" className="left">
+                      <img src={require('../../assets/images/预约挂号.png')} />
+                      挂号
+                    </CardLink>
+                    <CardLink href="#" className="right">
+                      <img src={require('../../assets/images/电话 (1).png')} />
+                      电话
+                    </CardLink>
+                  </div>
+                </CardBody>
+              </Card>
+            </Col>
+          );
+        }
       }
-      console.log(dataList);
+      // console.log(dataList);
       this.setState({
         doctor: dataList
       });
-      console.log(this.state.doctor);
+      // console.log(this.state.doctor);
     });
   }
-
-  showDoctor = () => {
-    if (this.state.doctor.length) {
-      var hotDoctor = [];
-      for (let i = 0; i < this.state.doctor.length; i++) {
-        if (this.state.doctor[i].is_hot) {
-          // do {
-          hotDoctor.push(this.state.doctor[i].name);
-          // } while (hotDoctor.length < 3);
-          // }
-        }
-        return hotDoctor;
-        // } else {
-        //   return null;
-        // }
-      }
-    } else {
-      console.log(1);
-    }
-  };
 
   onExiting() {
     this.animating = true;
@@ -165,26 +182,21 @@ export default class Home extends Component {
           </Container>
         </div>
         <div className="main-conent">
-          <Container>
+          <Container style={{ padding: 0 }}>
             <Row>
               <Col>
-                <h5>名医推荐</h5>
+                <h4>名医推荐</h4>
               </Col>
             </Row>
             <Row>{this.state.doctor}</Row>
             <Row>
               <Col>
-                <h5>名医推荐</h5>
+                <h4>健康百科</h4>
               </Col>
             </Row>
             <Row>
               <Col>
-                <h5>健康百科</h5>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <h5>合作伙伴</h5>
+                <h4>合作伙伴</h4>
               </Col>
             </Row>
           </Container>

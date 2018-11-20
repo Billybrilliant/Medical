@@ -62,11 +62,74 @@
   text-align: center;
 }
 
-.main-conent .row h5 {
+.main-conent .row h4 {
   display: inline-block;
   font-size: 32px;
   color: #000;
   border-bottom: 10px solid #4ebec0;
   padding-bottom: 15px;
   margin-top: 100px;
+}
+
+.main-conent .card {
+  margin-top: 65px;
+  width: 360px;
+  height: 620px;
+  text-align: center;
+  position: relative;
+}
+
+.main-conent .card > img {
+  display: inline-block;
+  margin: 0 auto;
+  border-radius: 50%;
+  margin-top: 58px;
+}
+
+.main-conent .card > .card-body {
+  margin-top: 65px;
+  padding: 0;
+}
+
+.main-conent .card > .card-body > .card-title {
+  font-size: 24px;
+}
+
+.main-conent .card > .card-body > .card-title > span {
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.main-conent .card > .card-body > .card-subtitle {
+  font-size: 14px;
+  color: #878787;
+  margin-top: 25px;
+}
+
+.main-conent .card > .card-body > .link-tip {
+  background: #c03131;
+  position: absolute;
+  bottom: 0;
+  width: 380px;
+}
+
+.main-conent .card > .card-body > .link-tip > .left {
+  float: left;
+  margin-left: 30px;
+}
+
+.main-conent .card > .card-body > .link-tip > .right {
+  float: right;
+  margin-right: 30px;
+}
+
+.main-conent .card > .card-body > .link-tip > .card-link {
+  line-height: 40px;
+  font-size: 18px;
+  color: #fff;
+}
+
+.main-conent .card > .card-body > .link-tip > .card-link > img {
+  width: 30px;
+  height: 30px;
 }
