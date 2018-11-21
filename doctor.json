@@ -1,0 +1,107 @@
+{
+    "data": [{
+        "did"     : "123456",
+        "dname"   : "吴系挂",
+        "dpwd"    : "12345",
+        "sex"     : "female",
+        "age"     : "21",
+        "level"   : "主治医生",
+        "special" : "接骨",
+        "section" : "骨科",
+        "dimg"    : "http://dummyimage.com/120x120/e2f279",
+        "hospital": "华美医院",
+        "phone"   : "123456789000",
+        "email"   : "123@qq.com",
+        "local"   : "浙江",
+        "dtype"   : "用户类别"
+    }, {
+        "did"     : "123456",
+        "dname"   : "刘系挂",
+        "dpwd"    : "12345",
+        "sex"     : "female",
+        "age"     : "21",
+        "level"   : "主治医生",
+        "special" : "接骨",
+        "section" : "骨科",
+        "dimg"    : "http://dummyimage.com/120x120/de79f2",
+        "hospital": "华美医院",
+        "phone"   : "123456789000",
+        "email"   : "123@qq.com",
+        "local"   : "浙江",
+        "dtype"   : "用户类别"
+    }, {
+        "did"     : "123456",
+        "dname"   : "张系挂",
+        "dpwd"    : "12345",
+        "sex"     : "female",
+        "age"     : "21",
+        "level"   : "主治医生",
+        "special" : "接骨",
+        "section" : "骨科",
+        "dimg"    : "http://dummyimage.com/120x120/f29779",
+        "hospital": "华美医院",
+        "phone"   : "123456789000",
+        "email"   : "123@qq.com",
+        "local"   : "浙江",
+        "dtype"   : "用户类别"
+    }],
+    "news": [{
+        "ctitle": "文章标题",
+        "cid"   : "文章id",
+        "cimge" : "文章图片"
+    }, {
+        "ctitle": "文章标题",
+        "cid"   : "文章id",
+        "cimge" : "文章图片"
+    }, {
+        "ctitle": "文章标题",
+        "cid"   : "文章id",
+        "cimge" : "文章图片"
+    }, {
+        "ctitle": "文章标题",
+        "cid"   : "文章id",
+        "cimge" : "文章图片"
+    }, {
+        "ctitle": "文章标题sdjadhsagdjshakjshdkashdjklsadjlksjdksadjlsakdjsalkdjlska",
+        "cid"   : "文章id",
+        "cimge" : "文章图片"
+    }],
+    "ansers": [{
+        "bankuai": [{
+            "sname"    : "内科",
+            "sid"      : "1",
+            "smasterID": "版主ID",
+            "sprofile" : "板块主题"
+        }],
+        "zhutie": [{
+            "tid"      : "主帖ID",
+            "tuid"     : "发帖人的ID",
+            "ttopic"   : "主帖标题",
+            "tcontents": "主帖1的正文",
+            "ttime"    : "发帖时间"
+        }],
+        "follower": [{
+            "ruid": "跟帖人1ID",
+            "name": "跟帖人1的名字"
+        }],
+        "gentie": [{
+            "rid"         : "跟帖1的ID",
+            "ruid"        : "发帖人ID",
+            "rcontents"   : "跟帖1的内容",
+            "rtime"       : "跟帖1的跟帖时间",
+            "rclickcoount": "点赞数"
+        }],
+        "docter": [{
+            "dname" : "医生1的名字",
+            "dlevel": "主治医生"
+        }]
+    }],
+    "articl": [{
+        "cid"       : "1",
+        "cname"     : "早",
+        "title"     : "文章标题",
+        "cdesc"     : "文章内容",
+        "fit_people": "适合人群",
+        "cimge"     : "http://dummyimage.com/f29779/120x120"
+    }]
+}

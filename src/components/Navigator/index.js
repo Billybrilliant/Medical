@@ -16,7 +16,7 @@ import {
   Row,
   Col
 } from 'reactstrap';
-import './Navigator.css';
+import './Navigator.scss';
 export default class Navigator extends React.Component {
   constructor(props) {
     super(props);
@@ -47,7 +47,7 @@ export default class Navigator extends React.Component {
               </Col>
               <Col id="telphone">
                 <img
-                  src = {require('../../assets/images/电话.png')}
+                  src = {require('../../../assets/images/电话.png')}
                   id  = "phone-icon"
                 />
                 <span>热线电话：4008-115-160</span>
@@ -58,7 +58,7 @@ export default class Navigator extends React.Component {
         <Container>
           <Row id="top_mid">
             <Col lg={{ size: 4, offset: 4 }}>
-              <img src={require('../../assets/images/logo/画板 1.png')} />
+              <img src={require('../../../assets/images/logo/画板 1.png')} />
             </Col>
             <Col lg="4" id="sign_box">
               <Button color="primary" id="sign">
@@ -101,7 +101,7 @@ export default class Navigator extends React.Component {
                 <NavItem>
                   <input type="text" id="search" placeholder="药品/药品种类" />
                   <img
-                    src = {require('../../assets/images/search.png')}
+                    src = {require('../../../assets/images/search.png')}
                     id  = "searchicon"
                   />
                 </NavItem>

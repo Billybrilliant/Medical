@@ -4,5 +4,6 @@ export Chart from './Chart';
 export Doctor from './Doctor';
 export Medicine from './Medicine';
 export Article from './Article';
+export ArticleDetail from './ArticleDetail';
 export Appointment from './Appointment';
 export Footer from './Footer';

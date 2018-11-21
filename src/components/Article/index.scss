@@ -1,0 +1,38 @@
+$maincolor:#4ebec0;
+
+.articlKlass {
+    text-align: center;
+
+    h4 {
+        display       : inline-block;
+        font-size     : 30px;
+        color         : #000;
+        border-bottom : 10px solid $maincolor;
+        padding-bottom: 15px;
+        margin-top    : 100px;
+    }
+
+    a {
+        display: block;
+        color  : #000;
+
+        .row {
+            cursor: pointer;
+
+
+            .card-body {
+                >h5 {
+                    font-size : 24px;
+                    margin-top: 40px;
+                }
+
+                >p {
+                    font-size : 16px;
+                    text-align: left;
+                }
+            }
+        }
+    }
+
+
+}

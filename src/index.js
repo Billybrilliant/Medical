@@ -9,7 +9,8 @@ import {
   Medicine,
   Article,
   Appointment,
-  Footer
+  Footer,
+  ArticleDetail
 } from './components';
 import { Provider } from 'react-redux';
 import store from './store';
@@ -23,7 +24,8 @@ ReactDOM.render(
           <Route path="/" component={Home} exact />
           <Route path="/appointment" component={Appointment} />
           <Route path="/doctor" component={Doctor} />
-          <Route path="/article" component={Article} />
+          <Route path="/article" component={Article} exact />
+          <Route path="/article/:ttopic" component={ArticleDetail} />
           <Route path="/chart" component={Chart} />
           <Route path="/medicine" component={Medicine} />
         </Switch>

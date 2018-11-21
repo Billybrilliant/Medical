@@ -9,7 +9,7 @@ export default class Footer extends Component {
           <Row>
             <Col md="2">
               <img
-                src = {require('../../assets/images/logo/画板 1 副本.png')}
+                src = {require('../../../assets/images/logo/画板 1 副本.png')}
                 id  = "logo_btm"
               />
             </Col>
@@ -17,7 +17,9 @@ export default class Footer extends Component {
               <Row>
                 <Col md={{ size: 4, offset: 2 }}>
                   <h5>
-                    <img src={require('../../assets/images/符号-电话.png')} />
+                    <img
+                      src = {require('../../../assets/images/符号-电话.png')}
+                    />
                     全国统一电话
                   </h5>
                   <p className="phone">4008-115-160</p>
@@ -43,13 +45,13 @@ export default class Footer extends Component {
               <h5>分享到</h5>
               <p>
                 <a href="#">
-                  <img src={require('../../assets/images/微博.png')} />
+                  <img src={require('../../../assets/images/微博.png')} />
                 </a>
                 <a href="#">
-                  <img src={require('../../assets/images/群蜂QQ空间.png')} />
+                  <img src={require('../../../assets/images/群蜂QQ空间.png')} />
                 </a>
                 <a href="#">
-                  <img src={require('../../assets/images/微信.png')} />
+                  <img src={require('../../../assets/images/微信.png')} />
                 </a>
               </p>
             </Col>

@@ -23,6 +23,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
         test: /\.css$/,
         use : [MiniCssExtractPlugin.loader, 'css-loader']
       },
+
       {
         test: /\.(png|jpg|gif)$/,
         use : [{ loader: 'url-loader' }]

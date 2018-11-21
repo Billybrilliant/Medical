@@ -1,0 +1,229 @@
+.carousel-inner > div {
+  width: 100%; }
+  .carousel-inner > div > img {
+    width: 100%;
+    max-height: 500px; }
+
+.tips-title {
+  height: 64px;
+  background: #4ebec0; }
+  .tips-title h5 {
+    font-size: 24px;
+    line-height: 64px;
+    color: #fff; }
+
+.tips-content {
+  background: #353633;
+  height: 220px; }
+  .tips-content label {
+    font-size: 18px;
+    color: #fff !important;
+    margin: 0 !important;
+    cursor: pointer; }
+  .tips-content input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+    width: 308px;
+    outline: none;
+    color: #fff;
+    font-size: 24px;
+    margin-top: 35px; }
+  .tips-content div {
+    padding: 0;
+    text-align: center; }
+  .tips-content .speed-btn {
+    text-align: right;
+    margin-top: 84px; }
+    .tips-content .speed-btn button {
+      width: 164px;
+      height: 46px;
+      border-radius: 23px;
+      font-size: 18px; }
+
+.main-conent .row {
+  text-align: center; }
+  .main-conent .row h4 {
+    display: inline-block;
+    font-size: 32px;
+    color: #000;
+    border-bottom: 10px solid #4ebec0;
+    padding-bottom: 15px;
+    margin-top: 100px; }
+
+.main-conent .card {
+  margin-top: 65px;
+  width: 360px;
+  height: 580px;
+  text-align: center;
+  position: relative; }
+  .main-conent .card > img {
+    display: inline-block;
+    margin: 0 auto;
+    border-radius: 50%;
+    margin-top: 58px; }
+  .main-conent .card > .card-body {
+    margin-top: 65px;
+    padding: 0; }
+    .main-conent .card > .card-body > .card-title {
+      font-size: 24px; }
+      .main-conent .card > .card-body > .card-title > span {
+        font-size: 16px;
+        margin-left: 10px; }
+    .main-conent .card > .card-body > .card-subtitle {
+      font-size: 14px;
+      color: #878787;
+      margin-top: 25px; }
+    .main-conent .card > .card-body > .link-tip {
+      background: #c03131;
+      position: absolute;
+      bottom: 0;
+      width: 100%; }
+      .main-conent .card > .card-body > .link-tip > .left {
+        float: left;
+        margin-left: 30px; }
+      .main-conent .card > .card-body > .link-tip > .right {
+        float: right;
+        margin-right: 30px; }
+      .main-conent .card > .card-body > .link-tip > .card-link {
+        line-height: 40px;
+        font-size: 18px;
+        color: #fff; }
+        .main-conent .card > .card-body > .link-tip > .card-link > img {
+          width: 30px;
+          height: 30px; }
+
+.navbar-nav>li>a {
+    color: #fff !important;
+    /* margin-right: 80px; */
+}
+
+.navbar {
+    height   : 60px;
+    font-size: 18px;
+
+}
+
+.navbar-nav>li {
+    padding   : 20px;
+    text-align: center;
+}
+
+#search {
+    background   : transparent;
+    outline      : none;
+    border       : none;
+    border-bottom: 1px solid #fff;
+    margin-top   : 6px;
+    color        : #fff;
+    width        : 330px;
+    font-size    : 14px;
+}
+
+#search::-webkit-input-placeholder {
+    color    : #fff;
+    font-size: 14px;
+}
+
+#searchicon {
+    width : 22px;
+    height: 22px;
+    cursor: pointer;
+}
+
+#top_top {
+    background: #353633;
+    height    : 44px;
+    color     : #fff;
+}
+
+#top_top h6 {
+    line-height: 44px;
+    font-size  : 12px;
+
+}
+
+.active {
+    background: #c03131;
+}
+
+#top_mid {
+    line-height: 100px;
+    text-align : center;
+}
+
+#sign {
+    /* float        : right; */
+    width        : 164px;
+    font-size    : 18px;
+    height       : 46px;
+    border-radius: 23px;
+    /* margin-top   : 27px; */
+    /* margin-left: 100px; */
+    background: #84c225;
+}
+
+#sign_box {
+    text-align: right
+}
+
+#phone-icon {
+    width : 18px;
+    height: 16px;
+}
+
+#telphone {
+    font-size  : 12px;
+    line-height: 44px;
+    text-align : right
+}
+
+#telphone span {
+    display: inline-block;
+    /* line-height: 20px; */
+    margin-left: 5px;
+    /* margin-top : 5px; */
+}
+
+
+
+
+
+.footer {
+  background: #353633;
+  height: 380px;
+  padding-top: 53px;
+  color: #fffffe; }
+  .footer #logo_btm {
+    height: 58px;
+    width: 192px; }
+  .footer h5 {
+    font-size: 20px;
+    margin-bottom: 33px; }
+    .footer h5 > img {
+      width: 24px;
+      height: 24px;
+      margin-right: 12px; }
+  .footer .btm-mid > .phone {
+    font-size: 18px;
+    margin-bottom: 20px; }
+  .footer .btm-mid hr {
+    background: #b5b5b5; }
+  .footer .btm-mid #mid-mid > p {
+    margin-bottom: 20px; }
+  .footer p {
+    font-size: 16px; }
+  .footer .btm-right {
+    text-align: center; }
+    .footer .btm-right p > a {
+      display: inline-block;
+      margin-right: 10px; }
+      .footer .btm-right p > a > img {
+        width: 28px;
+        height: 28px; }
+  .footer > hr {
+    background: #dcdcdc; }
+  .footer .btm-btm {
+    text-align: center;
+    font-size: 12px; }
+

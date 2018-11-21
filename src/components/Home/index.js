@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Home.scss';
+import './index.scss';
 import {
   Carousel,
   CarouselItem,
@@ -16,7 +16,7 @@ import {
   CardSubtitle
 } from 'reactstrap';
 import Axios from 'axios';
-
+// import bg from "../../../assets/images/预约挂号.png"
 const items = [
   {
     src: 
@@ -40,7 +40,7 @@ const items = [
 export default class Home extends Component {
   constructor(props) {
     super(props);
-    this.state     = { activeIndex: 0, doctor: [] };
+    this.state     = { activeIndex: 0, doctor: [], articl: [], answers: [] };
     this.next      = this.next.bind(this);
     this.previous  = this.previous.bind(this);
     this.goToIndex = this.goToIndex.bind(this);
@@ -50,7 +50,7 @@ export default class Home extends Component {
 
   componentWillMount() {
     Axios({
-      url   : '  http://localhost:3000/people',
+      url   : '  http://localhost:5000/data',
       method: 'get'
     }).then(res => {
       // console.log(res.data);
@@ -58,7 +58,7 @@ export default class Home extends Component {
       var dataList = [];
       // console.log(data);
       for (let i = 0; i < data.length; i++) {
-        if (data[i].is_hot && dataList.length < 3) {
+        if (dataList.length < 3) {
           dataList.push(
             <Col key={i} md="4" style={{ padding: 0 }}>
               <Card>
@@ -69,18 +69,22 @@ export default class Home extends Component {
                     <span>{data[i].Level}</span>
                   </CardTitle>
                   <CardSubtitle>{data[i].hospital}</CardSubtitle>
-                  <CardSubtitle>{data[i].Section}</CardSubtitle>
+                  <CardSubtitle>{data[i].section}</CardSubtitle>
                   <CardText>
                     Some quick example text to build on the card title and make
                     up the bulk of the card's content.
                   </CardText>
                   <div className="link-tip">
                     <CardLink href="#" className="left">
-                      <img src={require('../../assets/images/预约挂号.png')} />
+                      <img
+                        src = {require('../../../assets/images/预约挂号.png')}
+                      />
                       挂号
                     </CardLink>
                     <CardLink href="#" className="right">
-                      <img src={require('../../assets/images/电话 (1).png')} />
+                      <img
+                        src = {require('../../../assets/images/电话 (1).png')}
+                      />
                       电话
                     </CardLink>
                   </div>
@@ -90,14 +94,64 @@ export default class Home extends Component {
           );
         }
       }
-      // console.log(dataList);
+      // console.log(this);
       this.setState({
         doctor: dataList
       });
-      // console.log(this.state.doctor);
+      console.log(this.state.doctor);
+    });
+
+    Axios({
+      url   : 'http://localhost:5000/news',
+      method: 'get'
+    }).then(res => {
+      // console.log(res.data);
+      let data       = res.data;
+      let articlList = [];
+      for (let i = 0; i < data.length; i++) {
+        if (articlList.length < 8) {
+          articlList.push(<li key={i}>{data[i].ctitle}</li>);
+        }
+      }
+      this.setState({
+        articl: articlList
+      });
+      console.log(this.state.articl);
+    });
+
+    Axios({
+      url   : 'http://localhost:5000/ansers',
+      method: 'get'
+    }).then(res => {
+      // console.log(res.data);
+      // console.log(res.data[0].zhutie);
+      // console.log(res.data[0].zhutie[0].ttopic);
+      // console.log(res.data[0].zhutie[0].tcontents);
+      var data        = res.data;
+      var answersList = [];
+      for (let i = 0; i < data.length; i++) {
+        console.log(data[i].zhutie.length);
+        for (let j = 0; j < data[i].zhutie.length; j++) {
+          console.log(data[i].zhutie[j]);
+          answersList.push(
+            <div key={j}>
+              <h6>{data[i].zhutie[j].ttopic}</h6>
+              <p>{data[i].zhutie[j].tcontents}</p>
+            </div>
+          );
+        }
+      }
+      // console.log(answersList);
+      this.setState({
+        answers: answersList
+      });
+      // console.log(this.state.answers);
     });
   }
-
+  speedOrder = () => {
+    console.log(this.refs);
+    console.log(1);
+  };
   onExiting() {
     this.animating = true;
   }
@@ -165,18 +219,20 @@ export default class Home extends Component {
             <Row>
               <Col md={{ size: 5, offset: 1 }}>
                 <label htmlFor="add">地区&nbsp;: &nbsp; </label>
-                <input type="text" id="add" />
+                <input type="text" ref="add" />
               </Col>
               <Col md={{ size: 5, offset: 1 }}>
                 <label htmlFor="hos">医院&nbsp;: &nbsp; </label>
-                <input type="text" id="hos" />
+                <input type="text" ref="hos" />
               </Col>
               <Col md={{ size: 5, offset: 1 }}>
                 <label htmlFor="klass">科室&nbsp;: &nbsp; </label>
-                <input type="text" id="klass" />
+                <input type="text" ref="klass" />
               </Col>
               <Col md={{ size: 5, offset: 1 }} className="speed-btn">
-                <Button color="danger">快速预约</Button>
+                <Button color="danger" onClick={this.speedOrder}>
+                  快速预约
+                </Button>
               </Col>
             </Row>
           </Container>
@@ -188,10 +244,26 @@ export default class Home extends Component {
                 <h4>名医推荐</h4>
               </Col>
             </Row>
-            <Row>{this.state.doctor}</Row>
+            <Row className="doctor_card">{this.state.doctor}</Row>
             <Row>
               <Col>
                 <h4>健康百科</h4>
+              </Col>
+            </Row>
+            <Row className="health">
+              <Col md="4" style={{ padding: 0 }}>
+                <img src={require('../../../assets/images/latest-news4.jpg')} />
+              </Col>
+              <Col md="4" style={{ padding: 0 }}>
+                <ul className="articlList">{this.state.articl}</ul>
+              </Col>
+              <Col
+                md        = "4"
+                style     = {{ padding: 0, paddingLeft: 30 }}
+                className = "answers"
+              >
+                <h3>热门回答</h3>
+                {this.state.answers}
               </Col>
             </Row>
             <Row>
@@ -200,6 +272,54 @@ export default class Home extends Component {
               </Col>
             </Row>
           </Container>
+          <div className="toghter">
+            <Container>
+              <Row className="toghter-box">
+                <div>
+                  <img
+                    src = {require('../../../assets/images/cgal-2-img15.png')}
+                  />
+                  <p>中国人寿</p>
+                </div>
+                <div>
+                  <img
+                    src = {require('../../../assets/images/cgal-2-img13.png')}
+                  />
+                  <p>中信银行</p>
+                </div>
+                <div>
+                  <img
+                    src = {require('../../../assets/images/cgal-2-img10.png')}
+                  />
+                  <p>三峡银行</p>
+                </div>
+                <div>
+                  <img
+                    src = {require('../../../assets/images/cgal-2-img6.png')}
+                  />
+                  <p>延峰江森</p>
+                </div>
+                <div>
+                  <img
+                    src = {require('../../../assets/images/cgal-2-img11.png')}
+                  />
+                  <p>民生银行</p>
+                </div>
+                <div>
+                  <img
+                    src = {require('../../../assets/images/cgal-2-img3.png')}
+                  />
+                  <p>中国建设银行</p>
+                </div>
+                <div>
+                  <img
+                    src = {require('../../../assets/images/cgal-2-img7.png')}
+                  />
+                  <p>中国银行</p>
+                </div>
+              </Row>
+            </Container>
+          </div>
         </div>
       </div>
     );
