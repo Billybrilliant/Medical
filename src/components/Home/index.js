@@ -16,23 +16,21 @@ import {
   CardSubtitle
 } from 'reactstrap';
 import Axios from 'axios';
+import { Navigator, Footer } from '../../components';
 // import bg from "../../../assets/images/预约挂号.png"
 const items = [
   {
-    src: 
-      'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15ba800aa1d%20text%20%7B%20fill%3A%23555%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15ba800aa1d%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22285.921875%22%20y%3D%22218.3%22%3EFirst%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E'
+    src: '/assets/images/微信图片_20181122161423.png'
     // altText: 'Slide 1',
     // caption: 'Slide 1'
   },
   {
-    src: 
-      'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15ba800aa20%20text%20%7B%20fill%3A%23444%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15ba800aa20%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23666%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22247.3203125%22%20y%3D%22218.3%22%3ESecond%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E'
+    src: '/assets/images/微信图片_20181122161435.png'
     // altText: 'Slide 2',
     // caption: 'Slide 2'
   },
   {
-    src: 
-      'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_15ba800aa21%20text%20%7B%20fill%3A%23333%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_15ba800aa21%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23555%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22277%22%20y%3D%22218.3%22%3EThird%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E'
+    src: '/assets/images/20150608884.jpg'
     // altText: 'Slide 3',
     // caption: 'Slide 3'
   }
@@ -49,6 +47,7 @@ export default class Home extends Component {
   }
 
   componentWillMount() {
+    // console.log(this.props);
     Axios({
       url   : '  http://localhost:5000/data',
       method: 'get'
@@ -61,7 +60,7 @@ export default class Home extends Component {
         if (dataList.length < 3) {
           dataList.push(
             <Col key={i} md="4" style={{ padding: 0 }}>
-              <Card>
+              <Card onClick={this.doctorClick.bind(this, data[i].did)}>
                 <img width="120" src={data[i].dimg} />
                 <CardBody>
                   <CardTitle>
@@ -98,7 +97,7 @@ export default class Home extends Component {
       this.setState({
         doctor: dataList
       });
-      console.log(this.state.doctor);
+      // console.log(this.state.doctor);
     });
 
     Axios({
@@ -116,7 +115,7 @@ export default class Home extends Component {
       this.setState({
         articl: articlList
       });
-      console.log(this.state.articl);
+      // console.log(this.state.articl);
     });
 
     Axios({
@@ -130,9 +129,9 @@ export default class Home extends Component {
       var data        = res.data;
       var answersList = [];
       for (let i = 0; i < data.length; i++) {
-        console.log(data[i].zhutie.length);
+        // console.log(data[i].zhutie.length);
         for (let j = 0; j < data[i].zhutie.length; j++) {
-          console.log(data[i].zhutie[j]);
+          // console.log(data[i].zhutie[j]);
           answersList.push(
             <div key={j}>
               <h6>{data[i].zhutie[j].ttopic}</h6>
@@ -149,9 +148,23 @@ export default class Home extends Component {
     });
   }
   speedOrder = () => {
-    console.log(this.refs);
-    console.log(1);
+    // console.log(this.refs);
+    if (this.refs.add.value || this.refs.hos.value || this.refs.klass.value) {
+      // console.log(this.props.history.location.pathname);
+      let url = `${this.props.history.location.pathname}appointment?add=${
+        this.refs.add.value
+      }&&hos=${this.refs.hos.value}&&klass=${this.refs.klass.value}`;
+      this.props.history.push(url);
+    }
   };
+  doctorClick(a) {
+    console.log(a);
+    console.log(this);
+    let url = `${this.props.match.url}doctor?doctor=${a}`;
+    // this.toDoctor(this);
+    this.props.history.push(url);
+  }
+
   onExiting() {
     this.animating = true;
   }

@@ -10,8 +10,15 @@
 }
 
 .navbar-nav>li {
-    padding   : 20px;
     text-align: center;
+    height    : 60px;
+
+    >a {
+        display        : block;
+        padding        : 0 20px;
+        line-height    : 60px;
+        text-decoration: none;
+    }
 }
 
 #search {
@@ -19,10 +26,11 @@
     outline      : none;
     border       : none;
     border-bottom: 1px solid #fff;
-    margin-top   : 6px;
     color        : #fff;
     width        : 330px;
+    margin-top   : 18px;
     font-size    : 14px;
+    margin-left  : 20px;
 }
 
 #search::-webkit-input-placeholder {
@@ -49,7 +57,7 @@
 }
 
 .active {
-    background: #c03131;
+    background: #fd9115;
 }
 
 #top_mid {

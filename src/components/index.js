@@ -7,3 +7,4 @@ export Article from './Article';
 export ArticleDetail from './ArticleDetail';
 export Appointment from './Appointment';
 export Footer from './Footer';
+export Maincom from './Maincom';

@@ -6,7 +6,6 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
@@ -16,6 +15,7 @@ import {
   Row,
   Col
 } from 'reactstrap';
+import { NavLink } from 'react-router-dom';
 import './Navigator.scss';
 export default class Navigator extends React.Component {
   constructor(props) {
@@ -31,9 +31,16 @@ export default class Navigator extends React.Component {
       isOpen: !this.state.isOpen
     });
   }
-  imgClick() {
-    console.log(1);
-  }
+  medicineSearch = () => {
+    // console.log(this.props.history.location.pathname);
+    // console.log(this.refs.medicine.value);
+    if (this.refs.medicine.value) {
+      let url = `${this.props.history.location.pathname}medicine/?search=${
+        this.refs.medicine.value
+      }`;
+      this.props.history.push(url);
+    }
+  };
   render() {
     return (
       <div>
@@ -79,30 +86,36 @@ export default class Navigator extends React.Component {
             <Container>
               <Nav className="ml-auto" navbar style={{ margin: '0 auto' }}>
                 <NavItem>
-                  <NavLink href="/" exact="true">
+                  <NavLink to="/" exact>
                     首页
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="#/appointment">预约挂号</NavLink>
+                  <NavLink to="/appointment">预约挂号</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="#/doctor">医生查询</NavLink>
+                  <NavLink to="/doctor">医生查询</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="#/article">精选专题</NavLink>
+                  <NavLink to="/article">精选专题</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="#/chart">交流专区</NavLink>
+                  <NavLink to="/chart">交流专区</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="#/medicine">药品网</NavLink>
+                  <NavLink to="/medicine">药品网</NavLink>
                 </NavItem>
                 <NavItem>
-                  <input type="text" id="search" placeholder="药品/药品种类" />
+                  <input
+                    type        = "text"
+                    id          = "search"
+                    ref         = "medicine"
+                    placeholder = "药品/药品种类"
+                  />
                   <img
-                    src = {require('../../../assets/images/search.png')}
-                    id  = "searchicon"
+                    src     = {require('../../../assets/images/search.png')}
+                    id      = "searchicon"
+                    onClick = {this.medicineSearch}
                   />
                 </NavItem>
               </Nav>

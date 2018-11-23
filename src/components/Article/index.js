@@ -8,10 +8,11 @@ import {
   CardText,
   CardImg,
   Row,
-  NavLink,
   Col,
   Container
 } from 'reactstrap';
+
+import { NavLink } from 'react-router-dom';
 export default class Article extends Component {
   render() {
     return (
@@ -22,8 +23,7 @@ export default class Article extends Component {
               <h4>专题分类</h4>
             </Col>
           </Row>
-
-          <NavLink href="#/article/food">
+          <NavLink to="/article/food?Page=1">
             <Row style={{ marginTop: '80px' }}>
               <Col md="8" style={{ padding: 0 }}>
                 <CardImg
@@ -51,7 +51,7 @@ export default class Article extends Component {
               </Col>
             </Row>
           </NavLink>
-          <NavLink href="#/article/111">
+          <NavLink to="/article/Parenting?Page=1">
             <Row style={{ marginTop: '80px' }}>
               <Col md="4" style={{ padding: 0 }}>
                 <Card>
@@ -80,7 +80,7 @@ export default class Article extends Component {
               </Col>
             </Row>
           </NavLink>
-          <NavLink href="#/article/111">
+          <NavLink to="/article/hypertension?Page=1">
             <Row style={{ marginTop: '80px', marginBottom: '80px' }}>
               <Col md="8" style={{ padding: 0 }}>
                 <CardImg
@@ -94,7 +94,7 @@ export default class Article extends Component {
               <Col md="4" style={{ padding: 0 }}>
                 <Card>
                   <CardBody style={{ height: '300px' }}>
-                    <CardTitle>高血压</CardTitle>
+                    <CardTitle>预防高血压</CardTitle>
                     <CardText>
                       高血压你有多了解？如何降低血压，我们更专业，有我更贴心！
                     </CardText>

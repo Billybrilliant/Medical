@@ -97,11 +97,41 @@
         }]
     }],
     "articl": [{
-        "cid"       : "1",
-        "cname"     : "早",
-        "title"     : "文章标题",
-        "cdesc"     : "文章内容",
-        "fit_people": "适合人群",
-        "cimge"     : "http://dummyimage.com/f29779/120x120"
-    }]
+            "cid"       : "1",
+            "cname"     : "早",
+            "title"     : "文章标题",
+            "cdesc"     : "文章内容",
+            "fit_people": "适合人群",
+            "cimge"     : "http://dummyimage.com/120x120/e2f279"
+        }, {
+            "cid"       : "1",
+            "cname"     : "早",
+            "title"     : "文章标题",
+            "cdesc"     : "文章内容",
+            "fit_people": "适合人群",
+            "cimge"     : "http://dummyimage.com/120x120/e25279"
+        },
+        {
+            "cid"       : "1",
+            "cname"     : "早",
+            "title"     : "文章标题",
+            "cdesc"     : "文章内容",
+            "fit_people": "适合人群",
+            "cimge"     : "http://dummyimage.com/120x120/e24379"
+        }, {
+            "cid"       : "1",
+            "cname"     : "早",
+            "title"     : "文章标题",
+            "cdesc"     : "文章内容",
+            "fit_people": "适合人群",
+            "cimge"     : "http://dummyimage.com/120x120/f2f279"
+        }, {
+            "cid"       : "1",
+            "cname"     : "早",
+            "title"     : "文章标题",
+            "cdesc"     : "文章内容",
+            "fit_people": "适合人群",
+            "cimge"     : "http://dummyimage.com/120x120/e2f829"
+        }
+    ]
 }
