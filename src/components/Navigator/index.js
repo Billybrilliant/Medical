@@ -86,7 +86,7 @@ export default class Navigator extends React.Component {
             <Container>
               <Nav className="ml-auto" navbar style={{ margin: '0 auto' }}>
                 <NavItem>
-                  <NavLink to="/" exact>
+                  <NavLink to="/home/" exact>
                     首页
                   </NavLink>
                 </NavItem>
@@ -94,16 +94,16 @@ export default class Navigator extends React.Component {
                   <NavLink to="/appointment">预约挂号</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink to="/doctor">医生查询</NavLink>
+                  <NavLink to="/home/doctor">医生查询</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink to="/article">精选专题</NavLink>
+                  <NavLink to="/home/article">精选专题</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink to="/chart">交流专区</NavLink>
+                  <NavLink to="/home/chart">交流专区</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink to="/medicine">药品网</NavLink>
+                  <NavLink to="/home/medicine">药品网</NavLink>
                 </NavItem>
                 <NavItem>
                   <input

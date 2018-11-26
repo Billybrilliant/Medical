@@ -1,0 +1,90 @@
+*{margin: 0; padding: 0; font-family: "微软雅黑"; }
+#look_title{
+    width     : 100%;
+    height    : 260px;
+    background: #2da51a;
+    margin-top: 60px;
+}
+#look_title .look_doc{
+    font-size  : 60px;
+    font-weight: bold;
+    text-align : center;
+    line-height: 260px;
+    color      : #fefefe;
+}
+#registration{
+    margin-top  : 8px;
+    width       : 100%;
+    height      : 373px;
+    background  : #48b6ae;
+    padding-left: 70px;
+}
+#registration h4{
+    padding-top: 40px;
+    font-family: "FZY4JW-GB1-0";
+    font-size  : 72px;
+    color      : #fefefe;
+}
+#registration .reg_instruct{
+    margin-top: 50px;
+    font-size : 18px;
+    width     : 430px;
+    color     : #fefefe;
+}
+.appoint_reg{
+    padding-left: 50px;
+    background  : #48b6ae;
+    margin-top  : 8px;
+    padding-top : 50px;
+}
+
+.appoint_reg .choice_select{
+    font-size: 20px;
+    color    : #fefefe;
+}
+.appoint_reg .exampleSelect{
+    width : 324px;
+    height: 36px;
+}
+#submit{
+    margin-left: 60px;
+}
+#submit button{
+    width     : 324px;
+    height    : 60px;
+    color     : #fefefe;
+    background: #ffc42a;
+    border    : none;
+    font-size : 30px;
+}
+.promise-item{
+    margin: 75px 0 0 40px;
+    color : #6c6c6c;
+}
+.promise-item .promise-item-icon{
+    float: left;
+
+}
+.promise-item .promise-item-icon img{
+    width : 60px;
+    height: 60px;
+}
+.promise-item .promise-item-title{
+    font-size   : 16px;
+    text-align  : center;
+    line-height : 60px;
+    padding-left: 10px;
+}
+.promise-item .content-one{
+    font-size  : 12px;
+    padding-top: 15px;
+}
+.medical_bot{
+    margin-top: 65px;
+}
+.medical_bot span{
+   font-size: 14px;
+}
+.medical_bot .copyright{
+    margin-left: -80px;
+}

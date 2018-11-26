@@ -1,0 +1,35 @@
+body{
+    font-size: 18px;
+}
+
+.bigContent{
+    margin-top   : 56px;
+    margin-bottom: 100px;
+}
+
+.leftContent{
+    padding   : 40px;
+    box-sizing: border-box;
+    border    : 2px solid #999;
+}
+
+.leftContent img{
+    width: 780px;
+}
+
+#docImg{
+    margin: 0 auto;
+}
+
+#docImg>img{
+    widows       : 160px;
+    height       : 160px;
+    border-radius: 50%;
+}
+
+.rightContent{
+    border     : 2px solid #999;
+    padding    : 20px;
+    margin-left: -1rem;
+    margin-top : 5px;
+}

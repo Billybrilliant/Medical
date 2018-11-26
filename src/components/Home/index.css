@@ -204,6 +204,10 @@
   font-size: 16px;
 }
 
+.main-conent .health .articlList > li:hover {
+  text-decoration: underline;
+}
+
 .main-conent .health .answers {
   border: 1px solid #4ebec0;
   text-align: left;
@@ -211,6 +215,7 @@
 
 .main-conent .health .answers > div:hover {
   color: #4ebec0;
+  cursor: pointer;
 }
 
 .main-conent .health .answers h3 {

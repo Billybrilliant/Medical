@@ -1,0 +1,67 @@
+body{
+    font-size: 16px;
+}
+
+.questionHead{
+    padding: 20px;
+}
+
+
+.letfHeadImg{
+    margin-top  : 0.7rem;
+    padding-left: 0;
+}
+
+.letfHeadImg>img{
+    width        : 50px;
+    height       : 50px;
+    border-radius: 50%;
+}
+
+.questionTitle{
+    padding-left    : 20px;
+    line-height     : 80px;
+    background-color: #ddd;
+}
+
+.questionContent{
+    margin-top: 10px;
+}
+
+.grayBack{
+    height          : 10px;
+    background-color: #ccc;
+}
+
+.submitQuestion{
+    margin     : 0 auto;
+    font-size  : 24px;
+    line-height: 25px;
+    height     : 45px;
+    width      : 1000px;
+}
+
+.questionText{
+    text-align      : center;
+    padding         : 100px 0;
+    background-color: #ddd;
+}
+
+.footerButton{
+    text-align    : 'center';
+    vertical-align: 'middle';
+    padding       : '5px'
+}
+
+.footerColor{
+    color        : #4fbec1;
+    margin-bottom: 20px;
+}
+
+.canSee{
+    display: block;
+}
+
+.cantSee{
+    display: none;
+}

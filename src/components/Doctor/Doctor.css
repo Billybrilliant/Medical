@@ -1,0 +1,103 @@
+.main {
+    border       : #585858 2px solid;
+    border-radius: 3px;
+    width        : 1200px;
+    margin-bottom: 50px;
+}
+
+h4 {
+    margin-bottom: 25px;
+    padding-left : 40px;
+}
+
+h4 a {
+    color      : #585858;
+    font-weight: 800;
+    font-size  : 18px;
+}
+
+.main li {
+    list-style   : none;
+    margin-bottom: 15px;
+}
+
+li a {
+    font-size: 16px;
+    color    : #585858;
+}
+
+.yello a,
+.button-style-yello {
+    color: #ffc600
+}
+
+.red a,
+.button-style-red {
+    color: rgb(255, 107, 107)
+}
+
+.blue a,
+.button-style-blue {
+    color: rgb(123, 213, 255)
+}
+
+.ul-yello li:hover a {
+    color: #ffc600
+}
+
+.ul-red li:hover a {
+    color: rgb(255, 107, 107)
+}
+
+.ul-blue li:hover a {
+    color: rgb(123, 213, 255)
+}
+
+.main-row {
+    margin-top   : 60px;
+    margin-bottom: 30px;
+}
+
+.logo-doctor {
+    display     : block;
+    padding-left: 55px;
+    margin-top  : 25px;
+    /* position: absolute; */
+    /* top: 0px; */
+}
+
+.header {
+    border-bottom: 2px #585858 solid;
+    /* position: relative; */
+    height: 108px;
+}
+
+.title {
+    margin-top: 20px;
+}
+
+.title h3 {
+    font-weight: 800;
+    font-size  : 30px;
+}
+
+.title span {
+    font-size: 18px;
+    color    : rgb(195, 195, 195)
+}
+
+.button-style {
+    height                    : 54px;
+    width                     : 160px;
+    border-bottom             : none;
+    background-color          : #fff;
+    font-size                 : 18px;
+    border-radius             : 10px;
+    border-bottom-left-radius : 0px;
+    border-bottom-right-radius: 0px;
+    font-weight               : 900
+}
+
+.button-b {
+    padding-top: 52px;
+}

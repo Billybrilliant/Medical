@@ -1,0 +1,167 @@
+@charset"utf-8";
+
+//医院介绍样式 的外层盒子
+.introduce-box{
+
+.mcontain{
+    padding-left: 5%;
+}
+
+/* 顶部医院介绍 */
+.hospital-top{
+    margin-top:40px;
+    border:2px solid #999999;
+    /* padding-left:35px; */
+    background-color: #f8f8f8;
+}
+.hospital-top h2{
+    font-size:24px;
+    color:#585858;
+    font-family:"MicrosoftYaHei-Bold";
+    line-height: 108px;
+    font-weight: 600;
+
+}
+
+.hospital-top2{
+    border:2px solid #999999;
+    border-top:0;
+    /* padding-left:35px; */
+
+
+}
+
+.hospital-top2 p{
+    font-family: "MicrosoftYaHei";
+    font-size: 20px;
+
+}
+.hospital-top2 p span{
+    line-height: 61.3px;
+}
+.hospital-top2 p  img{
+    width:24px;
+    height: 26px;
+    margin-right: 10px;
+}
+
+
+/* 中部专家信息 */
+.hospital-mid{
+    margin-top:40px;
+    border:2px solid #999999;
+    /* padding-left:35px; */
+    background-color: #f8f8f8;
+    height: 108px;
+    position: relative;
+}
+
+.hospital-mid img{
+    width: 98px;
+    height: 98px;
+    top:20px;
+    position: absolute;
+
+}
+
+.h-mid-r{
+    position: absolute;
+    left: 200px;
+    top:28px;
+}
+@media screen and (max-width:768px){
+    .h-mid-r{
+        left:150px;
+    }
+}
+.h-mid-r h2{
+    font-size: 24px;
+    font-family: "MicrosoftYaHei-Bold";
+    color:#585858;
+
+}
+.h-mid-r input{
+    border:0;
+    background-color: #f8f8f8;
+}
+
+/* 科室专家信息 部分 */
+.hospital-mid2{
+    border:2px solid #999999;
+    border-top:0;
+}
+.h-mid2-nr{
+    padding:2.8% 5%;
+
+}
+
+.h-mid2-nr span:first-child{
+    font-size: 18px;
+    margin-right: 8px;
+    font-weight: 600;
+
+}
+.h-mid2-nr span,.h-mid2-nr p{
+    color:#585858;
+}
+.h-mid2-nr p{
+    margin-top:10px;
+    // max-height: 96px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+
+.h-mid2-nr .mactive{
+    color:#4daed7;
+}
+
+
+// 专家信息分页样式
+
+.hospital-mid2{
+    .mpage{
+        margin:40px auto 0;
+        width: 270px;
+        height: 54px;
+        text-align: center;
+        border:2px solid #999999;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        border-bottom: 0;
+        button{
+            background-color: #fff;
+            font-size: 18px;
+            border:0;
+            // font-weight: 600;
+            line-height: 50px;
+            margin:0 5px;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+
+/* 底部就诊流程 */
+.hospital-footer{
+    margin-top:40px;
+    border:2px solid #999999;
+    padding-top:25px;
+    h2{
+        font-size: 24px;
+        color: #585858;
+
+    }
+    p{
+        font-size: 12px;
+        color:#6c6c6c;
+        padding:3px 6px 0 0;
+    }
+    .h-footer-b{
+        margin-top:25px;
+    }
+}
+
+}

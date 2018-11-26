@@ -23,7 +23,7 @@ export default class Article extends Component {
               <h4>专题分类</h4>
             </Col>
           </Row>
-          <NavLink to="/article/food?Page=1">
+          <NavLink to="/home/article/food">
             <Row style={{ marginTop: '80px' }}>
               <Col md="8" style={{ padding: 0 }}>
                 <CardImg
@@ -51,7 +51,7 @@ export default class Article extends Component {
               </Col>
             </Row>
           </NavLink>
-          <NavLink to="/article/Parenting?Page=1">
+          <NavLink to="/home/article/Parenting">
             <Row style={{ marginTop: '80px' }}>
               <Col md="4" style={{ padding: 0 }}>
                 <Card>
@@ -80,7 +80,7 @@ export default class Article extends Component {
               </Col>
             </Row>
           </NavLink>
-          <NavLink to="/article/hypertension?Page=1">
+          <NavLink to="/home/article/hypertension">
             <Row style={{ marginTop: '80px', marginBottom: '80px' }}>
               <Col md="8" style={{ padding: 0 }}>
                 <CardImg

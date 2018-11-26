@@ -228,6 +228,10 @@ $maincolor:#4ebec0;
                 cursor       : pointer;
                 font-size    : 16px;
             }
+
+            >li:hover {
+                text-decoration: underline
+            }
         }
 
         .answers {
@@ -236,7 +240,8 @@ $maincolor:#4ebec0;
             text-align: left;
 
             >div:hover {
-                color: $maincolor
+                color : $maincolor;
+                cursor: pointer;
             }
 
             h3 {

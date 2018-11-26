@@ -1,0 +1,163 @@
+body{
+    font-size: 16px;
+}
+
+h3{
+    height     : 60px;
+    font-size  : 30px;
+    color      : #151515;
+    line-height: 60px;
+    margin     : 0;
+    padding    : 0;
+}
+
+.noPadding{
+    padding: 0;
+}
+
+.noMargin{
+    margin: 0;
+}
+
+.commonMarginTop{
+    margin-top: 62px;
+}
+
+.commonContent{
+    border          : 2px solid #999999;
+    background-color: #f8f8f8;
+}
+
+.form-group {
+    margin-bottom: 0;
+  }
+
+.docHeader{
+    background-color: #f8f8f8;
+}
+
+.docContent{
+    height: 182px;
+}
+
+#headPhoto{
+    float        : left;
+    width        : 126px;
+    height       : 126px;
+    border-radius: 50%;
+    margin-top   : 26px;
+    margin-left  : 40px;
+}
+
+#headPhoto>img{
+    width        : 100%;
+    height       : 100%;
+    border-radius: 50%;
+}
+
+#headContent{
+    float      : left;
+    margin-left: 30px;
+    margin-top : 26px;
+}
+
+#headContent>p{
+    margin-top: 20px;
+}
+
+#headRight{
+    float      : left;
+    height     : 126px;
+    margin-top : 26px;
+    border-left: 2px solid #666;
+}
+
+#headRight>p{
+    margin-left: 40px;
+    margin-top : 18px;
+}
+
+#headRight>p>span{
+    color: blue;
+}
+
+#time div{
+    display: block;
+}
+
+#timeContent{
+    margin-left: 15px;
+}
+
+#timeContent .radio1,#timeContent .radio2,#timeContent .radio3,#timeContent .radio4,#timeContent .radio5{
+    display      : inline-block;
+    border       : 1px solid #999;
+    padding      : 5px 15px;
+    margin-left  : 15px;
+    margin-bottom: 35px;
+}
+
+.line60{
+    line-height: 60px;
+}
+
+#addMan{
+    width : 145px;
+    height: 35px;
+}
+
+#patientMan{
+    padding: 25px 40px;
+}
+
+#ruleContent{
+    padding: 25px 40px;
+}
+
+#ruleContent>div{
+    display: block;
+}
+
+.haveChecked{
+    padding: 20px 0 40px 44px;
+    color  : #4fbec1;
+}
+
+.rulePass{
+    padding: 20px 0 40px 44px;
+}
+
+.authCode{
+    width      : 136px;
+    height     : 30px;
+    margin-left: 22px;
+}
+
+.rulePass>div{
+    width       : 80px;
+    height      : 30px;
+    line-height : 26px;
+    margin-left : 12px;
+    margin-right: 12px;
+    border      : 1px solid #4fbec1;
+    font-size   : 24px;
+    padding-left: 13px;
+}
+
+.rulePass>span{
+    color : #4fbec1;
+    cursor: pointer;
+}
+
+.submitForm{
+    padding-left : 44px;
+    margin-bottom: 75px;
+}
+
+.submit{
+    width      : 305px;
+    height     : 46px;
+    font-size  : 26px;
+    color      : white;
+    line-height: 34px;
+}

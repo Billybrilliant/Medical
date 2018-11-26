@@ -1,0 +1,90 @@
+html,
+body {
+    width : 100%;
+    height: 100%;
+
+}
+
+.Login {
+    position       : absolute;
+    height         : 100%;
+    width          : 100%;
+    background     : url('') no-repeat;
+    background-size: 100% auto;
+
+    #login {
+        position: relative;
+
+        #formLogin {
+            position     : absolute;
+            top          : 80px;
+            right        : 100px;
+            background   : #fff;
+            border-radius: 10px;
+            width        : 400px;
+            height       : 450px;
+            padding      : 80px;
+
+            h5 {
+                font-size    : 13px;
+                color        : red;
+                margin-bottom: 20px;
+            }
+
+            form {
+                #userName {
+                    background   : transparent;
+                    outline      : none;
+                    border       : none;
+                    border-bottom: 1px solid #aaa;
+                    margin-top   : 6px;
+                    margin-bottom: 15px;
+                    color        : #aaa;
+                    width        : 330px;
+                    font-size    : 14px;
+                    width        : 90%;
+                }
+
+                #userpwd {
+                    background   : transparent;
+                    outline      : none;
+                    border       : none;
+                    border-bottom: 1px solid #aaa;
+                    margin       : 30px 0;
+                    color        : #aaa;
+                    width        : 330px;
+                    font-size    : 14px;
+                    width        : 90%;
+                }
+
+                #loginBtn {
+                    background: rgb(227, 57, 60);
+                    border    : 0;
+                    width     : 90%;
+                    color     : #fff;
+                    height    : 40px;
+                    font-size : 18px;
+                }
+
+                input::-webkit-input-placeholder {
+                    color    : #bbb;
+                    font-size: 14px;
+                }
+            }
+
+            .login-foo {
+                width     : 80%;
+                text-align: right;
+                margin-top: 20px;
+
+                a {
+                    color    : #333;
+                    font-size: 14px;
+
+
+                }
+            }
+        }
+    }
+
+}

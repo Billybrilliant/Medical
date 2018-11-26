@@ -1,0 +1,65 @@
+*{
+    margin     : 0 auto;
+    padding    : 0;
+    font-family: "微软雅黑";
+}
+#goods_pic{
+    width     : 340px;
+    height    : 340px;
+    border    : 1px solid #999999;
+    position  : relative;
+    margin-top: 54px;
+}
+#goods_pic img{
+    width      : 200px;
+    height     : 150px;
+    position   : absolute;
+    top        : 50%;
+    left       : 50%;
+    margin-top : -100px;
+    margin-left: -100px;
+}
+#goods_details{
+    margin-top: 54px;
+}
+#goods_details h3{
+    font-size  : 25px;
+    line-height: 40px;
+}
+#goods_details p{
+    font-size  : 18px;
+    line-height: 30px;
+    color      : #bcbcbc;
+}
+span{
+    font-size  : 18px;
+    line-height: 42px;
+    font-weight: bold;
+}
+.goods_price{
+    margin-top: 40px;
+}
+.goods_price>span{
+    color: #ff0400;
+}
+ .public_name,.company{
+   color: #4dac36;
+}
+#good-title{
+    width: 120px;
+}
+#details_pic img{
+    width     : 1110px;
+    display   : block;
+    margin-top: -15px;
+}
+
+#details_photo img{
+    width : 600px;
+    height: 305px;
+}
+
+
+
+
+

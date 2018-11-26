@@ -1,0 +1,146 @@
+* {
+    padding: 0;
+    margin : 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+.content {
+    width     : 1200px;
+    height    : 1000px;
+    margin    : 0 auto;
+    background: #f4f4f4;
+}
+
+.middle {
+    width      : 1150px;
+    margin     : 0 auto;
+    padding-top: 20px;
+}
+
+.left {
+
+    margin-right: 15px;
+}
+
+.right {
+    background: #ffffff;
+}
+
+.right h3 {
+    height       : 80px;
+    line-height  : 80px;
+    border-bottom: 1px solid red;
+    margin-bottom: 30px;
+}
+
+.right dl {
+    float: left;
+}
+
+.right dt {
+    float       : left;
+    font-weight : 100;
+    color       : #000000;
+    margin-right: 30px;
+}
+
+.right dd {
+    float : left;
+    width : 300px;
+    border: 1px solid #999999;
+    height: 28px;
+}
+
+.right dd input {
+    width      : 280px;
+    border     : 0;
+    height     : 16px;
+    margin-left: 10px;
+    outline    : none
+}
+
+.right dd select {
+    width  : 280px;
+    border : 0;
+    outline: none
+}
+
+.right span {
+    color: #ff7200;
+}
+
+.right button {
+    width        : 180px;
+    height       : 50px;
+    margin-left  : 150px;
+    background   : #00a0ea;
+    border-radius: 12px;
+    border       : none;
+    outline      : none;
+    font-size    : 24px;
+
+}
+
+.right b {
+    font-weight   : 100;
+    vertical-align: top;
+    color         : #000000;
+}
+
+.right textarea {
+    width        : 300px;
+    height       : 100px;
+    margin-bottom: 20px;
+}
+
+
+
+.top {
+    background   : #ffffff;
+    margin-bottom: 20px;
+}
+
+.top li {
+    float : left;
+    width : 50px;
+    height: 50px;
+    margin: 25px 17px;
+}
+
+.top img {
+    width : 35px;
+    height: 35px;
+}
+
+.bottom {
+    background: #ffffff;
+}
+
+.bottom h4 {
+    height       : 60px;
+    line-height  : 60px;
+    text-align   : center;
+    border-bottom: 1px solid red;
+}
+
+.bottom li {
+    text-align : center;
+    line-height: 60px;
+}
+
+.bottom li a {
+    width  : 100%;
+    height : 100%;
+    display: block;
+}
+
+.bottom li:hover {
+    background: #999999;
+}

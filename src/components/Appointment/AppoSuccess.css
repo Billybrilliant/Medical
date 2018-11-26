@@ -1,0 +1,69 @@
+#main-top{
+    margin-top:72px;
+    margin-bottom:36px;
+    color:#151515;
+
+
+}
+#main-top a{
+    color:#4fbec1;
+}
+
+#details{
+    padding:20px 0 20px  64px;
+    background:#fff;
+
+}
+#details-row1 {
+    line-height: 35px;
+}
+
+#details-row1 a{
+    font-size: 18px;
+    display: inline-block;
+
+}
+
+#d-status{
+    color:#4fbec1;
+}
+#main-mid{
+    margin-bottom:36px;
+}
+#msg{
+    background:#fff;
+    padding:20px 0 20px  64px;
+}
+.d-title{
+    font-family: '微软雅黑';
+    font-size: 30px;
+    color: #151515;
+
+}
+.row{
+    line-height: 40px;
+
+}
+#msg-row1 .dd-no{
+    text-align: right;
+}
+#d-no{
+    margin-right:34px;
+}
+#d-hosp,#d-doctor,.dd-no{
+    color:#4fbec1;
+}
+#d-time,#d-isPay,#msg-row6 i{
+    color:red;
+}
+#note{
+    background:#fff;
+    padding:20px 0 20px  64px;
+    font-size: 14px;
+}
+#note-row2 p{
+    margin:0;
+}
+#note-row2 span{
+    color:red;
+}

@@ -15,6 +15,7 @@ import {
   CardTitle,
   CardSubtitle
 } from 'reactstrap';
+
 import Axios from 'axios';
 import { Navigator, Footer } from '../../components';
 // import bg from "../../../assets/images/预约挂号.png"
@@ -48,6 +49,7 @@ export default class Home extends Component {
 
   componentWillMount() {
     // console.log(this.props);
+    // 医生加载
     Axios({
       url   : '  http://localhost:5000/data',
       method: 'get'
@@ -59,7 +61,7 @@ export default class Home extends Component {
       for (let i = 0; i < data.length; i++) {
         if (dataList.length < 3) {
           dataList.push(
-            <Col key={i} md="4" style={{ padding: 0 }}>
+            <Col key={i} style={{ padding: 0 }}>
               <Card onClick={this.doctorClick.bind(this, data[i].did)}>
                 <img width="120" src={data[i].dimg} />
                 <CardBody>
@@ -74,7 +76,7 @@ export default class Home extends Component {
                     up the bulk of the card's content.
                   </CardText>
                   <div className="link-tip">
-                    <CardLink href="#" className="left">
+                    <CardLink href="#/appointment" className="left">
                       <img
                         src = {require('../../../assets/images/预约挂号.png')}
                       />
@@ -99,17 +101,21 @@ export default class Home extends Component {
       });
       // console.log(this.state.doctor);
     });
-
+    // 文章加载
     Axios({
       url   : 'http://localhost:5000/news',
       method: 'get'
     }).then(res => {
-      // console.log(res.data);
+      console.log(res.data);
       let data       = res.data;
       let articlList = [];
       for (let i = 0; i < data.length; i++) {
         if (articlList.length < 8) {
-          articlList.push(<li key={i}>{data[i].ctitle}</li>);
+          articlList.push(
+            <li key={i} onClick={this.articlClick.bind(this, data[i].cid)}>
+              {data[i].ctitle}
+            </li>
+          );
         }
       }
       this.setState({
@@ -117,7 +123,7 @@ export default class Home extends Component {
       });
       // console.log(this.state.articl);
     });
-
+    // 回答加载
     Axios({
       url   : 'http://localhost:5000/ansers',
       method: 'get'
@@ -157,14 +163,20 @@ export default class Home extends Component {
       this.props.history.push(url);
     }
   };
+
   doctorClick(a) {
     console.log(a);
-    console.log(this);
+    // console.log(this);
     let url = `${this.props.match.url}doctor?doctor=${a}`;
     // this.toDoctor(this);
     this.props.history.push(url);
   }
-
+  articlClick(a) {
+    console.log(a);
+    let url = `${this.props.match.url}article/detail/cid=${a}`;
+    // this.toDoctor(this);
+    this.props.history.push(url);
+  }
   onExiting() {
     this.animating = true;
   }
@@ -264,17 +276,13 @@ export default class Home extends Component {
               </Col>
             </Row>
             <Row className="health">
-              <Col md="4" style={{ padding: 0 }}>
+              <Col style={{ padding: 0 }}>
                 <img src={require('../../../assets/images/latest-news4.jpg')} />
               </Col>
-              <Col md="4" style={{ padding: 0 }}>
+              <Col style={{ padding: 0 }}>
                 <ul className="articlList">{this.state.articl}</ul>
               </Col>
-              <Col
-                md        = "4"
-                style     = {{ padding: 0, paddingLeft: 30 }}
-                className = "answers"
-              >
+              <Col style={{ padding: 0, paddingLeft: 30 }} className="answers">
                 <h3>热门回答</h3>
                 {this.state.answers}
               </Col>

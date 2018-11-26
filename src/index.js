@@ -11,7 +11,9 @@ import {
   Appointment,
   Footer,
   ArticleDetail,
-  Maincom
+  Maincom,
+  Register,
+  Login
 } from './components';
 import { Provider } from 'react-redux';
 import store from './store';
@@ -21,7 +23,11 @@ ReactDOM.render(
     <Router>
       <div>
         <Switch>
-          <Route path="/" component={Maincom} />
+          <Route path="/" component={Home} exact />
+          <Route path="/home" component={Maincom} />
+          <Route path="/appointment" component={Appointment} />
+          <Route path="/register" component={Register} />
+          <Route path="/login" component={Login} />
         </Switch>
       </div>
     </Router>

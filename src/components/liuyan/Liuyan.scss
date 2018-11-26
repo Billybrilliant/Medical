@@ -1,0 +1,270 @@
+@charset"utf-8";
+
+.liuyan-box{
+
+    // 主体内容部分
+    margin-top:40px;
+
+    // 左半部分问答与回复
+    .c-ly-left{
+        border:2px solid #989898;
+        padding:20px 10px;
+        .row{
+            margin:0;
+        }
+        .c-ly-left-top1{
+            border:1px solid #989898;
+            border-bottom: 0;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            padding:15px 20px;
+            color:#666666;
+            font-size: 18px;
+            .ly-wen{
+                display: inline-block;
+                width: 40px;
+                height: 40px;
+                line-height: 33px;
+                text-align: center;
+                font-size: 26px;
+                color:#099b52;
+                vertical-align: top;
+                border:2px solid #099b52;
+                border-radius: 50%;
+            }
+        }
+        .c-ly-left-top2{
+            border:1px solid #989898;
+            border-top: 0;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            padding:15px 20px;
+            color:#666666;
+            background-color: #f8f8f8;
+            .col-1{
+                img{
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    border:1px solid #2aa367;
+
+                }
+            }
+            .col-1,.col-11{
+                padding:0;
+            }
+            .col-11{
+                p{
+                    padding-left: 5px;
+                }
+
+            }
+            span{
+                padding:5px;
+                font-size: 12px;
+            }
+            .doc-name{
+                padding-top:0;
+                color:#666666;
+                font-size: 16px;
+                vertical-align: baseline;
+            }
+            .doc-help{
+                color:red;
+            }
+        }
+
+        //评论留言条数展示
+        .c-ly-left-mid1{
+            margin-top:20px;
+            color:#333;
+            font-weight: 600;
+            padding:0 30px 0 15px;
+        }
+
+        //回复问题部分 写入回复内容
+
+        .c-ly-left-mid2{
+            margin:20px 7%;
+            text-align: center;
+            position: relative;
+            div[class^="col"]{
+                padding:0;
+            }
+
+            .bf-controlbar {
+                position: absolute;
+                bottom:0;
+                box-shadow: none;
+            }
+            .bf-content {
+                height: 150px!important;
+            }
+            .DraftEditor-root{
+                width: 100%;
+                height: 80px;
+                resize: none;
+                // padding:8px;
+                border:1px solid #989898;
+                text-align: left;
+                overflow-y:scroll;
+                &::-webkit-scrollbar {
+                    display:none;
+                }
+            }
+            .col-2 button{
+                width: 100%;
+                height: 80px;
+                background-color: #fafafa;
+                border:1px solid #989898;
+                border-left: 0;
+            }
+
+            .ly-bq{
+                text-align: left;
+                margin-top:5px;
+                hr{
+                    margin-top:30px;
+                    border-top:2px solid #ccc;
+                }
+            }
+        }
+
+        //问答排序
+        .c-ly-left-mid3{
+            margin:20px 7%;
+            text-align: left;
+            .sort-zan,.sort-time{
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+        }
+
+
+        //所有回复内容的样式
+        .ly-left-replay{
+
+            margin:20px 7%;
+            width: 100%;
+            .re-msg{
+                margin-left: 8px;
+                .replay-name{
+                    margin-bottom: 5px;
+                    font-size: 16px;
+                    color:#333;
+                    font-weight: 600;
+                }
+                .replay-nr{
+                    color:#555;
+                    margin-bottom:2px;
+                }
+                .replay-time{
+                    color:#888;
+                    font-size: 14px;
+
+                }
+
+            }
+            .replay-zan-box{
+                font-size: 14px;
+                color:#666;
+            }
+            .replay-zan{
+
+
+                transition: 0.3s;
+                &:hover{
+                    cursor: pointer;
+                    color:#f5f82f;
+                }
+            }
+            .replay-tx{
+                border-radius: 50%;
+                width: 50px;
+                height: 50px;
+            }
+
+        }
+        .replay-hr{
+            margin:16px 7%;
+        }
+
+
+        //猜你感兴趣部分样式
+        .c-ly-left-footer{
+            margin:40px 7%;
+            a:hover{
+                text-decoration: none;
+                p{
+                    color:#256474;
+                }
+
+            }
+            h4{
+                font-size: 18px;
+                font-weight: 600;
+
+            }
+            .footer-4{
+                img{
+                    width: 100%;
+                }
+                p{
+                    position: relative;
+                    margin-top:7px;
+                    font-size: 14px;
+                    line-height: 1.4em;
+                    height: 4.2em;
+                    color:#666;
+                    overflow: hidden;
+                 &:after{
+                    content:"...";
+                    font-weight:bold;
+                    position:absolute;
+                    bottom:0;
+                    right:0;
+
+                 }
+                    // white-space: nowrap;
+                }
+            }
+        }
+    }
+
+
+
+
+    // 右半部分相关文章
+    .c-ly-right{
+        border:2px solid #989898;
+        border-left: 0;
+        background-color: #f8f8f8;
+        // padding:10px;
+        .c-ly-r-top{
+            padding:10px 0;
+            .xgwz-more{
+                color:#888888;
+            }
+        }
+        .row{
+            margin:0;
+        }
+        ul{
+            padding-left: 0;
+            list-style-position: inside;
+            overflow:hidden;
+            li{
+            overflow:hidden;
+            text-overflow:ellipsis;
+            white-space: nowrap;
+            }
+            .xgwz-link{
+                font-size: 13px;
+                color: #888888;
+
+            }
+
+        }
+    }
+}
