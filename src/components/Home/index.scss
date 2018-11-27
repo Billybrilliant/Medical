@@ -138,9 +138,10 @@ $maincolor:#4ebec0;
                         margin-left: 30px;
                     }
 
-                    >.right {
+                    >.right_link {
                         float       : right;
                         margin-right: 30px;
+                        background  : transparent;
                     }
 
                     >.card-link {
@@ -218,7 +219,10 @@ $maincolor:#4ebec0;
             list-style   : none;
             text-align   : left;
             margin       : 0;
+            padding-left : 30px;
             padding-right: 30px;
+
+            color: #000;
 
             >li {
                 overflow     : hidden;

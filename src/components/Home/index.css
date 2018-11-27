@@ -124,9 +124,10 @@
   margin-left: 30px;
 }
 
-.main-conent .doctor_card .card > .card-body > .link-tip > .right {
+.main-conent .doctor_card .card > .card-body > .link-tip > .right_link {
   float: right;
   margin-right: 30px;
+  background: transparent;
 }
 
 .main-conent .doctor_card .card > .card-body > .link-tip > .card-link {
@@ -192,7 +193,9 @@
   list-style: none;
   text-align: left;
   margin: 0;
+  padding-left: 30px;
   padding-right: 30px;
+  color: #000;
 }
 
 .main-conent .health .articlList > li {

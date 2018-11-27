@@ -4,8 +4,9 @@
 }
 
 .navbar {
-    height   : 60px;
-    font-size: 18px;
+    height       : 60px;
+    font-size    : 18px;
+    margin-bottom: 0;
 
 }
 
@@ -57,7 +58,7 @@
 }
 
 .active {
-    background: #fd9115;
+    background: #fd9115 !important;
 }
 
 #top_mid {

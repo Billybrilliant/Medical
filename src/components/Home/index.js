@@ -82,7 +82,7 @@ export default class Home extends Component {
                       />
                       挂号
                     </CardLink>
-                    <CardLink href="#" className="right">
+                    <CardLink href="#" className="right_link">
                       <img
                         src = {require('../../../assets/images/电话 (1).png')}
                       />
@@ -157,9 +157,9 @@ export default class Home extends Component {
     // console.log(this.refs);
     if (this.refs.add.value || this.refs.hos.value || this.refs.klass.value) {
       // console.log(this.props.history.location.pathname);
-      let url = `${this.props.history.location.pathname}appointment?add=${
-        this.refs.add.value
-      }&&hos=${this.refs.hos.value}&&klass=${this.refs.klass.value}`;
+      let url = `/appointment?add=${this.refs.add.value}&&hos=${
+        this.refs.hos.value
+      }&&klass=${this.refs.klass.value}`;
       this.props.history.push(url);
     }
   };
