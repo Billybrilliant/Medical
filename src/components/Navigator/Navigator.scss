@@ -59,6 +59,7 @@
 
 .active {
     background: #fd9115 !important;
+    // background: -webkit-linear-gradient(top right, #fd9115)
 }
 
 #top_mid {
@@ -75,6 +76,7 @@
     /* margin-top   : 27px; */
     /* margin-left: 100px; */
     background: #84c225;
+    outline   : none;
 }
 
 #sign_box {

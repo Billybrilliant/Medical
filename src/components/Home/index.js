@@ -48,6 +48,10 @@ export default class Home extends Component {
   }
 
   componentWillMount() {
+    console.log(this.props);
+    if (this.props.match.url == '/') {
+      this.props.history.push('/home');
+    }
     // console.log(this.props);
     // 医生加载
     Axios({
@@ -106,7 +110,7 @@ export default class Home extends Component {
       url   : 'http://localhost:5000/news',
       method: 'get'
     }).then(res => {
-      console.log(res.data);
+      // console.log(res.data);
       let data       = res.data;
       let articlList = [];
       for (let i = 0; i < data.length; i++) {

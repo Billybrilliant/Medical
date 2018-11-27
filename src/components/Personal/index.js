@@ -33,22 +33,22 @@ export default class Medicine extends Component {
                 <h4>个人中心</h4>
                 <ul>
                   <li>
-                    <Link to="/medicine/user">用户认证</Link>
+                    <Link to="/home/personal/user">用户认证</Link>
                   </li>
                   <li>
-                    <Link to="/medicine/gua">我的挂号</Link>
+                    <Link to="/home/personal/gua">我的挂号</Link>
                   </li>
                   <li>
-                    <Link to="/medicine/object1">个人资料</Link>
+                    <Link to="/home/personal/object1">个人资料</Link>
                   </li>
                   <li>
-                    <Link to="/article">发表言论</Link>
+                    <Link to="/home/chart">发表言论</Link>
                   </li>
                   <li>
-                    <Link to="/chart">查看文章</Link>
+                    <Link to="/home/article">查看文章</Link>
                   </li>
                   <li>
-                    <Link to="/appointment">查看预约信息</Link>
+                    <Link to="/appointment">预约挂号</Link>
                   </li>
                 </ul>
               </Col>
@@ -56,9 +56,9 @@ export default class Medicine extends Component {
           </Col>
           <Col xs="8" className="right">
             <Switch>
-              <Route path="/medicine/user" component={User} />
-              <Route path="/medicine/gua" component={Gua} />
-              <Route path="/medicine/object1" component={Object1} />
+              <Route path="/home/personal/user" component={User} />
+              <Route path="/home/personal/gua" component={Gua} />
+              <Route path="/home/personal/object1" component={Object1} />
             </Switch>
           </Col>
         </Row>
