@@ -92,7 +92,7 @@ export default class Appointment extends Component {
             <Row className="docContent commonContent" id="docInfoHead">
               <Col className="noPadding">
                 <div id="headPhoto">
-                  <img src="../../../assets/images/3287673490903465467-22.jpeg" />
+                  <img src="../../../assets/images/Yuyue.jpg" />
                 </div>
                 <div id="headContent">
                   <h4>董军</h4>
