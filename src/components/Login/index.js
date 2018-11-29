@@ -11,11 +11,9 @@ class Login extends Component {
 
 constructor(props) {
     super(props);
-    this.state = {userName:"",password:""};
+    this.state = {userName:null,password:null};
  }
-componentDidMount(){
 
-}
 // checkLogin= (state, payload) => {
 //     state.login = payload
 // }
@@ -23,30 +21,36 @@ componentDidMount(){
 //     state.token = payload
 // }
 handleSubmit=(event) =>{
+
     event.preventDefault();
+    const {userName,password}=this.state;
+        console.log(userName,password);
     if(this.state.userName==""||this.state.password==""){
         alert('用户名或密码不能为空');
     }else{
-        var {userName,password}=this.state;
 
+        console.log(userName,password)
         axios({
-            url:'http://localhost:3000/user/login',
+            url:'http://47.92.98.104:8080/jkwy/login',
             method:'post',
-            data:{
-                uname:userName,
-                phone:userName,
-                upwd:password
+            phone:userName,
+            upwd:password,
+            headers:{
+                'Content-Type':'application/x-www-form-urlencoded'
             }
+
           }).then(res=>{
-
-              if (res.data.token) {
-
-                alert('恭喜你登录成功！');
-                this.setState({ loginin: true });
-                location.href="http://localhost:8080/#/Home";
-              }else{
-                alert('用户名或密码错误！或 用户不存在');
-              }
+              console.log('--------->',res);
+                if(res.data.msg=="1"){
+                    console.log('成功')
+                    // alert('恭喜你登录成功！');
+                    this.setState({ loginin: true });
+                    this.props.history.push('/');
+                }else if(res.data.msg=="0"){
+                    console.log('失败')
+                    // alert('用户名或密码错误！或 用户不存在');  console.log('失败')
+                // alert('用户名或密码错误！或 用户不存在');
+                }
           })
     }
 
@@ -69,7 +73,7 @@ return (<div className="Login">
                     <input type="submit" value="登&nbsp;&nbsp;录" id="loginBtn"/><br/>
 
                 </form>
-                <div className="login-foo"><a href="#">&gt;立即注册</a></div>
+                <div className="login-foo"><a href="javascript:;">&gt;立即注册</a></div>
             </div>
 
 

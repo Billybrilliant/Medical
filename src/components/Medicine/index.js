@@ -38,7 +38,9 @@ class Medicine extends Component {
     this.toggle = this.toggle.bind(this);
     this.state  = {
       activeTab: '1',
-      result   : []
+
+      result   : [],
+      fmed:[]
     };
   }
   toggle(tab) {
@@ -53,22 +55,27 @@ class Medicine extends Component {
       .children()
       .eq(0)
       .addClass('act');
+
     axios({
-      url   : 'http://localhost:3000/medClass',
+      url   : 'http://47.92.98.104:8080/jkwy/medicinalType',
       method: 'get'
     }).then(res => {
       this.setState({
         result: res.data
       });
     });
+
+
   }
   componentDidMount() {
     this.toggle(1);
+
     this.props.fetchPageList();
     setTimeout(function() {
       $('#ul li')
         .eq(0)
         .addClass('act');
+        $('.guide-tabs .tab-content .tab-pane').eq(0).addClass('active');
     }, 500);
     $('#ul').on('click', 'li', function() {
       $(this)
@@ -76,7 +83,47 @@ class Medicine extends Component {
         .removeClass('act');
       $(this).addClass('act');
     });
+    $('.guide-tabs.tab-content').on('click','.tab-pane',function(){
+      $(this)
+      .siblings()
+      .removeClass('active');
+    $(this).addClass('active');
+    })
+    axios({
+      url:'http://47.92.98.104:8080/jkwy/family',
+      method:'get',
+    }).then(res=>{
+
+      this.setState({
+        fmed:res.data
+      })
+    })
   }
+
+  changePage = e => {
+    var page = e.target.getAttribute('data-page');
+    this.props.fetchPageList({ page: page });
+  };
+  showPageitem = () => {
+    var pLen  = 22;
+    var pages = Math.ceil(pLen / 8);
+    var pJSX  = [];
+    for (let i = 1; i <= pages; i++) {
+      pJSX.push(
+        <PaginationItem key={i}>
+          <PaginationLink
+            href      = "javascript:void(0)"
+            data-page = {i}
+            onClick   = {e => this.changePage(e)}
+          >
+            {i}
+          </PaginationLink>
+        </PaginationItem>
+      );
+    }
+
+    return pJSX;
+  };
   showMed = () => {
     if (this.props.pages) {
       var sLen    = this.props.pages.length;
@@ -96,31 +143,6 @@ class Medicine extends Component {
       }
       return showJSX;
     }
-  };
-  changePage = e => {
-    var page = e.target.getAttribute('data-page');
-    this.props.fetchPageList({ page: page });
-  };
-  showPageitem = () => {
-    var pLen  = 22;
-    var pages = Math.ceil(pLen / 8);
-    var pJSX  = [];
-
-    for (let i = 1; i <= pages; i++) {
-      pJSX.push(
-        <PaginationItem key={i}>
-          <PaginationLink
-            href      = "javascript:void(0)"
-            data-page = {i}
-            onClick   = {e => this.changePage(e)}
-          >
-            {i}
-          </PaginationLink>
-        </PaginationItem>
-      );
-    }
-
-    return pJSX;
   };
   showTabs = () => {
     if (this.state.result) {
@@ -165,7 +187,18 @@ class Medicine extends Component {
       return classJSX;
     }
   };
-
+showFamily=()=>{
+  if(this.state.fmed){
+    var classJSX=[];
+    var fMed=this.state.fmed;
+    for(let i=0;i<fMed.length;i++){
+      classJSX.push(
+        <li>{fMed[i].ftype} &nbsp;&nbsp;&nbsp;&gt;</li>
+      )
+    }
+    return classJSX;
+  }
+}
   render() {
     const { fetchPageList, pages } = this.props;
     return (
@@ -199,7 +232,7 @@ class Medicine extends Component {
             <div className="showItem">
               <a href="#">
                 <div className="our">
-                  <img src="" />
+                  <img src={require('../../../assets/images/med/pic_1.png')} />
                 </div>
                 <p>江中 健胃消食片 0.8g</p>
               </a>
@@ -207,7 +240,7 @@ class Medicine extends Component {
             <div className="showItem">
               <a href="#">
                 <div className="our">
-                  <img src="" />
+                <img src={require('../../../assets/images/med/pic_2.png')} />
                 </div>
                 <p>江中 健胃消食片 0.8g</p>
               </a>
@@ -215,7 +248,7 @@ class Medicine extends Component {
             <div className="showItem">
               <a href="#">
                 <div className="our">
-                  <img src="" />
+                <img src={require('../../../assets/images/med/pic_3.png')} />
                 </div>
                 <p>江中 健胃消食片 0.8g</p>
               </a>
@@ -223,7 +256,7 @@ class Medicine extends Component {
             <div className="showItem">
               <a href="#">
                 <div className="our">
-                  <img src="" />
+                <img src={require('../../../assets/images/med/pic_4.png')} />
                 </div>
                 <p>江中 健胃消食片 0.8g</p>
               </a>
@@ -231,7 +264,7 @@ class Medicine extends Component {
             <div className="showItem">
               <a href="#">
                 <div className="our">
-                  <img src="" />
+                <img src={require('../../../assets/images/med/pic_5.png')} />
                 </div>
                 <p>江中 健胃消食片 0.8g</p>
               </a>
@@ -244,10 +277,8 @@ class Medicine extends Component {
               <Col md={{ size: 2 }} className="tabs-left">
                 <div className="family-tit">家庭常用药品</div>
                 <ul className="family-class">
-                  <li>青春痘 &nbsp;&nbsp;&nbsp;&gt;</li>
-                  <li>减肥瘦身 &nbsp;&nbsp;&nbsp;&gt;</li>
-                  <li>保肝护肝 &nbsp;&nbsp;&nbsp;&gt;</li>
-                  <li>眼干眼涩 &nbsp;&nbsp;&nbsp;&gt;</li>
+                 {this.showFamily()}
+
                 </ul>
               </Col>
               <Col md={{ size: 10 }} className="tabs-right">
@@ -287,48 +318,48 @@ class Medicine extends Component {
             <div className="solid1" />
             <div className="box-top">
               <a href="#">
-                <img src="" />
+                <img src={require('../../../assets/images/med/logo1.jpg')} />
               </a>
               <a href="#">
-                <img src="" />
+                <img src={require('../../../assets/images/med/logo2.jpg')} />
               </a>
               <a href="#">
-                <img src="" />
+                <img src={require('../../../assets/images/med/logo3.jpg')} />
               </a>
               <a href="#">
-                <img src="" />
+                <img src={require('../../../assets/images/med/logo4.jpg')} />
               </a>
               <a href="#">
-                <img src="" />
+                <img src={require('../../../assets/images/med/logo5.jpg')} />
               </a>
               <a href="#">
-                <img src="" />
+                <img src={require('../../../assets/images/med/logo6.jpg')} />
               </a>
               <a href="#">
-                <img src="" />
+                <img src={require('../../../assets/images/med/logo7.jpg')} />
               </a>
             </div>
             <div className="box-btm">
               <a href="#">
-                <img src="" />
+                <img src={require('../../../assets/images/med/logo8.jpg')} />
               </a>
               <a href="#">
-                <img src="" />
+                <img src={require('../../../assets/images/med/logo9.jpg')} />
               </a>
               <a href="#">
-                <img src="" />
+                <img src={require('../../../assets/images/med/logo10.jpg')} />
               </a>
               <a href="#">
-                <img src="" />
+                <img src={require('../../../assets/images/med/logo11.jpg')} />
               </a>
               <a href="#">
-                <img src="" />
+                <img src={require('../../../assets/images/med/logo12.jpg')} />
               </a>
               <a href="#">
-                <img src="" />
+                <img src={require('../../../assets/images/med/logo13.jpg')} />
               </a>
               <a href="#">
-                <img src="" />
+                <img src={require('../../../assets/images/med/logo14.jpg')} />
               </a>
             </div>
           </div>
@@ -385,11 +416,11 @@ class Medicine extends Component {
                 </NavLink>
               </NavItem>
             </Nav>
-            <TabContent activeTab={this.state.activeTab}>
-              <TabPane tabId="1">
+            <TabContent activeTab={this.state.activeTab} >
+              <TabPane tabId="1" >
                 <Row>
                   <Col sm="3">
-                    <img src="" />
+                    <img src={require('../../../assets/images/med/pic_17.png')} />
                   </Col>
                   <Col sm="9">
                     <ul>
@@ -404,30 +435,70 @@ class Medicine extends Component {
                 </Row>
               </TabPane>
               <TabPane tabId="2">
-                <Row>
-                  <Col sm="6">
-                    <h4>Tab 2 Contents</h4>
+              <Row>
+                  <Col sm="3">
+                    <img src={require('../../../assets/images/med/pic_17.png')} />
+                  </Col>
+                  <Col sm="9">
+                    <ul>
+                      <li>
+                        <h4>2冬季肝脏易受伤 警惕六位肝脏杀手</h4>
+                      </li>
+                      <li>
+                        常话说：怒则伤肝，人的精神、情绪都与肝息息相关，若是情绪不佳，精神就会郁闷，暴怒激动都会影响到肝的机能，加速病变。抑郁的人也会使得“肝气郁结”，更加伤害肝脏。
+                      </li>
+                    </ul>
                   </Col>
                 </Row>
               </TabPane>
               <TabPane tabId="3">
-                <Row>
-                  <Col sm="6">
-                    <h4>Tab 3 Contents</h4>
+              <Row>
+                  <Col sm="3">
+                    <img src={require('../../../assets/images/med/pic_17.png')} />
+                  </Col>
+                  <Col sm="9">
+                    <ul>
+                      <li>
+                        <h4>3冬季肝脏易受伤 警惕六位肝脏杀手</h4>
+                      </li>
+                      <li>
+                        常话说：怒则伤肝，人的精神、情绪都与肝息息相关，若是情绪不佳，精神就会郁闷，暴怒激动都会影响到肝的机能，加速病变。抑郁的人也会使得“肝气郁结”，更加伤害肝脏。
+                      </li>
+                    </ul>
                   </Col>
                 </Row>
               </TabPane>
               <TabPane tabId="4">
-                <Row>
-                  <Col sm="6">
-                    <h4>Tab 4 Contents</h4>
+              <Row>
+                  <Col sm="3">
+                    <img src={require('../../../assets/images/med/pic_17.png')} />
+                  </Col>
+                  <Col sm="9">
+                    <ul>
+                      <li>
+                        <h4>4冬季肝脏易受伤 警惕六位肝脏杀手</h4>
+                      </li>
+                      <li>
+                        常话说：怒则伤肝，人的精神、情绪都与肝息息相关，若是情绪不佳，精神就会郁闷，暴怒激动都会影响到肝的机能，加速病变。抑郁的人也会使得“肝气郁结”，更加伤害肝脏。
+                      </li>
+                    </ul>
                   </Col>
                 </Row>
               </TabPane>
               <TabPane tabId="5">
-                <Row>
-                  <Col sm="6">
-                    <h4>Tab 5 Contents</h4>
+              <Row>
+                  <Col sm="3">
+                    <img src={require('../../../assets/images/med/pic_17.png')} />
+                  </Col>
+                  <Col sm="9">
+                    <ul>
+                      <li>
+                        <h4>5冬季肝脏易受伤 警惕六位肝脏杀手</h4>
+                      </li>
+                      <li>
+                        常话说：怒则伤肝，人的精神、情绪都与肝息息相关，若是情绪不佳，精神就会郁闷，暴怒激动都会影响到肝的机能，加速病变。抑郁的人也会使得“肝气郁结”，更加伤害肝脏。
+                      </li>
+                    </ul>
                   </Col>
                 </Row>
               </TabPane>
