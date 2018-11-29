@@ -59,7 +59,7 @@ export default class ArticleDetail extends Component {
             foodList.push(
               <Media
                 key     = {i}
-                onClick = {this.articleContent.bind(this, data[i].id)}
+                onClick = {this.articleContent.bind(this, data[i].cid)}
               >
                 <Media left href="#">
                   <img src={'http://47.92.98.104:8080' + data[i].cimage} />

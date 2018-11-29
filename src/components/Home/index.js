@@ -110,11 +110,11 @@ export default class Home extends Component {
     });
     // 文章加载
     Axios({
-      url   : 'http://localhost:5000/news',
+      url   : 'http:/47.92.98.104:8080/jkwy/findfood',
       method: 'get'
     }).then(res => {
-      // console.log(res.data);
-      let data       = res.data;
+      console.log(res.data.data);
+      let data       = res.data.data;
       let articlList = [];
       for (let i = 0; i < data.length; i++) {
         if (articlList.length < 8) {
