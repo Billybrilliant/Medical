@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import BraftEditor from 'braft-editor';
 import { ContentUtils } from 'braft-utils';
 import 'braft-editor/dist/index.css';
-
+import {NavLink} from 'react-router-dom'
 import './Liuyan.scss';
 export default class Liuyan extends Component {
   render() {
@@ -88,22 +88,22 @@ export default class Liuyan extends Component {
               <div className="c-ly-left-footer row">
 
                 <h4 className="col-12">您可能感兴趣的</h4>
-                <a href="#" className="col-3 footer-4">
+                <NavLink to="/home/article" className="col-3 footer-4">
                   <img src="../../../assets/images/icon-liuyan/ucbegso8.jpg" alt="食物" />
                   <p>巴拉巴拉吧，巴拉巴拉吧，巴拉巴拉吧，巴拉巴拉吧，巴拉巴拉吧，巴拉巴拉吧</p>
-                </a>
-                <a href="#" className="col-3 footer-4">
+                </NavLink>
+                <NavLink to="/home/article" className="col-3 footer-4">
                   <img src="../../../assets/images/icon-liuyan/ucbegso8.jpg" alt="食物" />
                   <p>巴拉巴拉吧，巴拉巴拉吧，巴拉巴拉吧，巴拉巴拉吧，巴拉巴拉吧，巴拉巴拉吧</p>
-                </a>
-                <a href="#" className="col-3 footer-4">
+                </NavLink>
+                <NavLink to="/home/article" className="col-3 footer-4">
                   <img src="../../../assets/images/icon-liuyan/ucbegso8.jpg" alt="食物" />
                   <p>巴拉巴拉吧，巴拉巴拉吧，巴拉巴拉吧，巴拉巴拉吧，巴拉巴拉吧，巴拉巴拉吧</p>
-                </a>
-                <a href="#" className="col-3 footer-4">
+                </NavLink>
+                <NavLink to="/home/article" className="col-3 footer-4">
                   <img src="../../../assets/images/icon-liuyan/ucbegso8.jpg" alt="食物" />
                   <p>巴拉巴拉吧，巴拉巴拉吧，巴拉巴拉吧，巴拉巴拉吧，巴拉巴拉吧，巴拉巴拉吧</p>
-                </a>
+                </NavLink>
               </div>
             </div>
 
@@ -111,21 +111,21 @@ export default class Liuyan extends Component {
 
             {/* 主体内容右半部分 */}
             <div className="col-lg-3 col-md-3 hidden-sm hidden-xs c-ly-right d-none d-md-block align-self-start">
-              <div className="row justify-content-between c-ly-r-top">
+              <div className="row justify-content-start c-ly-r-top">
                 <strong>相关文章</strong>
-                <a href="#" className="xgwz-more">更多 &gt;</a>
+                {/* <a href="#" className="xgwz-more">更多 &gt;</a> */}
               </div>
               <div className="row">
                 <ul>
-                  <li><a href="#" className="xgwz-link">高考这几天吃什么？营养师定制食物</a></li>
-                  <li><a href="#" className="xgwz-link">高考这几天吃什么？营养师定制食物</a></li>
-                  <li><a href="#" className="xgwz-link">高考这几天吃什么？营养师定制食物</a></li>
-                  <li><a href="#" className="xgwz-link">高考这几天吃什么？营养师定制食物</a></li>
-                  <li><a href="#" className="xgwz-link">高考这几天吃什么？营养师定制食物ssssssssssssss</a></li>
-                  <li><a href="#" className="xgwz-link">高考这几天吃什么？营养师定制食物</a></li>
-                  <li><a href="#" className="xgwz-link">高考这几天吃什么？营养师定制食物</a></li>
-                  <li><a href="#" className="xgwz-link">高考这几天吃什么？营养师定制食物</a></li>
-                  <li><a href="#" className="xgwz-link">高考这几天吃什么？营养师定制食物</a></li>
+                  <li><NavLink to="/home/article" className="xgwz-link">高考这几天吃什么？营养师定制食物</NavLink></li>
+                  <li><NavLink to="/home/article" className="xgwz-link">高考这几天吃什么？营养师定制食物</NavLink></li>
+                  <li><NavLink to="/home/article" className="xgwz-link">高考这几天吃什么？营养师定制食物</NavLink></li>
+                  <li><NavLink to="/home/article" className="xgwz-link">高考这几天吃什么？营养师定制食物</NavLink></li>
+                  <li><NavLink to="/home/article" className="xgwz-link">高考这几天吃什么？营养师定制食物ssssssssssssss</NavLink></li>
+                  <li><NavLink to="/home/article" className="xgwz-link">高考这几天吃什么？营养师定制食物</NavLink></li>
+                  <li><NavLink to="/home/article" className="xgwz-link">高考这几天吃什么？营养师定制食物</NavLink></li>
+                  <li><NavLink to="/home/article" className="xgwz-link">高考这几天吃什么？营养师定制食物</NavLink></li>
+                  <li><NavLink to="/home/article" className="xgwz-link">高考这几天吃什么？营养师定制食物</NavLink></li>
                 </ul>
               </div>
             </div>

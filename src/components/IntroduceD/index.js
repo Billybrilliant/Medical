@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "./i-doc.scss";
-import NavLink from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 export default class IntroduceD extends Component {
   render() {
@@ -19,7 +19,7 @@ export default class IntroduceD extends Component {
               <p>所属医院</p>
             </div>
             <div className="col-lg-3 col-md-3 col-xs-12 col-sm-12 text-center  offset-lg-3 ">
-            <span className="mbtn">提问</span>
+            <NavLink to="/home/introduced/question" className="mbtn">提问</NavLink>
               {/* <NavLink to="/"><span className="mbtn">提问</span></NavLink> */}
               {/* <span className="mbtn">关注</span> */}
             </div>
@@ -112,33 +112,33 @@ export default class IntroduceD extends Component {
                   </tr>
                   <tr  className="tab-tr">
                     <td className="day-time">上午</td>
-                    <td> <a href="">可约</a></td>
-                    <td> <a href="">可约</a></td>
-                    <td> <a href="">可约</a></td>
-                    <td> <a href="">可约</a></td>
-                    <td> <a href="">可约</a></td>
-                    <td> <a href="">可约</a></td>
-                    <td> <a href="">可约</a></td>
+                    <td> <NavLink to="/home/yuyueliuchen" className="mbtn">提问</NavLink></td>
+                    <td> <NavLink to="/home/yuyueliuchen" className="mbtn">提问</NavLink></td>
+                    <td> <NavLink to="/home/yuyueliuchen" className="mbtn">提问</NavLink></td>
+                    <td> <NavLink to="/home/yuyueliuchen" className="mbtn">提问</NavLink></td>
+                    <td> <NavLink to="/home/yuyueliuchen" className="mbtn">提问</NavLink></td>
+                    <td> <NavLink to="/home/yuyueliuchen" className="mbtn">提问</NavLink></td>
+                    <td> <NavLink to="/home/yuyueliuchen" className="mbtn">提问</NavLink></td>
                   </tr>
                   <tr  className="tab-tr">
                     <td className="day-time">下午</td>
-                    <td> <a href="">可约</a></td>
-                    <td> <a href="">可约</a></td>
-                    <td> <a href="">可约</a></td>
-                    <td> <a href="">可约</a></td>
-                    <td> <a href="">可约</a></td>
-                    <td> <a href="">可约</a></td>
-                    <td> <a href="">可约</a></td>
+                    <td> <NavLink to="/home/yuyueliuchen" className="mbtn">提问</NavLink></td>
+                    <td> <NavLink to="/home/yuyueliuchen" className="mbtn">提问</NavLink></td>
+                    <td> <NavLink to="/home/yuyueliuchen" className="mbtn">提问</NavLink></td>
+                    <td> <NavLink to="/home/yuyueliuchen" className="mbtn">提问</NavLink></td>
+                    <td> <NavLink to="/home/yuyueliuchen" className="mbtn">提问</NavLink></td>
+                    <td> <NavLink to="/home/yuyueliuchen" className="mbtn">提问</NavLink></td>
+                    <td> <NavLink to="/home/yuyueliuchen" className="mbtn">提问</NavLink></td>
                   </tr>
                   <tr className="tab-tr">
                     <td className="day-time">晚上</td>
-                    <td> <a href="">可约</a></td>
-                    <td> <a href="">可约</a></td>
-                    <td> <a href="">可约</a></td>
-                    <td> <a href="">可约</a></td>
-                    <td> <a href="">可约</a></td>
-                    <td> <a href="">可约</a></td>
-                    <td> <a href="">可约</a></td>
+                    <td> <NavLink to="/home/yuyueliuchen" className="mbtn">提问</NavLink></td>
+                    <td> <NavLink to="/home/yuyueliuchen" className="mbtn">提问</NavLink></td>
+                    <td> <NavLink to="/home/yuyueliuchen" className="mbtn">提问</NavLink></td>
+                    <td> <NavLink to="/home/yuyueliuchen" className="mbtn">提问</NavLink></td>
+                    <td> <NavLink to="/home/yuyueliuchen" className="mbtn">提问</NavLink></td>
+                    <td> <NavLink to="/home/yuyueliuchen" className="mbtn">提问</NavLink></td>
+                    <td> <NavLink to="/home/yuyueliuchen" className="mbtn">提问</NavLink></td>
                   </tr>
 
                 </tbody>

@@ -4,17 +4,20 @@ import './Introduce.scss';
 // import store from '../../store/index';
 import { hosAjax } from '../../actions/counter';
 import { connect } from 'react-redux';
-// import {hosAjax} from '../../actions/counter';
 // import {pure} from 'recompose';
 
 const mapStateToProps = state => {
   return Object.assign(state, { hosreducer: { list: state.hosreducer.list } });
 };
 
+
+//医院介绍的主组建
 class Introduce extends Component {
   componentWillMount() {
-    // this.props.hosAjax();
+    this.props.hosAjax();
   }
+
+
   render() {
     // console.log("render时调用",this.props.hosreducer.list);
     return (
@@ -43,7 +46,7 @@ class Introduce extends Component {
             <span>
               简介
               复旦大学附属华山医院创建于1907年，是复旦大学附属综合性教学医院和中国红十字...{' '}
-              <a href="javascript;">查看详情</a>
+              {/* <a href="javascript;">查看详情</a> */}
             </span>
             <br />
           </p>
@@ -112,9 +115,9 @@ class Tab extends Component {
                     className = "h-mid2-nr col-xs-12 col-sm-6 col-md-4 col-lg-4"
                     key       = {index}
                   >
-                    <span>{data.name}</span>
-                    <span>{data.type}</span>
-                    <p>擅长 ：{data.text}</p>
+                    <span>{data.dname}</span>
+                    {/* <span>{data.type}</span> */}
+                    {/* <p>擅长 ：{data.text}</p> */}
                   </div>
                 );
               })
