@@ -261,9 +261,11 @@
             white-space: nowrap;
             }
             .xgwz-link{
-                font-size: 13px;
+                font-size: 14px;
                 color: #888888;
-
+                &:hover{
+                    cursor: pointer;
+                }
             }
 
         }

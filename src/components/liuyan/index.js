@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Axios from 'axios';
 
 import BraftEditor from 'braft-editor';
 import { ContentUtils } from 'braft-utils';
@@ -7,7 +7,47 @@ import 'braft-editor/dist/index.css';
 import {NavLink} from 'react-router-dom'
 import './Liuyan.scss';
 export default class Liuyan extends Component {
+  constructor(props){
+    super(props);
+    this.state={articl:[]}
+  }
+  componentWillMount(){
+    Axios({
+      url   : 'http://47.92.98.104:8080/jkwy/gaoxueya',
+      method: 'get'
+    }).then(res => {
+      console.log(res.data.data);
+      let data       = res.data.data;
+      let articlList = [];
+      for (let i = 0; i < data.length; i++) {
+        if (articlList.length < 5) {
+          articlList.push(
+            <li
+              key     = {i}
+              onClick = {this.articlClick.bind(this, data[i].id)}
+              style   = {{ padding: 0 }}
+            >
+              <span className="xgwz-link">{data[i].title}</span>
+            </li>
+          );
+        }
+      }
+      this.setState({
+        articl: articlList
+      });
+      // console.log(this.state.articl);
+    });
+
+  }
+  articlClick(a) {
+    // console.log(a);
+    let url = `/home/article/detail/cid=${a}`;
+    // this.toDoctor(this);
+    this.props.history.push(url);
+  }
+
   render() {
+    console.log(this.state.articl);
     return (
 
       // 留言部分
@@ -117,15 +157,7 @@ export default class Liuyan extends Component {
               </div>
               <div className="row">
                 <ul>
-                  <li><NavLink to="/home/article" className="xgwz-link">高考这几天吃什么？营养师定制食物</NavLink></li>
-                  <li><NavLink to="/home/article" className="xgwz-link">高考这几天吃什么？营养师定制食物</NavLink></li>
-                  <li><NavLink to="/home/article" className="xgwz-link">高考这几天吃什么？营养师定制食物</NavLink></li>
-                  <li><NavLink to="/home/article" className="xgwz-link">高考这几天吃什么？营养师定制食物</NavLink></li>
-                  <li><NavLink to="/home/article" className="xgwz-link">高考这几天吃什么？营养师定制食物ssssssssssssss</NavLink></li>
-                  <li><NavLink to="/home/article" className="xgwz-link">高考这几天吃什么？营养师定制食物</NavLink></li>
-                  <li><NavLink to="/home/article" className="xgwz-link">高考这几天吃什么？营养师定制食物</NavLink></li>
-                  <li><NavLink to="/home/article" className="xgwz-link">高考这几天吃什么？营养师定制食物</NavLink></li>
-                  <li><NavLink to="/home/article" className="xgwz-link">高考这几天吃什么？营养师定制食物</NavLink></li>
+                  {this.state.articl}
                 </ul>
               </div>
             </div>
