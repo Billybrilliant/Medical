@@ -50,7 +50,10 @@ class Details extends Component {
         <Row>
           <Col xs="6">
             <div id="goods_pic">
-              <img src="" className="demo-img pos-center" />
+              <img
+                src       = {require('../../../assets/images/0d85ae5a637ca44ff1c9da685376612b.png')}
+                className = "demo-img pos-center"
+              />
             </div>
           </Col>
           <Col xs="6" id="goods_details">
@@ -167,37 +170,49 @@ class Details extends Component {
         <Row>
           <Col>
             <div id="details_pic">
-              <img src="" />
+              <img
+                src = {require('../../../assets/images/9245692456_20160725113825110.jpg')}
+              />
             </div>
           </Col>
         </Row>
         <Row>
           <Col>
             <div id="details_pic">
-              <img src="" />
+              <img
+                src = {require('../../../assets/images/1688516885_20160725113825406.jpg')}
+              />
             </div>
           </Col>
         </Row>
         <Row>
           <Col>
             <div id="details_pic">
-              <img src="" />
+              <img
+                src = {require('../../../assets/images/9873998739_20160725113825782.jpg')}
+              />
             </div>
           </Col>
         </Row>
         <Row>
           <Col>
             <div id="details_pic">
-              <img src="" />
+              <img
+                src = {require('../../../assets/images/4858348583_20160725113826048.jpg')}
+              />
             </div>
           </Col>
         </Row>
         <Row>
           <Col xs="6" id="details_photo">
-            <img src="" />
+            <img
+              src = {require('../../../assets/images/6428764287_20160725113827126.jpg')}
+            />
           </Col>
           <Col xs="6" id="details_photo">
-            <img src="" />
+            <img
+              src = {require('../../../assets/images/6772267722_20160725113826548.jpg')}
+            />
           </Col>
         </Row>
       </Container>
