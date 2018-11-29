@@ -29,7 +29,9 @@ export default class Chart extends Component {
     //console.log(this.state.imgList);
     //console.log(this.state.inputValue);
     //e.preventDefault();
-    var url = `后端地址`;
+    this.props.history.push('question');
+
+    var url = `http://47.92.98.104:8080/jkwy/InsertMaster_pasteServlet`;
     if(this.state.did !== '' && this.state.imgList.length > 0 && this.state.inputValue !== ''){
       Axios({
         url   : url,
@@ -165,7 +167,7 @@ export default class Chart extends Component {
           <Col
             style = {{ border: '2px solid #999', borderRight: '1px solid #999' }}
           >
-            <NavLink href="#/doctor">
+            <NavLink href="#/home/doctor">
               <Row
                 style={{
                   textAlign    : 'center',
@@ -174,7 +176,7 @@ export default class Chart extends Component {
                 }}
               >
                 <Col>
-                  <img src="../../../static/images/questions/Doctor.png" />
+                  <img src="../../../assets/images/Doctor.png" />
                   找医生
                 </Col>
               </Row>
@@ -183,6 +185,7 @@ export default class Chart extends Component {
           <Col
             style = {{ border: '2px solid #999', borderLeft: '1px solid #999' }}
           >
+            <NavLink href="#/home/personal">
             <Row
               style={{
                 textAlign    : 'center',
@@ -191,10 +194,11 @@ export default class Chart extends Component {
               }}
             >
               <Col>
-                <img src="../../../static/images/questions/My.png" />
+                <img src="../../../assets/images/My.png" />
                 我的
               </Col>
             </Row>
+            </NavLink>
           </Col>
         </Row>
       </Container>

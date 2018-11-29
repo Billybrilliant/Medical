@@ -19,17 +19,41 @@ export default class Appointment extends Component {
     this.changeCode      = this.changeCode.bind(this);
     this.state           = {
       selectedDay: undefined,
-      code       : ''
+      code       : '',
+      radioValue : '',
+      inputValue : '',
+      docUser    : '',
+      customer   : ''
     };
   }
+
+  handerRadio = e => {
+    this.setState({
+      radioValue: e.target.value
+    });
+  };
+
+  handerInput = e => {
+    this.setState({
+      inputValue: e.target.value
+    });
+  };
 
   handleDayChange(day) {
     this.setState({ selectedDay: day });
   }
 
   handerSubmit = e => {
+    // console.log(this.state.selectedDay.toLocaleDateString());
+    // console.log(this.state.radioValue);
+    //console.log(this.state.inputValue);
     e.preventDefault();
+    this.props.history.push('apposuccess');
   };
+
+  componentWillMount(){
+
+  }
 
   componentDidMount() {
     this.changeCode();
@@ -132,7 +156,14 @@ export default class Appointment extends Component {
                 <div className="radio1" style={{ marginLeft: '1px' }}>
                   <FormGroup check>
                     <Label check>
-                      <Input type="radio" name="radio1" value="09: 00-09: 30" />{' '}
+                      <Input
+                        type     = "radio"
+                        name     = "radio1"
+                        value    = "09: 00-09: 30"
+                        onChange = {e =>
+                          this.handerRadio(editor - icon - align - middle)
+                        }
+                      />
                       09: 00-09: 30
                     </Label>
                   </FormGroup>
@@ -140,7 +171,12 @@ export default class Appointment extends Component {
                 <div className="radio2">
                   <FormGroup check>
                     <Label check>
-                      <Input type="radio" name="radio1" value="09: 30-10: 00" />{' '}
+                      <Input
+                        type     = "radio"
+                        name     = "radio1"
+                        value    = "09: 30-10: 00"
+                        onChange = {e => this.handerRadio(e)}
+                      />
                       09: 30-10: 00
                     </Label>
                   </FormGroup>
@@ -148,7 +184,12 @@ export default class Appointment extends Component {
                 <div className="radio3">
                   <FormGroup check>
                     <Label check>
-                      <Input type="radio" name="radio1" value="10: 00-10: 30" />{' '}
+                      <Input
+                        type     = "radio"
+                        name     = "radio1"
+                        value    = "10: 00-10: 30"
+                        onChange = {e => this.handerRadio(e)}
+                      />
                       10: 00-10: 30
                     </Label>
                   </FormGroup>
@@ -156,7 +197,12 @@ export default class Appointment extends Component {
                 <div className="radio4">
                   <FormGroup check>
                     <Label check>
-                      <Input type="radio" name="radio1" value="10: 30-11: 00" />{' '}
+                      <Input
+                        type     = "radio"
+                        name     = "radio1"
+                        value    = "10: 30-11: 00"
+                        onChange = {e => this.handerRadio(e)}
+                      />
                       10: 30-11: 00
                     </Label>
                   </FormGroup>
@@ -164,7 +210,12 @@ export default class Appointment extends Component {
                 <div className="radio5">
                   <FormGroup check>
                     <Label check>
-                      <Input type="radio" name="radio1" value="11: 00-11: 30" />{' '}
+                      <Input
+                        type     = "radio"
+                        name     = "radio1"
+                        value    = "11: 00-11: 30"
+                        onChange = {e => this.handerRadio(e)}
+                      />
                       11: 00-11: 30
                     </Label>
                   </FormGroup>
@@ -230,7 +281,13 @@ export default class Appointment extends Component {
             </Row>
 
             <Row className="rulePass">
-              验证码 <Input className="authCode" ref="authCode" />{' '}
+              验证码{' '}
+              <Input
+                className = "authCode"
+                ref       = "authCode"
+                value     = {this.state.inputValue}
+                onChange  = {e => this.handerInput(e)}
+              />{' '}
               <div>{this.state.code}</div>
               <span onClick={this.changeCode}>看不清？换一张</span>
             </Row>

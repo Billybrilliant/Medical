@@ -48,26 +48,30 @@ export default class Home extends Component {
   }
 
   componentWillMount() {
-    console.log(this.props);
+    // console.log(this.props);
     if (this.props.match.url == '/') {
       this.props.history.push('/home');
     }
     // console.log(this.props);
     // 医生加载
     Axios({
-      url   : ' http://47.92.98.104:8080/jkwy/manageDoctor',
+      url   : 'http://47.92.98.104:8080/jkwy/famousDoctor',
       method: 'get'
     }).then(res => {
-      console.log(res.data);
+      // console.log(res.data.data);
       var data     = res.data;
       var dataList = [];
-      // console.log(data);
-      for (let i = 0; i < data.length; i++) {
+      // console.log(data.length);
+      for (var i = 0; i < data.length; i++) {
         if (data[i].is_hot && dataList.length < 3) {
           dataList.push(
             <Col key={i} style={{ padding: 0 }}>
               <Card onClick={this.doctorClick.bind(this, data[i].did)}>
-                <img width="120" src={data[i].dimg} />
+                <img
+                  width  = "120"
+                  height = "150"
+                  src    = {'http://47.92.98.104:8080' + data[i].dimage}
+                />
                 <CardBody>
                   <CardTitle>
                     {data[i].dname}
@@ -106,17 +110,21 @@ export default class Home extends Component {
     });
     // 文章加载
     Axios({
-      url   : 'http://localhost:5000/news',
+      url   : 'http://47.92.98.104:8080/jkwy/gaoxueya',
       method: 'get'
     }).then(res => {
-      // console.log(res.data);
-      let data       = res.data;
+      console.log(res.data.data);
+      let data       = res.data.data;
       let articlList = [];
       for (let i = 0; i < data.length; i++) {
-        if (articlList.length < 8) {
+        if (articlList.length < 5) {
           articlList.push(
-            <li key={i} onClick={this.articlClick.bind(this, data[i].cid)}>
-              {data[i].ctitle}
+            <li
+              key     = {i}
+              onClick = {this.articlClick.bind(this, data[i].id)}
+              style   = {{ padding: 0 }}
+            >
+              <span>{data[i].title}</span>
             </li>
           );
         }
@@ -293,6 +301,10 @@ export default class Home extends Component {
                 <img src={require('../../../assets/images/latest-news4.jpg')} />
               </Col>
               <Col style={{ padding: 0 }}>
+                <img
+                  src   = "../../../assets/images/true (2).jpg"
+                  style = {{ height: 180 }}
+                />
                 <ul className="articlList">{this.state.articl}</ul>
               </Col>
               <Col style={{ padding: 0, paddingLeft: 30 }} className="answers">

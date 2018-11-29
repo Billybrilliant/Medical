@@ -21,30 +21,31 @@ export default class ArticleDetail extends Component {
     var path = this.props.match.params.ttopic;
     if (path == 'food') {
       Axios({
-        url   : 'http://localhost:5000/articl',
+        url   : 'http://47.92.98.104:8080/jkwy/findfood',
         method: 'get'
       }).then(res => {
-        // console.log(res.data.length);
-        var data      = res.data;
+        console.log(res.data);
+        var data      = res.data.data;
         var foodList  = [];
         var titleList = [];
-        var pages     = res.data.length / 5;
+        var pages     = res.data.data.length / 5;
         var page      = [];
         for (var j = 0; j < pages; j++) {
           if (j == 0) {
             page.push(
-              <PaginationItem active key={j}>
+              <PaginationItem active key={j} onClick={this.pageChange}>
                 <PaginationLink href="#">{j + 1}</PaginationLink>
               </PaginationItem>
             );
           } else {
             page.push(
-              <PaginationItem key={j}>
+              <PaginationItem key={j} onClick={this.pageChange}>
                 <PaginationLink href="#">{j + 1}</PaginationLink>
               </PaginationItem>
             );
           }
         }
+
         titleList.push(
           <Col key="foods" className="mainTitle">
             <h4>饮食健康指南</h4>
@@ -54,23 +55,23 @@ export default class ArticleDetail extends Component {
           </Col>
         );
         for (let i = 0; i < data.length; i++) {
-          foodList.push(
-            <Media
-              key     = {i}
-              onClick = {this.articleContent.bind(this, data[i].cid)}
-            >
-              <Media left href="#">
-                <img src={data[i].cimge} />
+          if (foodList.length < 5) {
+            foodList.push(
+              <Media
+                key     = {i}
+                onClick = {this.articleContent.bind(this, data[i].cid)}
+              >
+                <Media left href="#">
+                  <img src={'http://47.92.98.104:8080' + data[i].cimage} />
+                </Media>
+                <Media body>
+                  <Media heading>{data[i].title}</Media>
+                  <div className="author" />
+                  {data[i].cdesc}
+                </Media>
               </Media>
-              <Media body>
-                <Media heading>{data[i].title}</Media>
-                <div className="author">
-                  <span>作者：{data[i].cname}</span>
-                </div>
-                {data[i].cdesc}
-              </Media>
-            </Media>
-          );
+            );
+          }
         }
         this.setState({
           articlDetail: foodList,
@@ -81,11 +82,11 @@ export default class ArticleDetail extends Component {
     }
     if (path == 'Parenting') {
       Axios({
-        url   : 'http://localhost:5000/articl',
+        url   : 'http://47.92.98.104:8080/jkwy/yuerjing',
         method: 'get'
       }).then(res => {
-        // console.log(res.data);
-        var data      = res.data;
+        // console.log(res.data.data);
+        var data      = res.data.data;
         var foodList  = [];
         var titleList = [];
         var pages     = res.data.length / 5;
@@ -93,13 +94,13 @@ export default class ArticleDetail extends Component {
         for (var j = 0; j < pages; j++) {
           if (j == 0) {
             page.push(
-              <PaginationItem active key={j}>
+              <PaginationItem active key={j} onClick={this.pageChange}>
                 <PaginationLink href="#">{j + 1}</PaginationLink>
               </PaginationItem>
             );
           } else {
             page.push(
-              <PaginationItem key={j}>
+              <PaginationItem key={j} onClick={this.pageChange}>
                 <PaginationLink href="#">{j + 1}</PaginationLink>
               </PaginationItem>
             );
@@ -116,15 +117,13 @@ export default class ArticleDetail extends Component {
         );
         for (let i = 0; i < data.length; i++) {
           foodList.push(
-            <Media key={i}>
+            <Media key={i} onClick={this.articleContent.bind(this, data[i].id)}>
               <Media left href="#">
-                <img src={data[i].cimge} />
+                <img src={'http://47.92.98.104:8080' + data[i].cimage} />
               </Media>
               <Media body>
                 <Media heading>{data[i].title}</Media>
-                <div className="author">
-                  <span>作者：{data[i].cname}</span>
-                </div>
+                <div className="author" />
                 {data[i].cdesc}
               </Media>
             </Media>
@@ -139,25 +138,25 @@ export default class ArticleDetail extends Component {
     }
     if (path == 'hypertension') {
       Axios({
-        url   : 'http://localhost:5000/articl',
+        url   : 'http://47.92.98.104:8080/jkwy/gaoxueya',
         method: 'get'
       }).then(res => {
-        // console.log(res.data);
-        var data      = res.data;
+        console.log(res.data.data);
+        var data      = res.data.data;
         var foodList  = [];
         var titleList = [];
-        var pages     = res.data.length / 5;
+        var pages     = res.data.data.length / 5;
         var page      = [];
         for (var j = 0; j < pages; j++) {
           if (j == 0) {
             page.push(
-              <PaginationItem active key={j}>
+              <PaginationItem active key={j} onClick={this.pageChange}>
                 <PaginationLink href="#">{j + 1}</PaginationLink>
               </PaginationItem>
             );
           } else {
             page.push(
-              <PaginationItem key={j}>
+              <PaginationItem key={j} onClick={this.pageChange}>
                 <PaginationLink href="#">{j + 1}</PaginationLink>
               </PaginationItem>
             );
@@ -171,16 +170,14 @@ export default class ArticleDetail extends Component {
         );
         for (let i = 0; i < data.length; i++) {
           foodList.push(
-            <Media key={i}>
+            <Media key={i} onClick={this.articleContent.bind(this, data[i].id)}>
               <Media left href="#">
-                <img src={data[i].cimge} />
+                <img src={'http://47.92.98.104:8080' + data[i].cimage} />
               </Media>
               <Media body>
                 <Media heading>{data[i].title}</Media>
-                <div className="author">
-                  <span>作者：{data[i].cname}</span>
-                </div>
-                {data[i].cdesc}
+                <div className="author" />
+                {data[i].instruction}
               </Media>
             </Media>
           );
@@ -192,6 +189,9 @@ export default class ArticleDetail extends Component {
         });
       });
     }
+  }
+  pageChange(e) {
+    e.preventDefault();
   }
   articleContent(a) {
     console.log(a);

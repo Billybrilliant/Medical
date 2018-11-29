@@ -163,7 +163,7 @@ export default class Appointment extends Component {
           <Col>
             <div className="promise-item">
               <div className="promise-item-icon">
-                <img src="" />
+                <img src={require('../../../assets/images/1.png')} />
               </div>
               <a className="promise-item-title">100%免费预约挂号</a>
               <p className="content-one">
@@ -174,7 +174,7 @@ export default class Appointment extends Component {
           <Col>
             <div className="promise-item">
               <div className="promise-item-icon">
-                <img src="" />
+                <img src={require('../../../assets/images/2.png')} />
               </div>
               <a className="promise-item-title">真正的专家门诊</a>
               <p className="content-one">
@@ -185,7 +185,7 @@ export default class Appointment extends Component {
           <Col>
             <div className="promise-item">
               <div className="promise-item-icon">
-                <img src="" />
+                <img src={require('../../../assets/images/3.png')} />
               </div>
               <a className="promise-item-title">实时查看可预约名额</a>
               <p className="content-one">
@@ -196,7 +196,7 @@ export default class Appointment extends Component {
           <Col>
             <div className="promise-item">
               <div className="promise-item-icon">
-                <img src="" />
+                <img src={require('../../../assets/images/4.png')} />
               </div>
               <a className="promise-item-title">更专业、更贴心</a>
               <p className="content-one">
