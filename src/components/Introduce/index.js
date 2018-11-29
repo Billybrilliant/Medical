@@ -27,21 +27,18 @@ class Introduce extends Component {
             <img
               src       = "../../../assets/images/icon-hospital/address.png"
               alt       = "地址"
-              className = "img-responsive"
             />{' '}
             <span>地址 上海市乌鲁木齐中路12号</span>
             <br />
             <img
               src       = "../../../assets/images/icon-hospital/phone.png"
               alt       = "地址"
-              className = "img-responsive"
             />{' '}
             <span>电话 021-52889999</span>
             <br />
             <img
               src       = "../../../assets/images/icon-hospital/introduce.png"
               alt       = "地址"
-              className = "img-responsive"
             />{' '}
             <span>
               简介

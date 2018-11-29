@@ -43,7 +43,7 @@ export default class Doctor extends Component {
             </Col>
             <Col md={6} mdPull={6}>
               <Col md={6} sm={6}>
-                <img className="logo-doctor" src="" />
+                <img className="logo-doctor" src={require('../../../assets/images/医生查询图标/图层 1@1,25x.png')} />
               </Col>
               <Col md={6} sm={6} className="title">
                 <h3>按疾病推荐</h3>
@@ -193,7 +193,7 @@ export default class Doctor extends Component {
               <Col md={6} sm={6}>
                 <img
                   className = "logo-doctor"
-                  // src       = {require('../../assets/images/医生查询图标/图层 2@1,25x.png')}
+                  src       = {require('../../../assets/images/医生查询图标/图层 2@1,25x.png')}
                 />
               </Col>
               <Col md={6} sm={6} className="title">
@@ -344,7 +344,7 @@ export default class Doctor extends Component {
               <Col md={6} sm={6}>
                 <img
                   className = "logo-doctor"
-                  // src       = {require('../../assets/images/医生查询图标/图层 3@1,25x.png')}
+                  src       = {require('../../../assets/images/医生查询图标/图层 3@1,25x.png')}
                 />
               </Col>
               <Col md={6} sm={6} className="title">

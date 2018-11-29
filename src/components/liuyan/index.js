@@ -24,13 +24,13 @@ export default class Liuyan extends Component {
                   <span className="ly-wen">问</span>
                   <span className="question-title"> 请问轻度脆骨病怎么治疗 </span>
                 </div>
-                <img src="" alt="健康" />
+                <img src="../../../assets/images/cgal-2-img15.png" alt="健康" />
               </div>
 
               {/* 医生回答帮助 */}
               <div className="row c-ly-left-top2">
                 <div className="col-1">
-                  <img src="../../../assets/images/3276706184538997874-22.jpg" alt="头像" />
+                  <img src="../../../assets/images/icon-liuyan/u34.jpg" alt="头像" />
                 </div>
                 <div className="col-11">
                   <div className="row">
@@ -38,7 +38,7 @@ export default class Liuyan extends Component {
                     <span className="doc-type"> 副主任医师 </span>
                     <span className="doc-keshi"> 骨科 </span>
                     <span className="doc-hos"> 宁夏医科大学总医院 </span>
-                    <span className="doc-help"> 已帮助 ** 人</span>
+                    {/* <span className="doc-help"> 已帮助 ** 人</span> */}
                   </div>
                   <p className="row">八零八零八零八不赖不赖不赖不赖八零八零八零八不赖不赖不赖不赖八零八零八,赖不赖不赖八零八零八零八不赖不赖,赖不赖不赖八零八零八零八不赖不赖,赖不赖不赖八零八零八零八不赖不赖</p>
                 </div>

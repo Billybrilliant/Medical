@@ -1,43 +1,48 @@
-.main {
+.doctor .main {
     border       : #585858 2px solid;
     border-radius: 3px;
     width        : 1200px;
+    margin:0 auto;
     margin-bottom: 50px;
 }
-
-h4 {
+.doctor{
+    margin: 50px 0 50px;
+}
+.doctor h4 {
     margin-bottom: 25px;
     padding-left : 40px;
 }
-
-h4 a {
+.doctor h3{
+    margin-bottom: 0;
+}
+.doctor h4 a {
     color      : #585858;
     font-weight: 800;
     font-size  : 18px;
 }
 
-.main li {
+.doctor .main li {
     list-style   : none;
     margin-bottom: 15px;
 }
 
-li a {
+.doctor li a {
     font-size: 16px;
     color    : #585858;
 }
 
-.yello a,
-.button-style-yello {
+.doctor .yello a,
+.doctor .button-style-yello {
     color: #ffc600
 }
 
-.red a,
-.button-style-red {
+.doctor .red a,
+.doctor .button-style-red {
     color: rgb(255, 107, 107)
 }
 
-.blue a,
-.button-style-blue {
+.doctor .blue a,
+.doctor .button-style-blue {
     color: rgb(123, 213, 255)
 }
 
@@ -53,7 +58,7 @@ li a {
     color: rgb(123, 213, 255)
 }
 
-.main-row {
+.doctor .main-row {
     margin-top   : 60px;
     margin-bottom: 30px;
 }
@@ -66,27 +71,27 @@ li a {
     /* top: 0px; */
 }
 
-.header {
+.doctor .header {
     border-bottom: 2px #585858 solid;
     /* position: relative; */
     height: 108px;
 }
 
-.title {
-    margin-top: 20px;
+.doctor .title {
+    margin-top: 10px;
 }
 
-.title h3 {
+.doctor .title h3 {
     font-weight: 800;
     font-size  : 30px;
 }
 
-.title span {
+.doctor .title span {
     font-size: 18px;
     color    : rgb(195, 195, 195)
 }
 
-.button-style {
+.doctor .button-style {
     height                    : 54px;
     width                     : 160px;
     border-bottom             : none;
@@ -98,6 +103,9 @@ li a {
     font-weight               : 900
 }
 
-.button-b {
+.doctor .button-b {
     padding-top: 52px;
+}
+.show-grid{
+    margin: 0 auto;
 }
