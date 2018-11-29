@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import "./i-doc.scss";
+import NavLink from 'react-router-dom';
 
 export default class IntroduceD extends Component {
   render() {
@@ -10,7 +11,7 @@ export default class IntroduceD extends Component {
         <div className="container idoc-top">
           <div className="row align-items-center">
             <div className="col-2">
-              <img className="doc-touxiang" src="../../../assets/images/3287673490903465467-22.jpeg" alt="医生" />
+              <img className="doc-touxiang" src="../../../assets/images/icon-liuyan/u34.jpg" alt="医生" />
             </div>
             <div className="col-lg-3 col-md-5 col-sm-6 col-xs-6 top-center">
               <h2>医生姓名</h2>
@@ -18,7 +19,8 @@ export default class IntroduceD extends Component {
               <p>所属医院</p>
             </div>
             <div className="col-lg-3 col-md-3 col-xs-12 col-sm-12 text-center  offset-lg-3 ">
-              <span className="mbtn">提问</span>
+            <span className="mbtn">提问</span>
+              {/* <NavLink to="/"><span className="mbtn">提问</span></NavLink> */}
               {/* <span className="mbtn">关注</span> */}
             </div>
           </div>
