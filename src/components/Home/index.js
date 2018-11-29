@@ -55,15 +55,15 @@ export default class Home extends Component {
     // console.log(this.props);
     // 医生加载
     Axios({
-      url   : '  http://localhost:5000/data',
+      url   : ' http://47.92.98.104:8080/jkwy/manageDoctor',
       method: 'get'
     }).then(res => {
-      // console.log(res.data);
+      console.log(res.data);
       var data     = res.data;
       var dataList = [];
       // console.log(data);
       for (let i = 0; i < data.length; i++) {
-        if (dataList.length < 3) {
+        if (data[i].is_hot && dataList.length < 3) {
           dataList.push(
             <Col key={i} style={{ padding: 0 }}>
               <Card onClick={this.doctorClick.bind(this, data[i].did)}>
@@ -75,9 +75,8 @@ export default class Home extends Component {
                   </CardTitle>
                   <CardSubtitle>{data[i].hospital}</CardSubtitle>
                   <CardSubtitle>{data[i].section}</CardSubtitle>
-                  <CardText>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
+                  <CardText style={{ marginTop: 30 }}>
+                    {data[i].apecial}
                   </CardText>
                   <div className="link-tip">
                     <CardLink href="#/appointment" className="left">
@@ -141,9 +140,12 @@ export default class Home extends Component {
       for (let i = 0; i < data.length; i++) {
         // console.log(data[i].zhutie.length);
         for (let j = 0; j < data[i].zhutie.length; j++) {
-          // console.log(data[i].zhutie[j]);
+          console.log(data[i].zhutie[j]);
           answersList.push(
-            <div key={j}>
+            <div
+              key     = {j}
+              onClick = {this.answerClick.bind(this, data[i].zhutie[j].tid)}
+            >
               <h6>{data[i].zhutie[j].ttopic}</h6>
               <p>{data[i].zhutie[j].tcontents}</p>
             </div>
@@ -169,18 +171,25 @@ export default class Home extends Component {
   };
 
   doctorClick(a) {
-    console.log(a);
+    // console.log(a);
     // console.log(this);
-    let url = `${this.props.match.url}doctor?doctor=${a}`;
+    let url = `${this.props.match.url}/introduced?did=${a}`;
     // this.toDoctor(this);
     this.props.history.push(url);
   }
   articlClick(a) {
-    console.log(a);
-    let url = `${this.props.match.url}article/detail/cid=${a}`;
+    // console.log(a);
+    let url = `${this.props.match.url}/article/detail/cid=${a}`;
     // this.toDoctor(this);
     this.props.history.push(url);
   }
+  answerClick(a) {
+    console.log(this.props.match.url);
+    let url = `${this.props.match.url}liuyan?tid=${a}`;
+    console.log(url);
+    this.props.history.push(url);
+  }
+
   onExiting() {
     this.animating = true;
   }

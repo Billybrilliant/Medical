@@ -14,7 +14,7 @@ import { ENGINE_METHOD_STORE } from 'constants';
 export default class ArticleDetail extends Component {
   constructor(props) {
     super(props);
-    this.state = { articlDetail: [], articlTitle: [] };
+    this.state = { articlDetail: [], articlTitle: [], page: [] };
   }
   componentWillMount() {
     // console.log(this.props.location.search.split('?')[1]);
@@ -24,10 +24,27 @@ export default class ArticleDetail extends Component {
         url   : 'http://localhost:5000/articl',
         method: 'get'
       }).then(res => {
-        console.log(res.data);
+        // console.log(res.data.length);
         var data      = res.data;
         var foodList  = [];
         var titleList = [];
+        var pages     = res.data.length / 5;
+        var page      = [];
+        for (var j = 0; j < pages; j++) {
+          if (j == 0) {
+            page.push(
+              <PaginationItem active key={j}>
+                <PaginationLink href="#">{j + 1}</PaginationLink>
+              </PaginationItem>
+            );
+          } else {
+            page.push(
+              <PaginationItem key={j}>
+                <PaginationLink href="#">{j + 1}</PaginationLink>
+              </PaginationItem>
+            );
+          }
+        }
         titleList.push(
           <Col key="foods" className="mainTitle">
             <h4>饮食健康指南</h4>
@@ -38,7 +55,10 @@ export default class ArticleDetail extends Component {
         );
         for (let i = 0; i < data.length; i++) {
           foodList.push(
-            <Media key={i}>
+            <Media
+              key     = {i}
+              onClick = {this.articleContent.bind(this, data[i].cid)}
+            >
               <Media left href="#">
                 <img src={data[i].cimge} />
               </Media>
@@ -54,7 +74,8 @@ export default class ArticleDetail extends Component {
         }
         this.setState({
           articlDetail: foodList,
-          articlTitle : titleList
+          articlTitle : titleList,
+          page        : page
         });
       });
     }
@@ -63,10 +84,27 @@ export default class ArticleDetail extends Component {
         url   : 'http://localhost:5000/articl',
         method: 'get'
       }).then(res => {
-        console.log(res.data);
+        // console.log(res.data);
         var data      = res.data;
         var foodList  = [];
         var titleList = [];
+        var pages     = res.data.length / 5;
+        var page      = [];
+        for (var j = 0; j < pages; j++) {
+          if (j == 0) {
+            page.push(
+              <PaginationItem active key={j}>
+                <PaginationLink href="#">{j + 1}</PaginationLink>
+              </PaginationItem>
+            );
+          } else {
+            page.push(
+              <PaginationItem key={j}>
+                <PaginationLink href="#">{j + 1}</PaginationLink>
+              </PaginationItem>
+            );
+          }
+        }
         titleList.push(
           <Col key="foods" className="mainTitle">
             <h4>育儿经</h4>
@@ -94,7 +132,8 @@ export default class ArticleDetail extends Component {
         }
         this.setState({
           articlDetail: foodList,
-          articlTitle : titleList
+          articlTitle : titleList,
+          page        : page
         });
       });
     }
@@ -103,10 +142,27 @@ export default class ArticleDetail extends Component {
         url   : 'http://localhost:5000/articl',
         method: 'get'
       }).then(res => {
-        console.log(res.data);
+        // console.log(res.data);
         var data      = res.data;
         var foodList  = [];
         var titleList = [];
+        var pages     = res.data.length / 5;
+        var page      = [];
+        for (var j = 0; j < pages; j++) {
+          if (j == 0) {
+            page.push(
+              <PaginationItem active key={j}>
+                <PaginationLink href="#">{j + 1}</PaginationLink>
+              </PaginationItem>
+            );
+          } else {
+            page.push(
+              <PaginationItem key={j}>
+                <PaginationLink href="#">{j + 1}</PaginationLink>
+              </PaginationItem>
+            );
+          }
+        }
         titleList.push(
           <Col key="foods" className="mainTitle">
             <h4>预防高血压</h4>
@@ -131,10 +187,16 @@ export default class ArticleDetail extends Component {
         }
         this.setState({
           articlDetail: foodList,
-          articlTitle : titleList
+          articlTitle : titleList,
+          page        : page
         });
       });
     }
+  }
+  articleContent(a) {
+    console.log(a);
+    var url = `${this.props.match.url}/cid=${a}`;
+    this.props.history.push(url);
   }
   render() {
     return (
@@ -149,27 +211,7 @@ export default class ArticleDetail extends Component {
         </Container>
         <div className="articlPages">
           <Pagination aria-label="Page navigation example">
-            <PaginationItem>
-              <PaginationLink previous href="#" />
-            </PaginationItem>
-            <PaginationItem active>
-              <PaginationLink href="#">1</PaginationLink>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationLink href="#">2</PaginationLink>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationLink href="#">3</PaginationLink>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationLink href="#">4</PaginationLink>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationLink href="#">5</PaginationLink>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationLink next href="#" />
-            </PaginationItem>
+            {this.state.page}
           </Pagination>
         </div>
       </div>
