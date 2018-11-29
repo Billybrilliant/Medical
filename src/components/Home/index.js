@@ -48,17 +48,17 @@ export default class Home extends Component {
   }
 
   componentWillMount() {
-    console.log(this.props);
+    // console.log(this.props);
     if (this.props.match.url == '/') {
       this.props.history.push('/home');
     }
     // console.log(this.props);
     // 医生加载
     Axios({
-      url   : ' http://47.92.98.104:8080/jkwy/famousDoctor',
+      url   : 'http://47.92.98.104:8080/jkwy/famousDoctor',
       method: 'get'
     }).then(res => {
-      console.log(res.data.data);
+      // console.log(res.data.data);
       var data     = res.data;
       var dataList = [];
       // console.log(data.length);
@@ -106,21 +106,25 @@ export default class Home extends Component {
       this.setState({
         doctor: dataList
       });
-      console.log(this.state.doctor);
+      // console.log(this.state.doctor);
     });
     // 文章加载
     Axios({
-      url   : 'http:/47.92.98.104:8080/jkwy/findfood',
+      url   : 'http://47.92.98.104:8080/jkwy/gaoxueya',
       method: 'get'
     }).then(res => {
       console.log(res.data.data);
       let data       = res.data.data;
       let articlList = [];
       for (let i = 0; i < data.length; i++) {
-        if (articlList.length < 8) {
+        if (articlList.length < 5) {
           articlList.push(
-            <li key={i} onClick={this.articlClick.bind(this, data[i].cid)}>
-              {data[i].ctitle}
+            <li
+              key     = {i}
+              onClick = {this.articlClick.bind(this, data[i].id)}
+              style   = {{ padding: 0 }}
+            >
+              <span>{data[i].title}</span>
             </li>
           );
         }
@@ -297,6 +301,10 @@ export default class Home extends Component {
                 <img src={require('../../../assets/images/latest-news4.jpg')} />
               </Col>
               <Col style={{ padding: 0 }}>
+                <img
+                  src   = "../../../assets/images/true (2).jpg"
+                  style = {{ height: 180 }}
+                />
                 <ul className="articlList">{this.state.articl}</ul>
               </Col>
               <Col style={{ padding: 0, paddingLeft: 30 }} className="answers">
