@@ -3,7 +3,7 @@ import { Row, Col } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import './Chart.css';
 import { connect } from 'react-redux';
-import { increase, fetchList } from '../../../actions/counter';
+import { fetchList } from '../../../actions/counter';
 import Red from "../../../../assets/images/Red.png";
 import Green from "../../../../assets/images/Green.png";
 const mapStateToProps = state => {
@@ -177,5 +177,5 @@ class Chart extends Component {
 }
 export default connect(
   mapStateToProps,
-  { increase, fetchList }
+  {  fetchList }
 )(Chart);
