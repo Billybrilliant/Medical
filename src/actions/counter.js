@@ -1,5 +1,5 @@
 import axios from 'axios';
-export const increase = () => {
+export const hospital = () => {
   return {
     type: 'INCREASE'
   };

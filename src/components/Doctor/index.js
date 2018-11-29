@@ -1,26 +1,46 @@
 import React, { Component } from 'react';
 import { Button, Row, Grid, Col } from 'react-bootstrap';
+import {NavLink} from 'react-router-dom';
 import './Doctor.css';
-export default class Doctor extends Component {
+import { hospital } from '../../actions/counter';
+import { connect } from 'react-redux';
+const mapStateToProps=state=>{
+  console.log(state.chart.hospital);
+  return{
+    hospital:state.chart.hospital
+  };
+};
+class Doctor extends Component {
   constructor(props, context) {
     super(props, context);
 
     this.handleClick = this.handleClick.bind(this);
 
     this.state = {
-      isLoading: false
+      isLoading: false,
+      hospital:""
     };
   }
   handleClick() {
     this.setState({ isLoading: true });
-
+    // console.log(this.state.isLoading)
     // This probably where you would have an `ajax` call
     setTimeout(() => {
       // Completed of async action, set loading state back
       this.setState({ isLoading: false });
     }, 2000);
   }
+  text(e){
+    e.preventDefault();
+    // console.log(e.target.innerHTML)
+    // console.log(this.state.hospital)
+    this.setState({
+      hospital:e.target.innerHTML
+    });
+    // console.log(this.state.hospital="1")
 
+    
+  }
   render() {
     const { isLoading } = this.state;
     return (
@@ -55,58 +75,58 @@ export default class Doctor extends Component {
           <Row className="show-grid main-row">
             <Col xs={6} md={4}>
               <h4>
-                <a href="#">病毒性肝炎></a>
+                病毒性肝炎>
               </h4>
               <ul className="ul-yello">
                 <li className="yello">
-                  <a href="#">复旦大学附属医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第一人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">首都医科大附属地坛医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第二人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">上海交通大学附属瑞金医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">中山大学附属第三医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
                 </li>
               </ul>
             </Col>
             <Col xs={6} md={4}>
               <h4>
-                <a href="#">病毒性肝炎></a>
+                病毒性肝炎>
               </h4>
               <ul className="ul-yello">
                 <li>
-                  <a href="#">复旦大学附属医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第一人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">首都医科大附属地坛医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第二人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">上海交通大学附属瑞金医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">中山大学附属第三医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
                 </li>
               </ul>
             </Col>
             <Col xsHidden md={4}>
               <h4>
-                <a href="#">病毒性肝炎></a>
+                病毒性肝炎>
               </h4>
               <ul className="ul-yello">
                 <li>
-                  <a href="#">复旦大学附属医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第一人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">首都医科大附属地坛医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第二人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">上海交通大学附属瑞金医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">中山大学附属第三医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
                 </li>
               </ul>
             </Col>
@@ -115,58 +135,58 @@ export default class Doctor extends Component {
           <Row className="show-grid main-row">
             <Col xs={6} md={4}>
               <h4>
-                <a href="#">病毒性肝炎></a>
+                病毒性肝炎>
               </h4>
               <ul className="ul-yello">
                 <li>
-                  <a href="#">复旦大学附属医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第一人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">首都医科大附属地坛医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第二人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">上海交通大学附属瑞金医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">中山大学附属第三医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
                 </li>
               </ul>
             </Col>
             <Col xs={6} md={4}>
               <h4>
-                <a href="#">病毒性肝炎></a>
+                病毒性肝炎>
               </h4>
               <ul className="ul-yello">
                 <li>
-                  <a href="#">复旦大学附属医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第一人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">首都医科大附属地坛医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第二人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">上海交通大学附属瑞金医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">中山大学附属第三医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
                 </li>
               </ul>
             </Col>
             <Col xsHidden md={4}>
               <h4>
-                <a href="#">病毒性肝炎></a>
+                病毒性肝炎>
               </h4>
               <ul className="ul-yello">
                 <li>
-                  <a href="#">复旦大学附属医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第一人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">首都医科大附属地坛医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第二人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">上海交通大学附属瑞金医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">中山大学附属第三医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
                 </li>
               </ul>
             </Col>
@@ -206,58 +226,58 @@ export default class Doctor extends Component {
           <Row className="show-grid main-row">
             <Col xs={6} md={4}>
               <h4>
-                <a href="#">病毒性肝炎></a>
+                病毒性肝炎>
               </h4>
               <ul className="ul-red">
                 <li className="red">
-                  <a href="#">复旦大学附属医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第一人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">首都医科大附属地坛医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第二人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">上海交通大学附属瑞金医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">中山大学附属第三医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
                 </li>
               </ul>
             </Col>
             <Col xs={6} md={4}>
               <h4>
-                <a href="#">病毒性肝炎></a>
+                病毒性肝炎>
               </h4>
               <ul className="ul-red">
                 <li>
-                  <a href="#">复旦大学附属医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第一人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">首都医科大附属地坛医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第二人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">上海交通大学附属瑞金医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">中山大学附属第三医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
                 </li>
               </ul>
             </Col>
             <Col xsHidden md={4}>
               <h4>
-                <a href="#">病毒性肝炎></a>
+                病毒性肝炎>
               </h4>
               <ul className="ul-red">
                 <li>
-                  <a href="#">复旦大学附属医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第一人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">首都医科大附属地坛医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第二人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">上海交通大学附属瑞金医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">中山大学附属第三医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
                 </li>
               </ul>
             </Col>
@@ -266,58 +286,58 @@ export default class Doctor extends Component {
           <Row className="show-grid main-row">
             <Col xs={6} md={4}>
               <h4>
-                <a href="#">病毒性肝炎></a>
+                病毒性肝炎>
               </h4>
               <ul className="ul-red">
                 <li>
-                  <a href="#">复旦大学附属医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第一人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">首都医科大附属地坛医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第二人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">上海交通大学附属瑞金医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">中山大学附属第三医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
                 </li>
               </ul>
             </Col>
             <Col xs={6} md={4}>
               <h4>
-                <a href="#">病毒性肝炎></a>
+                病毒性肝炎>
               </h4>
               <ul className="ul-red">
                 <li>
-                  <a href="#">复旦大学附属医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第一人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">首都医科大附属地坛医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第二人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">上海交通大学附属瑞金医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">中山大学附属第三医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
                 </li>
               </ul>
             </Col>
             <Col xsHidden md={4}>
               <h4>
-                <a href="#">病毒性肝炎></a>
+                病毒性肝炎>
               </h4>
               <ul className="ul-red">
                 <li>
-                  <a href="#">复旦大学附属医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第一人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">首都医科大附属地坛医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第二人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">上海交通大学附属瑞金医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">中山大学附属第三医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
                 </li>
               </ul>
             </Col>
@@ -357,58 +377,46 @@ export default class Doctor extends Component {
           <Row className="show-grid main-row">
             <Col xs={6} md={4}>
               <h4>
-                <a href="#">病毒性肝炎></a>
+                北京>
               </h4>
               <ul className="ul-blue">
                 <li className="blue">
-                  <a href="#">复旦大学附属医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第一人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">首都医科大附属地坛医院</a>
-                </li>
-                <li>
-                  <a href="#">上海交通大学附属瑞金医院</a>
-                </li>
-                <li>
-                  <a href="#">中山大学附属第三医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第二人民医院</NavLink>
                 </li>
               </ul>
             </Col>
             <Col xs={6} md={4}>
               <h4>
-                <a href="#">病毒性肝炎></a>
+                天津>
               </h4>
               <ul className="ul-blue">
                 <li>
-                  <a href="#">复旦大学附属医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">首都医科大附属地坛医院</a>
-                </li>
-                <li>
-                  <a href="#">上海交通大学附属瑞金医院</a>
-                </li>
-                <li>
-                  <a href="#">中山大学附属第三医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
                 </li>
               </ul>
             </Col>
             <Col xsHidden md={4}>
               <h4>
-                <a href="#">病毒性肝炎></a>
+                病毒性肝炎>
               </h4>
               <ul className="ul-blue">
                 <li>
-                  <a href="#">复旦大学附属医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第一人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">首都医科大附属地坛医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第二人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">上海交通大学附属瑞金医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">中山大学附属第三医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
                 </li>
               </ul>
             </Col>
@@ -417,58 +425,58 @@ export default class Doctor extends Component {
           <Row className="show-grid main-row">
             <Col xs={6} md={4}>
               <h4>
-                <a href="#">病毒性肝炎></a>
+                病毒性肝炎>
               </h4>
               <ul className="ul-blue">
                 <li>
-                  <a href="#">复旦大学附属医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第一人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">首都医科大附属地坛医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第二人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">上海交通大学附属瑞金医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">中山大学附属第三医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
                 </li>
               </ul>
             </Col>
             <Col xs={6} md={4}>
               <h4>
-                <a href="#">病毒性肝炎></a>
+                病毒性肝炎>
               </h4>
               <ul className="ul-blue">
                 <li>
-                  <a href="#">复旦大学附属医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第一人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">首都医科大附属地坛医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第二人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">上海交通大学附属瑞金医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">中山大学附属第三医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
                 </li>
               </ul>
             </Col>
             <Col xsHidden md={4}>
               <h4>
-                <a href="#">病毒性肝炎></a>
+                病毒性肝炎>
               </h4>
               <ul className="ul-blue">
                 <li>
-                  <a href="#">复旦大学附属医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第一人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">首都医科大附属地坛医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第二人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">上海交通大学附属瑞金医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
                 </li>
                 <li>
-                  <a href="#">中山大学附属第三医院</a>
+                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第二人民医院</NavLink>
                 </li>
               </ul>
             </Col>
@@ -478,3 +486,7 @@ export default class Doctor extends Component {
     );
   }
 }
+export default connect(
+  mapStateToProps,
+  {hospital}
+)(Doctor);
