@@ -194,8 +194,10 @@ export default class ArticleDetail extends Component {
     e.preventDefault();
   }
   articleContent(a) {
-    console.log(a);
-    var url = `${this.props.match.url}/cid=${a}`;
+    var type = this.props.match.url.split('/')[
+      this.props.match.url.split('/').length - 1
+    ];
+    var url = `${this.props.match.url}/cid=${a}&topic=${type}`;
     this.props.history.push(url);
   }
   render() {
