@@ -26,6 +26,7 @@ a {
             line-height: 36px;
             padding: 0 20px 0 50px;
             margin: 22px 0 0 0;
+            width:100%;
             a.nav-link {
               border: 0;
               font-size: 16px;
@@ -35,7 +36,7 @@ a {
               span {
               }
               i {
-                float: right;
+
                 font-size: 20px;
               }
             }
@@ -270,13 +271,35 @@ a {
           }
         }
       }
+      .tab-content{
+        background: #fff;
+        .tab-pane{
+          background: #fff;
+          .row{
+            padding:0;
+            margin:0;
+            background: #fff;
+            div{
+              background: #fff;
+              color:#333;
+              li{
+                font-size: 15px;
+                h4{
+                margin-top:20px;
+
+              }
+              }
+
+            }
+          }
+        }
+      }
     }
     .guide-list {
       height: 200px;
-      padding-top:40px;
-      padding-bottom:30px;
       border: 1px solid #aaa;
       overflow: hidden;
+      padding: 20px 12px;
       dl{
         width: 350px;
         margin-right:20px;
@@ -292,6 +315,7 @@ a {
               }
               span{
                 display:block;
+                line-height: 27px;
                 text-overflow:ellipsis;
                 white-space:nowrap;
                 overflow:hidden;
@@ -301,4 +325,7 @@ a {
       }
     }
   }
+}
+.showDisplay{
+  display: block!important;
 }

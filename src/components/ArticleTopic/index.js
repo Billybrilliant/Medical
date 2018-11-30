@@ -19,7 +19,7 @@ export default class ArticleDetail extends Component {
   componentWillMount() {
     // console.log(this.props.location.search.split('?')[1]);
     var path = this.props.match.params.ttopic;
-    if (path == 'food') {
+    if (path == 'food2') {
       Axios({
         url   : 'http://47.92.98.104:8080/jkwy/findfood',
         method: 'get'
@@ -194,8 +194,10 @@ export default class ArticleDetail extends Component {
     e.preventDefault();
   }
   articleContent(a) {
-    console.log(a);
-    var url = `${this.props.match.url}/cid=${a}`;
+    var type = this.props.match.url.split('/')[
+      this.props.match.url.split('/').length - 1
+    ];
+    var url = `${this.props.match.url}/cid=${a}&topic=${type}`;
     this.props.history.push(url);
   }
   render() {

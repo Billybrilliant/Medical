@@ -187,7 +187,7 @@ export default class Home extends Component {
   }
   articlClick(a) {
     // console.log(a);
-    let url = `${this.props.match.url}/article/detail/cid=${a}`;
+    let url = `${this.props.match.url}article/detail/cid=${a}`;
     // this.toDoctor(this);
     this.props.history.push(url);
   }

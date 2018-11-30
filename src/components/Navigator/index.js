@@ -41,6 +41,10 @@ export default class Navigator extends React.Component {
       this.props.history.push(url);
     }
   };
+  loginClick = () => {
+    console.log(this.props);
+    this.props.history.push('/login');
+  };
   render() {
     return (
       <div>
@@ -68,7 +72,7 @@ export default class Navigator extends React.Component {
               <img src={require('../../../assets/images/logo/画板 1.png')} />
             </Col>
             <Col lg="4" id="sign_box">
-              <Button color="primary" id="sign">
+              <Button color="primary" id="sign" onClick={this.loginClick}>
                 登录/注册
               </Button>
             </Col>
