@@ -10,25 +10,34 @@ class ArticleDetail extends Component {
   constructor(props){
     super(props);
     this.state={
-      type          : 'gaoxueyaDetail',
-      cid           : 'g1',
+      type          : '',
+      cid           : '',
       articalContent: '',
       commonUrl     : 'http://47.92.98.104:8080'
     }
   }
 
-  // componentWillMount() {
-  //   {
-  //     /* 接收参数 */
-  //     // console.log(this.props);
-  //     // this.setState({
-  //     //   type,
-  //     //   cid
-  //     // })
-  //   }
-  // }
-
   componentWillMount() {
+    {
+      /* 接收参数 */
+      var bigArray = this.props.match.params.cid.split('&');
+      var oneArray = bigArray[0];
+      var twoArray = bigArray[1];
+      this.setState({
+        type: twoArray.split('=')[1],
+        cid : oneArray.split('=')[1]
+      })
+    }
+  }
+
+  componentDidMount() {
+    // var bigArray = this.props.match.params.cid.split('&');
+    // var oneArray = bigArray[0];
+    // var twoArray = bigArray[1];
+    // console.log(oneArray.split('=')[1]);
+    // console.log(twoArray.split('=')[1]);
+    // var type = twoArray.split('=')[1];
+    // var wid  = oneArray.split('=')[1];
     var url = `${this.state.commonUrl}/jkwy/${this.state.type}`;
     Axios({
       url   : url,
@@ -37,7 +46,7 @@ class ArticleDetail extends Component {
         id: this.state.cid
       }
     }).then(res=>{
-      //console.log(res.data.data[0]);
+      console.log(res.data.data[0]);
       this.setState({
         articalContent: res.data.data[0]
       })
@@ -45,7 +54,7 @@ class ArticleDetail extends Component {
   }
 
   render() {
-    const {title,cimage,instruction} = this.state.articalContent;
+    const {title,cimage,desc} = this.state.articalContent;
     return (
       <Container className="bigContent">
         <Row>
@@ -58,7 +67,7 @@ class ArticleDetail extends Component {
             <div>
               <img src={'http://47.92.98.104:8080' + cimage} />
             </div>
-            <p>{instruction}</p>
+            <p>{desc}</p>
           </Col>
           {/* 右边 */}
           <Col xs="3" id="rightDoctor">
