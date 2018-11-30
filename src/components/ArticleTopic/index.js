@@ -19,7 +19,7 @@ export default class ArticleDetail extends Component {
   componentWillMount() {
     // console.log(this.props.location.search.split('?')[1]);
     var path = this.props.match.params.ttopic;
-    if (path == 'food') {
+    if (path == 'food2') {
       Axios({
         url   : 'http://47.92.98.104:8080/jkwy/findfood',
         method: 'get'

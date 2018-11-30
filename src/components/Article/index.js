@@ -23,7 +23,7 @@ export default class Article extends Component {
               <h4>专题分类</h4>
             </Col>
           </Row>
-          <NavLink to="/home/article/food">
+          <NavLink to="/home/article/food2">
             <Row style={{ marginTop: '80px' }}>
               <Col md="8" style={{ padding: 0 }}>
                 <CardImg
