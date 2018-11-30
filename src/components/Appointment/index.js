@@ -12,48 +12,85 @@ import {
 } from 'reactstrap';
 import axios from 'axios';
 export default class Appointment extends Component {
-  constructor(props) {
+  // constructor(props){
+  //   super();
+  //   this.state={
+  //     local:'',
+  //     hospital:'',
+  //     section:'',
+  //     doctor:''
+  //   }
+  // }
+
+  constructor(props){
     super(props);
-    this.state = {
-      myText: []
-    };
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.state={
+      hospital  : '',
+      doctorList: []
+    }
   }
-  handleSubmit() {
+  handleSelect=()=>{
+    // console.log($('#categoryTwo option:selected').val());
     return axios({
-      url   : 'http://localhost:3000/appoint/allData',
-      method: 'post'
-    }).then(res => {
-      var data = res.data;
-      for (var i in data) {
-        $('#categoryOne').append(`<option value=i>${data[i].city}</option>`);
-        $('#categoryTwo').append(
-          `<option value=i>${data[i].hospital}</option>`
-        );
-        $('#categoryThree').append(
-          `<option value=i>${data[i].office}</option>`
-        );
-        $('#categoryFour').append(`<option value=i>${data[i].doctor}</option>`);
+      headers: {'content-type':'application/x-www-form-urlencoded'},
+      url    : 'http://47.92.98.104:8080/jkwy/doctor',
+      method : 'post',
+      params : {
+        hospital: $('#categoryTwo option:selected').val()
       }
-    });
-    return (window.location.href = 'http://localhost:8080/#/');
+    }).then(res=>{
+      var data = res.data;
+      // console.log(res);
+      var jsx = [];
+      for(var i=0;i<data.length;i++){
+        jsx.push(
+          <option value={data[i].dname}>{data[i].dname}</option>
+        )
+      }
+      // console.log(jsx);
+      this.setState({
+        doctorList: jsx
+      })
+      console.log(this.state.doctorList);
+    })
   }
   componentWillMount() {
-    this.handleSubmit();
+     axios({
+       url   : 'http://47.92.98.104:8080/jkwy/local',
+       method: 'get'
+     }).then(res=>{
+       var data = res.data;
+       for(var i in data){
+        $('#categoryOne').append(`<option value=${data[i].local_name}>${data[i].local_name}</option>`);
+       }
+     })
+     axios({
+      url   : 'http://47.92.98.104:8080/jkwy/hospital',
+      method: 'get'
+    }).then(res=>{
+      var data = res.data;
+      for(var i in data){
+       $('#categoryTwo').append(`<option value=${data[i].hname}>${data[i].hname}</option>`);
+      }
+      // console.log(('#categoryTwo option').val())
+      this.setState({
+        hid: res.data[i].hname
+      })
+    this.handleSelect();
+    })
+    axios({
+      url   : 'http://47.92.98.104:8080/jkwy/sectionservlet',
+      method: 'get'
+    }).then(res=>{
+      var data = res.data;
+      for(var i in data){
+        $('#categoryThree').append(`<option value=${data[i].section}>${data[i].section}</option>`);
+      }
+    })
+
+
   }
-  // this.getSelect();
-  // axios({
-  //   url   : 'http://localhost:3000/people',
-  //   method: 'get'
-  // }).then(res=>{
-  //   console.log(res);
-  //   var data = res.data;
-  //   for(var i in data){
-  //     $('#categoryOne').append(`<option value=i>${data[i].name}</option>`);
-  //     $('#categoryTwo').append(`<option value=i>${data[i].title}</option>`);
-  //     $('#categoryThree').append(`<option value=i>${data[i].city}</option>`);
-  //   }
-  // })
+
   render() {
     return (
       <Container>
@@ -82,12 +119,13 @@ export default class Appointment extends Component {
                     className = "exampleSelect"
                     id        = "categoryOne"
                   >
+
                     {/*  <option >杭州</option>
-          <option>上海</option>
-          <option>北京</option>
-          <option>南京</option>
-         <option>深圳</option>
-          <option>{this.state.myText.city}</option> */}
+                         <option>上海</option>
+                         <option>北京</option>
+                         <option>南京</option>
+                         <option>深圳</option>
+                         <option>{this.state.myText.city}</option> */}
                   </Input>
                 </Col>
               </FormGroup>
@@ -101,13 +139,14 @@ export default class Appointment extends Component {
                     name      = "select"
                     className = "exampleSelect"
                     id        = "categoryTwo"
+                    onChange  = {this.handleSelect}
                   >
                     {/* <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          <option>{this.state.myText.hospital}</option> */}
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>{this.state.myText.hospital}</option> */}
                   </Input>
                 </Col>
               </FormGroup>
@@ -123,11 +162,11 @@ export default class Appointment extends Component {
                     id        = "categoryThree"
                   >
                     {/* <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          <option>{this.state.myText.office}</option>*/}
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>{this.state.myText.office}</option>*/}
                   </Input>
                 </Col>
               </FormGroup>
@@ -137,17 +176,19 @@ export default class Appointment extends Component {
                 </Label>
                 <Col>
                   <Input
-                    type      = "select"
-                    name      = "select"
-                    className = "exampleSelect"
-                    id        = "categoryFour"
+                  type      = "select"
+                  name      = "select"
+                  className = "exampleSelect"
+                  id        = "categoryFour"
+                  value     = {this.state.doctorList}
                   >
+                     {this.state.doctorList}
                     {/*  <option>1</option>
-  <option>2</option>
-  <option>3</option>
-  <option>4</option>
- <option>5</option>
- <option>{this.state.myText.doctor}</option>*/}
+                         <option>2</option>
+                         <option>3</option>
+                         <option>4</option>
+                         <option>5</option>
+                         <option>{this.state.myText.doctor}</option>*/}
                   </Input>
                 </Col>
               </FormGroup>

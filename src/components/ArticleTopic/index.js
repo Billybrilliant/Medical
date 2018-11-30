@@ -80,9 +80,9 @@ export default class ArticleDetail extends Component {
         });
       });
     }
-    if (path == 'Parenting') {
+    if (path == 'yuerjing2') {
       Axios({
-        url   : 'http://47.92.98.104:8080/jkwy/yuerjing',
+        url   : 'http://47.92.98.104:8080/jkwy/yuerjing?type=1',
         method: 'get'
       }).then(res => {
         // console.log(res.data.data);
@@ -136,7 +136,7 @@ export default class ArticleDetail extends Component {
         });
       });
     }
-    if (path == 'hypertension') {
+    if (path == 'gaoxueyaDetail') {
       Axios({
         url   : 'http://47.92.98.104:8080/jkwy/gaoxueya',
         method: 'get'

@@ -7,26 +7,26 @@ export default class Register extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      phone   : '',
-      password: ''
+      phone: '',
+      upwd : ''
     };
     this.handleSubmit     = this.handleSubmit.bind(this);
     this.handleTextChange = this.handleTextChange.bind(this);
   }
   handleSubmit() {
-	  if(this.state.phone==0 && this.state.password==0){
+	  if(this.state.phone==0 && this.state.upwd==0){
 		  alert('请输入手机号和密码')
 }else{
 	window.location.href = "http://localhost:8080/#/login";
     console.log(this.state);
-    var phone    = this.state.phone;
-    var password = this.state.password;
+    var phone = this.state.phone;
+    var upwd  = this.state.upwd;
     return axios({
-      url   : 'http://localhost:3000/users/data',
+      url   : 'http://47.92.98.104:8080/jkwy/register',
       method: 'post',
       data  : {
-        phone   : phone,
-        password: password
+        phone: phone,
+        upwd : upwd
       }
     }).then(res => {
 	  console.log(res.data);
@@ -38,7 +38,7 @@ export default class Register extends Component {
     this.setState({ [type]: event.target.value });
   }
   render() {
-	  const {phone,password} = this.state
+	  const {phone,upwd} = this.state
     return (
       <Container>
         <Row>
@@ -72,8 +72,8 @@ export default class Register extends Component {
           className   = "password"
           type        = "password"
           placeholder = "请输入密码"
-          name        = "password"
-          onChange    = {e => this.handleTextChange('password', event)}
+          name        = "upwd"
+          onChange    = {e => this.handleTextChange('upwd', event)}
                   />
                 </label>
                 <div className="tips" />
@@ -85,8 +85,8 @@ export default class Register extends Component {
           className   = "repeat-password"
           type        = "password"
           placeholder = "请再次输入密码"
-          name        = "confirmpassword"
-          onChange    = {e => this.handleTextChange('password', event)}
+          name        = "upwd"
+          onChange    = {e => this.handleTextChange('upwd', event)}
                   />
                 </label>
                 <div className="tips" />

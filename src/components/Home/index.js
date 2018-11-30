@@ -113,7 +113,7 @@ export default class Home extends Component {
       url   : 'http://47.92.98.104:8080/jkwy/gaoxueya',
       method: 'get'
     }).then(res => {
-      console.log(res.data.data);
+      // console.log(res.data.data);
       let data       = res.data.data;
       let articlList = [];
       for (let i = 0; i < data.length; i++) {
@@ -136,29 +136,28 @@ export default class Home extends Component {
     });
     // 回答加载
     Axios({
-      url   : 'http://localhost:5000/ansers',
+      url   : 'http://47.92.98.104:8080/jkwy/Master_pasteServlet1',
       method: 'get'
     }).then(res => {
-      // console.log(res.data);
+      console.log(res.data.data);
       // console.log(res.data[0].zhutie);
       // console.log(res.data[0].zhutie[0].ttopic);
       // console.log(res.data[0].zhutie[0].tcontents);
-      var data        = res.data;
+      var data        = res.data.data;
       var answersList = [];
       for (let i = 0; i < data.length; i++) {
         // console.log(data[i].zhutie.length);
-        for (let j = 0; j < data[i].zhutie.length; j++) {
-          console.log(data[i].zhutie[j]);
+        // for (let j = 0; j < data[i].zhutie.length; j++) {
+        console.log(data[i].tContents);
+        if (answersList.length < 8) {
           answersList.push(
-            <div
-              key     = {j}
-              onClick = {this.answerClick.bind(this, data[i].zhutie[j].tid)}
-            >
-              <h6>{data[i].zhutie[j].ttopic}</h6>
-              <p>{data[i].zhutie[j].tcontents}</p>
+            <div key={i} onClick={this.answerClick.bind(this, data[i].tid)}>
+              <p>{data[i].tContents}</p>
             </div>
           );
         }
+
+        // }
       }
       // console.log(answersList);
       this.setState({
@@ -192,9 +191,9 @@ export default class Home extends Component {
     this.props.history.push(url);
   }
   answerClick(a) {
-    console.log(this.props.match.url);
+    // console.log(this.props.match.url);
     let url = `${this.props.match.url}liuyan?tid=${a}`;
-    console.log(url);
+    // console.log(url);
     this.props.history.push(url);
   }
 
@@ -297,17 +296,21 @@ export default class Home extends Component {
               </Col>
             </Row>
             <Row className="health">
-              <Col style={{ padding: 0 }}>
+              <Col style={{ padding: 0 }} lg="4">
                 <img src={require('../../../assets/images/latest-news4.jpg')} />
               </Col>
-              <Col style={{ padding: 0 }}>
+              <Col style={{ padding: 0 }} lg="4">
                 <img
                   src   = "../../../assets/images/true (2).jpg"
                   style = {{ height: 180 }}
                 />
                 <ul className="articlList">{this.state.articl}</ul>
               </Col>
-              <Col style={{ padding: 0, paddingLeft: 30 }} className="answers">
+              <Col
+                style     = {{ padding: 0, paddingLeft: 30 }}
+                lg        = "4"
+                className = "answers"
+              >
                 <h3>热门回答</h3>
                 {this.state.answers}
               </Col>
