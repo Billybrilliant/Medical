@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Button, Row, Grid, Col } from 'react-bootstrap';
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Doctor.css';
 import { hospital } from '../../actions/counter';
 import { connect } from 'react-redux';
-const mapStateToProps=state=>{
+const mapStateToProps = state => {
   console.log(state.chart.hospital);
-  return{
-    hospital:state.chart.hospital
+  return {
+    hospital: state.chart.hospital
   };
 };
 class Doctor extends Component {
@@ -18,7 +18,7 @@ class Doctor extends Component {
 
     this.state = {
       isLoading: false,
-      hospital:""
+      hospital : ''
     };
   }
   handleClick() {
@@ -30,16 +30,14 @@ class Doctor extends Component {
       this.setState({ isLoading: false });
     }, 2000);
   }
-  text(e){
-    e.preventDefault();
+  text(e) {
+    // e.preventDefault();
     // console.log(e.target.innerHTML)
     // console.log(this.state.hospital)
     this.setState({
-      hospital:e.target.innerHTML
+      hospital: e.target.innerHTML
     });
     // console.log(this.state.hospital="1")
-
-    
   }
   render() {
     const { isLoading } = this.state;
@@ -63,7 +61,10 @@ class Doctor extends Component {
             </Col>
             <Col md={6} mdPull={6}>
               <Col md={6} sm={6}>
-                <img className="logo-doctor" src={require('../../../assets/images/医生查询图标/图层 1@1,25x.png')} />
+                <img
+                  className = "logo-doctor"
+                  src       = {require('../../../assets/images/医生查询图标/图层 1@1,25x.png')}
+                />
               </Col>
               <Col md={6} sm={6} className="title">
                 <h3>按疾病推荐</h3>
@@ -74,59 +75,137 @@ class Doctor extends Component {
 
           <Row className="show-grid main-row">
             <Col xs={6} md={4}>
-              <h4>
-                病毒性肝炎>
-              </h4>
+              <h4>病毒性肝炎></h4>
               <ul className="ul-yello">
                 <li className="yello">
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    北京市朝阳第一人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第二人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    北京市朝阳第二人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    天津第一人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    天津第一人民医院
+                  </NavLink>
                 </li>
               </ul>
             </Col>
             <Col xs={6} md={4}>
-              <h4>
-                病毒性肝炎>
-              </h4>
+              <h4>病毒性肝炎></h4>
               <ul className="ul-yello">
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    北京市朝阳第一人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第二人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    北京市朝阳第二人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    天津第一人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    天津第一人民医院
+                  </NavLink>
                 </li>
               </ul>
             </Col>
             <Col xsHidden md={4}>
-              <h4>
-                病毒性肝炎>
-              </h4>
+              <h4>病毒性肝炎></h4>
               <ul className="ul-yello">
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    北京市朝阳第一人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第二人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    北京市朝阳第二人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    天津第一人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    天津第一人民医院
+                  </NavLink>
                 </li>
               </ul>
             </Col>
@@ -134,59 +213,137 @@ class Doctor extends Component {
 
           <Row className="show-grid main-row">
             <Col xs={6} md={4}>
-              <h4>
-                病毒性肝炎>
-              </h4>
+              <h4>病毒性肝炎></h4>
               <ul className="ul-yello">
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    北京市朝阳第一人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第二人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    北京市朝阳第二人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    天津第一人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    天津第一人民医院
+                  </NavLink>
                 </li>
               </ul>
             </Col>
             <Col xs={6} md={4}>
-              <h4>
-                病毒性肝炎>
-              </h4>
+              <h4>病毒性肝炎></h4>
               <ul className="ul-yello">
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    北京市朝阳第一人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第二人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    北京市朝阳第二人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    天津第一人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    天津第一人民医院
+                  </NavLink>
                 </li>
               </ul>
             </Col>
             <Col xsHidden md={4}>
-              <h4>
-                病毒性肝炎>
-              </h4>
+              <h4>病毒性肝炎></h4>
               <ul className="ul-yello">
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    北京市朝阳第一人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第二人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    北京市朝阳第二人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    天津第一人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    天津第一人民医院
+                  </NavLink>
                 </li>
               </ul>
             </Col>
@@ -225,59 +382,137 @@ class Doctor extends Component {
 
           <Row className="show-grid main-row">
             <Col xs={6} md={4}>
-              <h4>
-                病毒性肝炎>
-              </h4>
+              <h4>病毒性肝炎></h4>
               <ul className="ul-red">
                 <li className="red">
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    北京市朝阳第一人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第二人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    北京市朝阳第二人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    天津第一人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    天津第一人民医院
+                  </NavLink>
                 </li>
               </ul>
             </Col>
             <Col xs={6} md={4}>
-              <h4>
-                病毒性肝炎>
-              </h4>
+              <h4>病毒性肝炎></h4>
               <ul className="ul-red">
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    北京市朝阳第一人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第二人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    北京市朝阳第二人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    天津第一人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    天津第一人民医院
+                  </NavLink>
                 </li>
               </ul>
             </Col>
             <Col xsHidden md={4}>
-              <h4>
-                病毒性肝炎>
-              </h4>
+              <h4>病毒性肝炎></h4>
               <ul className="ul-red">
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    北京市朝阳第一人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第二人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    北京市朝阳第二人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    天津第一人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    天津第一人民医院
+                  </NavLink>
                 </li>
               </ul>
             </Col>
@@ -285,59 +520,137 @@ class Doctor extends Component {
 
           <Row className="show-grid main-row">
             <Col xs={6} md={4}>
-              <h4>
-                病毒性肝炎>
-              </h4>
+              <h4>病毒性肝炎></h4>
               <ul className="ul-red">
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    北京市朝阳第一人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第二人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    北京市朝阳第二人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    天津第一人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    天津第一人民医院
+                  </NavLink>
                 </li>
               </ul>
             </Col>
             <Col xs={6} md={4}>
-              <h4>
-                病毒性肝炎>
-              </h4>
+              <h4>病毒性肝炎></h4>
               <ul className="ul-red">
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    北京市朝阳第一人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第二人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    北京市朝阳第二人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    天津第一人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    天津第一人民医院
+                  </NavLink>
                 </li>
               </ul>
             </Col>
             <Col xsHidden md={4}>
-              <h4>
-                病毒性肝炎>
-              </h4>
+              <h4>病毒性肝炎></h4>
               <ul className="ul-red">
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    北京市朝阳第一人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第二人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    北京市朝阳第二人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    天津第一人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    天津第一人民医院
+                  </NavLink>
                 </li>
               </ul>
             </Col>
@@ -376,47 +689,97 @@ class Doctor extends Component {
 
           <Row className="show-grid main-row">
             <Col xs={6} md={4}>
-              <h4>
-                北京>
-              </h4>
+              <h4>北京></h4>
               <ul className="ul-blue">
                 <li className="blue">
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    北京市朝阳第一人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第二人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    北京市朝阳第二人民医院
+                  </NavLink>
                 </li>
               </ul>
             </Col>
             <Col xs={6} md={4}>
-              <h4>
-                天津>
-              </h4>
+              <h4>天津></h4>
               <ul className="ul-blue">
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    天津第一人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    天津第一人民医院
+                  </NavLink>
                 </li>
               </ul>
             </Col>
             <Col xsHidden md={4}>
-              <h4>
-                病毒性肝炎>
-              </h4>
+              <h4>病毒性肝炎></h4>
               <ul className="ul-blue">
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    北京市朝阳第一人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第二人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    北京市朝阳第二人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    天津第一人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    天津第一人民医院
+                  </NavLink>
                 </li>
               </ul>
             </Col>
@@ -424,59 +787,137 @@ class Doctor extends Component {
 
           <Row className="show-grid main-row">
             <Col xs={6} md={4}>
-              <h4>
-                病毒性肝炎>
-              </h4>
+              <h4>病毒性肝炎></h4>
               <ul className="ul-blue">
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    北京市朝阳第一人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第二人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    北京市朝阳第二人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    天津第一人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    天津第一人民医院
+                  </NavLink>
                 </li>
               </ul>
             </Col>
             <Col xs={6} md={4}>
-              <h4>
-                病毒性肝炎>
-              </h4>
+              <h4>病毒性肝炎></h4>
               <ul className="ul-blue">
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    北京市朝阳第一人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第二人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    北京市朝阳第二人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    天津第一人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    天津第一人民医院
+                  </NavLink>
                 </li>
               </ul>
             </Col>
             <Col xsHidden md={4}>
-              <h4>
-                病毒性肝炎>
-              </h4>
+              <h4>病毒性肝炎></h4>
               <ul className="ul-blue">
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    北京市朝阳第一人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>北京市朝阳第二人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    北京市朝阳第二人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第一人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    天津第一人民医院
+                  </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/home/introduce' onClick={(e)=>{this.text(e)}}>天津第二人民医院</NavLink>
+                  <NavLink
+                    to      = "/home/introduce"
+                    onClick = {e => {
+                      this.text(e);
+                    }}
+                  >
+                    天津第二人民医院
+                  </NavLink>
                 </li>
               </ul>
             </Col>
@@ -488,5 +929,5 @@ class Doctor extends Component {
 }
 export default connect(
   mapStateToProps,
-  {hospital}
+  { hospital }
 )(Doctor);
