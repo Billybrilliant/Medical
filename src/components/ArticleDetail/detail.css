@@ -1,35 +1,41 @@
-body{
+body {
     font-size: 18px;
 }
 
-.bigContent{
+.bigContent {
     margin-top   : 56px;
     margin-bottom: 100px;
 }
 
-.leftContent{
+.leftContent {
     padding   : 40px;
     box-sizing: border-box;
     border    : 2px solid #999;
 }
 
-.leftContent img{
+.leftContent img {
     width: 780px;
 }
 
-#docImg{
+#docImg {
     margin: 0 auto;
 }
 
-#docImg>img{
+#docImg>img {
     widows       : 160px;
     height       : 160px;
     border-radius: 50%;
 }
 
-.rightContent{
+#rightDoctor {
     border     : 2px solid #999;
+    border-left: none;
+    height     : 800px;
+}
+
+.rightContent {
     padding    : 20px;
     margin-left: -1rem;
     margin-top : 5px;
+
 }
