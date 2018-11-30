@@ -61,7 +61,7 @@ class ArticleDetail extends Component {
             <p>{instruction}</p>
           </Col>
           {/* 右边 */}
-          <Col xs="3">
+          <Col xs="3" id="rightDoctor">
             <div className="rightContent">
               <Row>
                 <div id="docImg">
