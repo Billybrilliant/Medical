@@ -3,6 +3,8 @@ import axios from 'axios';
 import './Medicine.scss';
 import { connect } from 'react-redux';
 import { fetchPageList, getPageData } from '../../actions';
+import {getLogin} from '../../actions';
+import store from '../../store';
 // import 'react-tabs/style/react-tabs.css';
 import {
   Collapse,
@@ -28,9 +30,12 @@ import { TabContent, TabPane, Card, CardTitle, CardText } from 'reactstrap';
 import classnames from 'classnames';
 const mapStateToProps = state => {
   return {
-    pages: state.order.pages
+    pages: state.order.pages,
+    loginin: state.order.login
+
   };
 };
+
 class Medicine extends Component {
   constructor(props) {
     super(props);
@@ -40,9 +45,11 @@ class Medicine extends Component {
       activeTab: '1',
 
       result   : [],
-      fmed:[]
+      fmed:[],
+      inres:[]
     };
   }
+
   toggle(tab) {
     if (this.state.activeTab !== tab) {
       this.setState({
@@ -65,11 +72,10 @@ class Medicine extends Component {
       });
     });
 
-
   }
   componentDidMount() {
-    this.toggle(1);
 
+    this.toggle(1);
     this.props.fetchPageList();
     setTimeout(function() {
       $('#ul li')
@@ -145,7 +151,19 @@ class Medicine extends Component {
     }
   };
   showTabs = () => {
+
     if (this.state.result) {
+      for (let i = 0; i < Len; i++) {
+        axios({
+          url:'http://47.92.98.104:8080/jkwy/typeMedicinals?type-id='+1,
+          method:'get',
+        }).then(res=>{
+
+          this.setState({
+            inres:res.data
+          })
+        });
+        console.log('inres',inres);
       var Len      = this.state.result.length;
       var Res      = this.state.result;
       var classJSX = [];
@@ -166,39 +184,62 @@ class Medicine extends Component {
       return classJSX;
     }
   };
-  showTabsMain = () => {
-    if (this.state.result) {
-      var Len      = this.state.result.length;
-      var Res      = this.state.result;
-      var classJSX = [];
-      for (let i = 0; i < Len; i++) {
+  // showTabsMain = () => {
+  //   if (this.state.result) {
+  //     var Len      = this.state.result.length;
+  //     var Res      = this.state.result;
+  //     var classJSX = [];
+  //     for (let i = 0; i < Len; i++) {
+  //       axios({
+  //         url:'http://47.92.98.104:8080/jkwy/typeMedicinals?type-id='+i,
+  //         method:'get',
+  //       }).then(res=>{
+
+  //         this.setState({
+  //           inres:res.data
+  //         })
+  //       })
+  //       classJSX.push(
+  //         <TabPane tabId={i + 1} key={i}>
+  //           <Row>
+  //             <Col sm="12">
+  //               <div>
+  //                 <h2>{this.showinner()}</h2>
+  //               </div>
+  //             </Col>
+  //           </Row>
+  //         </TabPane>
+  //       );
+  //     }
+  //     return classJSX;
+  //   }
+  };
+
+  showFamily=()=>{
+    if(this.state.fmed){
+      var classJSX=[];
+      var fMed=this.state.fmed;
+      for(let i=0;i<fMed.length;i++){
         classJSX.push(
-          <TabPane tabId={i + 1} key={i}>
-            <Row>
-              <Col sm="12">
-                <div>
-                  <h2>{Res[i].name}</h2>
-                </div>
-              </Col>
-            </Row>
-          </TabPane>
-        );
+          <li>{fMed[i].ftype} &nbsp;&nbsp;&nbsp;&gt;</li>
+        )
       }
       return classJSX;
     }
   };
-showFamily=()=>{
-  if(this.state.fmed){
-    var classJSX=[];
-    var fMed=this.state.fmed;
-    for(let i=0;i<fMed.length;i++){
-      classJSX.push(
-        <li>{fMed[i].ftype} &nbsp;&nbsp;&nbsp;&gt;</li>
-      )
+  showinner=()=>{
+    console.log('ssssssssss',this.state);
+    if(this.state.inres){
+      var vLen=this.state.inres.length;
+      var vres=this.state.inres;
+      var classJSX=[];
+
+      // for(let i=0;i<vLen.length;i++){
+      //   classJSX.push()
+      // }
     }
-    return classJSX;
+    return;
   }
-}
   render() {
     const { fetchPageList, pages } = this.props;
     return (
@@ -213,7 +254,7 @@ showFamily=()=>{
               </Col>
               <Col md={{ size: 9 }} className="tabs-right">
                 <TabContent activeTab={this.state.activeTab}>
-                  {this.showTabsMain()}
+                  {this.showinner()}
                 </TabContent>
               </Col>
             </Row>
@@ -569,5 +610,5 @@ showFamily=()=>{
 }
 export default connect(
   mapStateToProps,
-  { fetchPageList }
+  { fetchPageList ,getLogin}
 )(Medicine);

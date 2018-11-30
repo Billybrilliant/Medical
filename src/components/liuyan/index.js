@@ -6,6 +6,15 @@ import { ContentUtils } from 'braft-utils';
 import 'braft-editor/dist/index.css';
 import {NavLink} from 'react-router-dom'
 import './Liuyan.scss';
+
+// import { replayAjax } from '../../actions/counter';
+// import { connect } from 'react-redux';
+
+// const mapStateToProps = state => {
+//   return Object.assign(state, { hosreducer: { replaylist: state.hosreducer.list } });
+// };
+
+
 export default class Liuyan extends Component {
   constructor(props){
     super(props);
@@ -45,6 +54,9 @@ export default class Liuyan extends Component {
     // this.toDoctor(this);
     this.props.history.push(url);
   }
+
+  //获取发表的言论并准备发送到服务器端。
+
 
   render() {
     console.log(this.state.articl);
@@ -96,12 +108,12 @@ export default class Liuyan extends Component {
               <div className="row c-ly-left-mid2 ">
                 <div className="col-10">
                   {/* <textarea name="ly" id="liuyan-hf" rows="10" col="80" placeholder="说说你的看法，3-500字"></textarea> */}
-                  <MyEditor className="textarea"></MyEditor>
+                  <MyEditor className="textarea" ref={instance => this.editorInstance = instance}></MyEditor>
                 </div>
                 <div className="col-2">
 
                   {/* 点击发布留言  尚未添加事件*/}
-                  <button  >发表</button>
+                  {/* <button onClick={this.fabiao} >发表</button> */}
                 </div>
 
                 <div className="col-12 ly-bq">
@@ -163,9 +175,6 @@ export default class Liuyan extends Component {
             </div>
           </div>
         </div>
-
-
-
       </div>
     )
   }
@@ -181,7 +190,7 @@ class Replay extends Component {
       <div>
         <div className="row ly-left-replay">
           <div className="col-1">
-            <img src="../../../assets/images/icon-liuyan/3302838893724077580-22.jpg" alt="头像" className="replay-tx " />
+            {/* <img src="../../../assets/images/icon-liuyan/3302838893724077580-22.jpg" alt="头像" className="replay-tx " /> */}
 
           </div>
           <div className="col-8 re-msg">
@@ -217,12 +226,16 @@ class MyEditor extends React.Component {
     this.setState({ editorState })
   }
 
-  insertHello = () => {
-    this.setState({
-      editorState: ContentUtils.insertText(this.state.editorState, '你好啊！')
-    })
-  }
-
+  // insertHello = () => {
+  //   this.setState({
+  //     editorState: ContentUtils.insertText(this.state.editorState, '你好啊！')
+  //   })
+  // }
+fabiao=()=>{
+  console.log('aaa');
+  // var cont=this.editorInstance.getContent();
+  console.log(this.state.editorState.toText());
+}
   render () {
 
     const { editorState } = this.state;
@@ -242,9 +255,17 @@ class MyEditor extends React.Component {
           contentStyle={{height: 200}}
           placeholder="说说你的看法"
         />
+        <button onClick={this.fabiao} className="fabiao">发表</button>
       </div>
     )
 
   }
 
 }
+
+//将state和actions转化为props
+
+// export default Introduce = connect(
+//   mapStateToProps,
+//   { replayAjax }
+// )(Introduce);

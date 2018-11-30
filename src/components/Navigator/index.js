@@ -17,13 +17,22 @@ import {
 } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import './Navigator.scss';
-export default class Navigator extends React.Component {
+import { connect } from 'react-redux';
+const mapStateToProps = state => {
+  // console.log(state.order);
+  return {
+    loginin: state.order.loginin
+  };
+};
+
+class Navigator extends React.Component {
   constructor(props) {
     super(props);
 
     this.toggle = this.toggle.bind(this);
     this.state  = {
-      isOpen: false
+      isOpen     : false,
+      loginButton: '登录/注册'
     };
   }
   toggle() {
@@ -35,17 +44,30 @@ export default class Navigator extends React.Component {
     // console.log(this.props.history.location.pathname);
     // console.log(this.refs.medicine.value);
     if (this.refs.medicine.value) {
-      let url = `${this.props.history.location.pathname}medicine/?search=${
-        this.refs.medicine.value
-      }`;
+      let url = `/home/medicine/search=${this.refs.medicine.value}`;
       this.props.history.push(url);
     }
   };
-  loginClick = () => {
-    console.log(this.props);
-    this.props.history.push('/login');
+  loginClick = e => {
+    // console.log(this.props);
+    // console.log(e.target.value);
+    // this.props.history.push('/login');
+    if (e.target.value == '登录/注册') {
+      this.props.history.push('/login');
+    } else {
+      this.props.history.push('/home/personal');
+    }
+  };
+  componentWillMount = () => {
+    // console.log(this.state.loginButton);
+    if (this.props.loginin) {
+      this.setState({
+        loginButton: '个人中心'
+      });
+    }
   };
   render() {
+    // console.log(this.props.loginin);
     return (
       <div>
         <div id="top_top">
@@ -72,8 +94,13 @@ export default class Navigator extends React.Component {
               <img src={require('../../../assets/images/logo/画板 1.png')} />
             </Col>
             <Col lg="4" id="sign_box">
-              <Button color="primary" id="sign" onClick={this.loginClick}>
-                登录/注册
+              <Button
+                color   = "primary"
+                id      = "sign"
+                onClick = {this.loginClick}
+                value   = {this.state.loginButton}
+              >
+                {this.state.loginButton}
               </Button>
             </Col>
           </Row>
@@ -130,3 +157,4 @@ export default class Navigator extends React.Component {
     );
   }
 }
+export default connect(mapStateToProps)(Navigator);

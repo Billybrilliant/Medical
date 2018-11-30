@@ -30,7 +30,7 @@ export default class Article extends Component {
                   top
                   width  = "100%"
                   height = "300px"
-                  src    = "./assets/images/g1yqm8hu.jpg"
+                  src    = {require('../../../assets/images/g1yqm8hu.jpg')}
                   alt    = "Card image cap"
                 />
               </Col>
@@ -51,7 +51,7 @@ export default class Article extends Component {
               </Col>
             </Row>
           </NavLink>
-          <NavLink to="/home/article/Parenting">
+          <NavLink to="/home/article/yuerjing2">
             <Row style={{ marginTop: '80px' }}>
               <Col md="4" style={{ padding: 0 }}>
                 <Card>
@@ -61,11 +61,7 @@ export default class Article extends Component {
                       不必刻意观察，孩子就感受到我们太多的东西!不必刻意模仿，孩子就模仿了我们太多的态！
                       我们想怎样并不重要，孩子从我们的行为中看到了什么、学到了什么才重要！
                     </CardText>
-                    <CardText>
-                      <small className="text-muted">
-                        Last updated 3 mins ago
-                      </small>
-                    </CardText>
+                    <CardText />
                   </CardBody>
                 </Card>
               </Col>
@@ -74,20 +70,20 @@ export default class Article extends Component {
                   top
                   width  = "100%"
                   height = "300px"
-                  src    = "./assets/images/yuer.jpg"
+                  src    = {require('../../../assets/images/yuer.jpg')}
                   alt    = "Card image cap"
                 />
               </Col>
             </Row>
           </NavLink>
-          <NavLink to="/home/article/hypertension">
+          <NavLink to="/home/article/gaoxueyaDetail">
             <Row style={{ marginTop: '80px', marginBottom: '80px' }}>
               <Col md="8" style={{ padding: 0 }}>
                 <CardImg
                   top
                   width  = "100%"
                   height = "300px"
-                  src    = "./assets/images/xueya.jpg"
+                  src    = {require('../../../assets/images/xueya.jpg')}
                   alt    = "Card image cap"
                 />
               </Col>

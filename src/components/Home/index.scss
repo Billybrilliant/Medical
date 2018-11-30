@@ -88,7 +88,7 @@ $maincolor:#4ebec0;
             width     : 360px;
             height    : 580px;
             text-align: center;
-            transition: all 1s;
+            transition: all .5s;
             position  : relative;
             cursor    : pointer;
 
@@ -208,8 +208,8 @@ $maincolor:#4ebec0;
         position  : relative;
 
         img {
-            height: 400px;
-            width : 400px;
+            height: 100%;
+            width : 100%;
         }
 
         .articlList {
@@ -245,8 +245,11 @@ $maincolor:#4ebec0;
             text-align: left;
 
             >div:hover {
-                color : $maincolor;
-                cursor: pointer;
+                color        : $maincolor;
+                cursor       : pointer;
+                overflow     : hidden;
+                text-overflow: ellipsis;
+                white-space  : nowrap;
             }
 
             h3 {
@@ -257,16 +260,16 @@ $maincolor:#4ebec0;
                 margin-top    : 20px;
             }
 
-            h6 {
-                margin-top   : 40px;
-                font-size    : 14px;
-                overflow     : hidden;
-                white-space  : nowrap;
-                text-overflow: ellipsis;
-            }
+            // h5 {
+            //     margin-top   : 40px;
+            //     font-size    : 14px;
+            //     overflow     : hidden;
+            //     white-space  : nowrap;
+            //     text-overflow: ellipsis;
+            // }
 
             p {
-                font-size    : 12px;
+                font-size    : 16px;
                 height       : 34px;
                 overflow     : hidden;
                 white-space  : nowrap;
