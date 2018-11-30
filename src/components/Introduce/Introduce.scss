@@ -95,18 +95,20 @@
 
 }
 
-.h-mid2-nr span:first-child{
-    font-size: 18px;
+.h-mid2-nr .intro-dname{
+    font-size: 20px;
     margin-right: 8px;
     font-weight: 600;
 
 }
-.h-mid2-nr span,.h-mid2-nr p{
+.h-mid2-nr .intro-dlevel,.h-mid2-nr p{
     color:#585858;
+    font-size: 16px;
 }
 .h-mid2-nr p{
-    margin-top:10px;
+    margin-top:5px;
     // max-height: 96px;
+    font-size: 16px;
     overflow: hidden;
     text-overflow:ellipsis;
     white-space: nowrap;
