@@ -26,25 +26,31 @@ export default class Chart extends Component {
   }
 
   submitData = e => {
-    //console.log(this.state.imgList);
-    //console.log(this.state.inputValue);
-    //e.preventDefault();
-    this.props.history.push('question');
-
-    var url = `http://47.92.98.104:8080/jkwy/InsertMaster_pasteServlet`;
-    if(this.state.did !== '' && this.state.imgList.length > 0 && this.state.inputValue !== ''){
-      Axios({
-        url   : url,
-        method: 'post',
-        data  : {
-          did       : this.state.did,
-          imgList   : this.state.imgList,
-          inputValue: this.state.inputValue
-        }
-      }).then(res=>{
-        //后端实现跳转，这里我们就不做什么操作了
-      })
+    // console.log(this.state.imgList);
+    // console.log(this.state.inputValue);
+    // e.preventDefault();
+    var imgValue = this.state.imgList;
+    var baseList = [];
+    var len      = imgValue.length;
+    for(var i=0;i<len;i++){
+      baseList.push(imgValue[i].base64);
     }
+    console.log(baseList);
+    e.preventDefault();
+    // var url = `http://47.92.98.104:8080/jkwy/InsertMaster_pasteServlet`;
+    // if(this.state.did !== '' && this.state.imgList.length > 0 && this.state.inputValue !== ''){
+    //   Axios({
+    //     url   : url,
+    //     method: 'post',
+    //     data  : {
+    //       did       : this.state.did,
+    //       imgList   : this.state.imgList,
+    //       inputValue: this.state.inputValue
+    //     }
+    //   }).then(res=>{
+    //     //后端实现跳转，这里我们就不做什么操作了
+    //   })
+    // }
   };
 
   handleInputChange = e => {
