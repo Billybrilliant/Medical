@@ -19,7 +19,7 @@ export default class ArticleDetail extends Component {
   componentWillMount() {
     // console.log(this.props.location.search.split('?')[1]);
     var path = this.props.match.params.ttopic;
-    if (path == 'food') {
+    if (path == 'food2') {
       Axios({
         url   : 'http://47.92.98.104:8080/jkwy/findfood',
         method: 'get'
@@ -67,7 +67,7 @@ export default class ArticleDetail extends Component {
                 <Media body>
                   <Media heading>{data[i].title}</Media>
                   <div className="author" />
-                  {data[i].cdesc}
+                  {data[i].desc}
                 </Media>
               </Media>
             );
@@ -80,9 +80,9 @@ export default class ArticleDetail extends Component {
         });
       });
     }
-    if (path == 'Parenting') {
+    if (path == 'yuerjing2') {
       Axios({
-        url   : 'http://47.92.98.104:8080/jkwy/yuerjing',
+        url   : 'http://47.92.98.104:8080/jkwy/yuerjing?type=1',
         method: 'get'
       }).then(res => {
         // console.log(res.data.data);
@@ -124,7 +124,7 @@ export default class ArticleDetail extends Component {
               <Media body>
                 <Media heading>{data[i].title}</Media>
                 <div className="author" />
-                {data[i].cdesc}
+                {data[i].desc}
               </Media>
             </Media>
           );
@@ -136,7 +136,7 @@ export default class ArticleDetail extends Component {
         });
       });
     }
-    if (path == 'hypertension') {
+    if (path == 'gaoxueyaDetail') {
       Axios({
         url   : 'http://47.92.98.104:8080/jkwy/gaoxueya',
         method: 'get'
@@ -177,7 +177,7 @@ export default class ArticleDetail extends Component {
               <Media body>
                 <Media heading>{data[i].title}</Media>
                 <div className="author" />
-                {data[i].instruction}
+                {data[i].desc}
               </Media>
             </Media>
           );

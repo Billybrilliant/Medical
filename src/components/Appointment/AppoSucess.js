@@ -144,8 +144,6 @@ class AppoSuccess extends Component {
             </div>
         </div>
         )
-
-
   }
 }
 export default connect(

@@ -17,8 +17,9 @@ import Axios from 'axios';
 export default class Chart extends Component {
   constructor(props) {
     super(props);
-    this.state             = {
-      did       : '',
+    this.state = {
+      tsid      : '',
+      uid       : '',
       source    : '',
       imgList   : [],
       inputValue: ''
@@ -26,32 +27,49 @@ export default class Chart extends Component {
   }
 
   submitData = e => {
-    //console.log(this.state.imgList);
-    //console.log(this.state.inputValue);
-    //e.preventDefault();
-    this.props.history.push('question');
-
-    var url = `http://47.92.98.104:8080/jkwy/InsertMaster_pasteServlet`;
-    if(this.state.did !== '' && this.state.imgList.length > 0 && this.state.inputValue !== ''){
-      Axios({
-        url   : url,
-        method: 'post',
-        data  : {
-          did       : this.state.did,
-          imgList   : this.state.imgList,
-          inputValue: this.state.inputValue
-        }
-      }).then(res=>{
-        //后端实现跳转，这里我们就不做什么操作了
-      })
+    // console.log(this.state.imgList);
+    // console.log(this.state.inputValue);
+    // e.preventDefault();
+    if (
+      this.state.tsid !== '' &&
+      this.state.uid !== '' &&
+      this.state.inputValue !== '' &&
+      this.state.imgList !== ''
+    ) {
+      //提交数据
+    } else {
+      //阻止默认事件
     }
+
+    var imgValue = this.state.imgList;
+    var baseList = [];
+    var len      = imgValue.length;
+    for (var i = 0; i < len; i++) {
+      baseList.push(imgValue[i].base64);
+    }
+    console.log(baseList);
+    e.preventDefault();
+    // var url = `http://47.92.98.104:8080/jkwy/InsertMaster_pasteServlet`;
+    // if(this.state.did !== '' && this.state.imgList.length > 0 && this.state.inputValue !== ''){
+    //   Axios({
+    //     url   : url,
+    //     method: 'post',
+    //     data  : {
+    //       did       : this.state.did,
+    //       imgList   : this.state.imgList,
+    //       inputValue: this.state.inputValue
+    //     }
+    //   }).then(res=>{
+    //     //后端实现跳转，这里我们就不做什么操作了
+    //   })
+    // }
   };
 
   handleInputChange = e => {
     this.setState({
-        inputValue: e.target.value
+      inputValue: e.target.value
     });
-  }
+  };
 
   componentWillMount() {
     //判断是否有id传过来
@@ -79,8 +97,6 @@ export default class Chart extends Component {
   }
 
   render() {
-    //console.log(this.state.did);
-    //console.log(document.getElementsByClassName('questionHead'));
     let Header;
     if (this.state.did !== undefined) {
       Header = (
@@ -116,7 +132,7 @@ export default class Chart extends Component {
                   name     = "text"
                   id       = "exampleText"
                   value    = {this.state.inputValue}
-                  onChange = {(e) => this.handleInputChange(e)}
+                  onChange = {e => this.handleInputChange(e)}
                   style    = {{
                     borderRadius: 0,
                     minHeight   : '200px',
@@ -186,18 +202,18 @@ export default class Chart extends Component {
             style = {{ border: '2px solid #999', borderLeft: '1px solid #999' }}
           >
             <NavLink href="#/home/personal">
-            <Row
-              style={{
-                textAlign    : 'center',
-                verticalAlign: 'middle',
-                padding      : '10px'
-              }}
-            >
-              <Col>
-                <img src="../../../assets/images/My.png" />
-                我的
-              </Col>
-            </Row>
+              <Row
+                style={{
+                  textAlign    : 'center',
+                  verticalAlign: 'middle',
+                  padding      : '10px'
+                }}
+              >
+                <Col>
+                  <img src="../../../assets/images/My.png" />
+                  我的
+                </Col>
+              </Row>
             </NavLink>
           </Col>
         </Row>

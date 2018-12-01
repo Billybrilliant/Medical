@@ -2,12 +2,20 @@ import React, { Component } from 'react';
 import './Introduce.scss';
 // import axios from 'axios';
 // import store from '../../store/index';
-import { hosAjax } from '../../actions/counter';
+import { hosAjax,hosMsgAjax } from '../../actions/counter';
 import { connect } from 'react-redux';
 // import {pure} from 'recompose';
 
 const mapStateToProps = state => {
-  return Object.assign(state, { hosreducer: { list: state.hosreducer.list } });
+  return Object.assign(state, {
+     hosreducer: {
+       list: state.hosreducer.list,
+       hospital:state.hosreducer.hospital
+    },
+    chart:{
+      hostipal:state.chart.hospital
+    }
+   });
 };
 
 
@@ -15,6 +23,8 @@ const mapStateToProps = state => {
 class Introduce extends Component {
   componentWillMount() {
     this.props.hosAjax();
+    // this.props.hosMsgAjax();
+
   }
 
 
@@ -23,7 +33,7 @@ class Introduce extends Component {
     return (
       <div className="introduce-box">
         <div className="container mcontain hospital-top ">
-          <h2>复旦大学附属华山医院-传染科</h2>
+          <h2>{"复旦大学附属华山医院-传染科"}</h2>
         </div>
         <div className="container mcontain hospital-top2">
           <p>
@@ -55,7 +65,7 @@ class Introduce extends Component {
           <img src="../../../assets/images/icon-hospital/doctor.png" alt="" />
           <div className="h-mid-r">
             <h2>科室专家</h2>
-            <input type="text" placeholder="查找专家" />
+            <input type="text" placeholder="查找专家" disabled />
           </div>
         </div>
 
@@ -115,9 +125,9 @@ class Tab extends Component {
                     className = "h-mid2-nr col-xs-12 col-sm-6 col-md-4 col-lg-4"
                     key       = {index}
                   >
-                    <span>{data.dname}</span>
-                    {/* <span>{data.type}</span> */}
-                    {/* <p>擅长 ：{data.text}</p> */}
+                    <span className="intro-dname">{data.dname}</span>
+                    <span className="intro-dlevel">{data.level}</span>
+                    <p className="intro-dape">擅长 ：{data.apecial}</p>
                   </div>
                 );
               })
@@ -125,7 +135,7 @@ class Tab extends Component {
         </div>
         <div className="mpage">
           <button>上一页</button>
-          <span> / </span>
+          <span>1 / 1</span>
           <button>下一页</button>
         </div>
       </div>
@@ -135,7 +145,7 @@ class Tab extends Component {
 
 // Introduce=pure(Introduce);
 
-export default (Introduce = connect(
+export default Introduce = connect(
   mapStateToProps,
-  { hosAjax }
-)(Introduce));
+  { hosAjax,hosMsgAjax }
+)(Introduce);

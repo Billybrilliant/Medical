@@ -20,8 +20,8 @@ class Details extends Component {
   }
   getData() {
     axios({
-      url   : 'http://localhost:3000/medical/allData',
-      method: 'post'
+      url   : `http://47.92.98.104:8080/jkwy/medicinal/${mid}`,
+      method: 'get'
     }).then(res => {
       console.log(res.data);
       var data = res.data;
@@ -61,11 +61,11 @@ class Details extends Component {
             <p>
               健胃消食，用于脾胃虚弱所致的食积，症见不思饮食嗳腐酸臭、脘腹胀满，消化不良见上述症候者...
             </p>
-            <div className="goods_price">
+          {/*   <div className="goods_price">
               <span> 市 场 价 ：</span>
               <span>￥</span>
               <span>11.00</span>
-            </div>
+    </div> */}
             <div className="goods_name">
               <span>通用名称：</span>
               <span className="public_name">健胃消食片</span>
@@ -78,10 +78,10 @@ class Details extends Component {
               <span>批准文号：</span>
               <span>国药准字号Z20013220</span>
             </div>
-            <div className="goods_vender">
+           {/*  <div className="goods_vender">
               <span>生产厂家：</span>
               <span className="company">江中药业股份有限公司</span>
-            </div>
+  </div> */}
           </Col>
         </Row>
         <Row>

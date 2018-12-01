@@ -47,8 +47,8 @@ export default class Appointment extends Component {
     // console.log(this.state.selectedDay.toLocaleDateString());
     // console.log(this.state.radioValue);
     //console.log(this.state.inputValue);
-    e.preventDefault();
-    this.props.history.push('apposuccess');
+    //e.preventDefault();
+    this.props.history.push('apposuccess/?cid=1');
   };
 
   componentWillMount(){
