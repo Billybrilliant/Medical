@@ -46,6 +46,12 @@ export default class Appointment extends Component {
     })
   }
   handleSubmit=props=>{
+    var userJsonStr = sessionStorage.getItem('user');
+    var userEntity  = JSON.parse(userJsonStr);
+
+    if (!userEntity) {
+      this.props.history.push('/login');
+    }
     console.log(this.props);
     axios({
       url   : 'http://47.92.98.104:8080/jkwy/doctor',
