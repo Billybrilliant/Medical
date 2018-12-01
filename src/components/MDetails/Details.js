@@ -18,9 +18,11 @@ class Details extends Component {
       myText: ''
     };
   }
-  getData() {
+  getData=(props)=> {
+    console.log(this.props)
+    console.log(this.props.match.params.id.split('=')[1]);
     axios({
-      url   : `http://47.92.98.104:8080/jkwy/medicinal/${mid}`,
+      url   : `http://47.92.98.104:8080/jkwy/medicinal?mid=${this.props.match.params.id.split('=')[1]}`,
       method: 'get'
     }).then(res => {
       console.log(res.data);
