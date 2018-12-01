@@ -43,7 +43,6 @@ class Medicine extends Component {
     this.toggle = this.toggle.bind(this);
     this.state  = {
       activeTab: '1',
-
       result   : [],
       fmed:[],
       inres:[]
@@ -83,13 +82,22 @@ class Medicine extends Component {
 
   }
   componentDidMount() {
-      // console.log('med组件--->',store.getState());
+
+
       // 取值时：把获取到的Json字符串转换回对象
       // var userJsonStr = sessionStorage.getItem('user');
       // var userEntity = JSON.parse(userJsonStr);
       this.toggle(1);
       this.props.fetchPageList();
       var _that=this;
+      axios({
+        url:'http://47.92.98.104:8080/jkwy/typeMedicinals?type-id=11',
+        method:'get',
+      }).then(res=>{
+        _that.setState({
+          finres:res.data
+        })
+      })
       setTimeout(function() {
         $('#ul li')
           .eq(0)
@@ -111,7 +119,7 @@ class Medicine extends Component {
             inres:res.data
           })
         })
-        console.log(this.state.inres)
+
       });
       $('.guide-tabs.tab-content').on('click','.tab-pane',function(){
         $(this)
@@ -162,10 +170,9 @@ class Medicine extends Component {
   };
   showTabsMain = () => {
     var  _that=this;
-    // console.log(this.state.inres);
-    if (this.state.inres.length>0) {
-      var Len      = this.state.inres.length;
-      var Res      = this.state.inres;
+    if (this.state.finres) {
+      var Len      = this.state.finres.length;
+      var Res      = this.state.finres;
 
       var classJSX = [];
 
@@ -176,7 +183,7 @@ class Medicine extends Component {
           _that.props.history.push(`/home/medicine/mid=${Res[i].mid}`);
         }
         classJSX.push(
-          <div className="showItem" onClick={jump}>
+          <div className="showItem" onClick={jump} key={i}>
             <a href="javascript:void(0);">
               <div className="our">
                 <img src={'http://47.92.98.104:8080'+Res[i].image}/>
@@ -211,36 +218,19 @@ class Medicine extends Component {
 
     return pJSX;
   };
-  showMed = () => {
-    if (this.props.pages) {
-      var sLen    = this.props.pages.length;
-      var ss      = this.props.pages;
-      var showJSX = [];
-
-      for (let i = 0; i < sLen - 1; i++) {
-        showJSX.push(
-          <div className="showItem" key={i} >
-            <a href="#">
-              <div className="our">
-                <img src={ss[i].imageNo} />
-              </div>
-              <p>{ss[i].intro}</p>
-            </a>
-          </div>
-        );
-      }
-      return showJSX;
-    }
-  };
-
 
   showFamily=()=>{
+
     if(this.state.fmed){
       var classJSX=[];
       var fMed=this.state.fmed;
       for(let i=0;i<fMed.length;i++){
+        function family(e){
+         var ftype=i+10;
+
+        }
         classJSX.push(
-          <li key={i}>{fMed[i].ftype} &nbsp;&nbsp;&nbsp;&gt;</li>
+          <li key={i} onClick={family}>{fMed[i].ftype} &nbsp;&nbsp;&nbsp;&gt;</li>
         )
       }
       return classJSX;
@@ -259,6 +249,7 @@ class Medicine extends Component {
           <div key={i}  className="dong_pic">
           <a href="#">
             <div >
+
             <img src={'http://47.92.98.104:8080'+vres[i].image} />
             </div>
             <p>药品名称：{vres[i].name}</p>
@@ -305,6 +296,7 @@ class Medicine extends Component {
             <div className="showItem">
               <a href="#">
                 <div className="our">
+
                   <img src={require('../../../assets/images/med/pic_1.png')} />
                 </div>
                 <p>江中 健胃消食片 0.8g</p>
@@ -361,13 +353,13 @@ class Medicine extends Component {
                 <div className="showFamily">
                 {this.showTabsMain()}
                 </div>
-                {this.showMed()}
+                {/* {this.showMed()} */}
                 {/* 分页   */}
                 <Pagination
                   aria-label = "Page navigation example"
                   className  = "page"
                 >
-                  {this.showPageitem()}
+                  {/* {this.showPageitem()} */}
                 </Pagination>
               </Col>
             </Row>
