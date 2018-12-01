@@ -139,7 +139,7 @@ export default class Home extends Component {
       url   : 'http://47.92.98.104:8080/jkwy/Master_pasteServlet1',
       method: 'get'
     }).then(res => {
-      console.log(res.data.data);
+      // console.log(res.data.data);
       // console.log(res.data[0].zhutie);
       // console.log(res.data[0].zhutie[0].ttopic);
       // console.log(res.data[0].zhutie[0].tcontents);
@@ -148,7 +148,7 @@ export default class Home extends Component {
       for (let i = 0; i < data.length; i++) {
         // console.log(data[i].zhutie.length);
         // for (let j = 0; j < data[i].zhutie.length; j++) {
-        console.log(data[i].tContents);
+        // console.log(data[i].tContents);
         if (answersList.length < 8) {
           answersList.push(
             <div key={i} onClick={this.answerClick.bind(this, data[i].tid)}>

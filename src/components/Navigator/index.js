@@ -18,12 +18,12 @@ import {
 import { NavLink } from 'react-router-dom';
 import './Navigator.scss';
 import { connect } from 'react-redux';
-const mapStateToProps = state => {
-  // console.log(state.order);
-  return {
-    loginin: state.order.loginin
-  };
-};
+// const mapStateToProps = state => {
+//   // console.log(state.order);
+//   return {
+//     loginin: state.order.loginin
+//   };
+// };
 
 class Navigator extends React.Component {
   constructor(props) {
@@ -157,4 +157,5 @@ class Navigator extends React.Component {
     );
   }
 }
-export default connect(mapStateToProps)(Navigator);
+// export default connect(mapStateToProps)(Navigator);
+export default Navigator;

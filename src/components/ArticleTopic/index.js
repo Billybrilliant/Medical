@@ -67,7 +67,7 @@ export default class ArticleDetail extends Component {
                 <Media body>
                   <Media heading>{data[i].title}</Media>
                   <div className="author" />
-                  {data[i].cdesc}
+                  {data[i].desc}
                 </Media>
               </Media>
             );
@@ -124,7 +124,7 @@ export default class ArticleDetail extends Component {
               <Media body>
                 <Media heading>{data[i].title}</Media>
                 <div className="author" />
-                {data[i].cdesc}
+                {data[i].desc}
               </Media>
             </Media>
           );
@@ -177,7 +177,7 @@ export default class ArticleDetail extends Component {
               <Media body>
                 <Media heading>{data[i].title}</Media>
                 <div className="author" />
-                {data[i].instruction}
+                {data[i].desc}
               </Media>
             </Media>
           );
