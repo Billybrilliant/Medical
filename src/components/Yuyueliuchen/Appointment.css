@@ -1,8 +1,8 @@
-body{
+body {
     font-size: 16px;
 }
 
-h3{
+h3 {
     height     : 60px;
     font-size  : 30px;
     color      : #151515;
@@ -11,36 +11,36 @@ h3{
     padding    : 0;
 }
 
-.noPadding{
+.noPadding {
     padding: 0;
 }
 
-.noMargin{
+.noMargin {
     margin: 0;
 }
 
-.commonMarginTop{
+.commonMarginTop {
     margin-top: 62px;
 }
 
-.commonContent{
+.commonContent {
     border          : 2px solid #999999;
     background-color: #f8f8f8;
 }
 
 .form-group {
     margin-bottom: 0;
-  }
+}
 
-.docHeader{
+.docHeader {
     background-color: #f8f8f8;
 }
 
-.docContent{
+.docContent {
     height: 182px;
 }
 
-#headPhoto{
+#headPhoto {
     float        : left;
     width        : 126px;
     height       : 126px;
@@ -49,47 +49,51 @@ h3{
     margin-left  : 40px;
 }
 
-#headPhoto>img{
+#headPhoto>img {
     width        : 100%;
     height       : 100%;
     border-radius: 50%;
 }
 
-#headContent{
+#headContent {
     float      : left;
     margin-left: 30px;
     margin-top : 26px;
 }
 
-#headContent>p{
+#headContent>p {
     margin-top: 20px;
 }
 
-#headRight{
+#headRight {
     float      : left;
     height     : 126px;
     margin-top : 26px;
     border-left: 2px solid #666;
 }
 
-#headRight>p{
+#headRight>p {
     margin-left: 40px;
     margin-top : 18px;
 }
 
-#headRight>p>span{
+#headRight>p>span {
     color: blue;
 }
 
-#time div{
+#time div {
     display: block;
 }
 
-#timeContent{
+#timeContent {
     margin-left: 15px;
 }
 
-#timeContent .radio1,#timeContent .radio2,#timeContent .radio3,#timeContent .radio4,#timeContent .radio5{
+#timeContent .radio1,
+#timeContent .radio2,
+#timeContent .radio3,
+#timeContent .radio4,
+#timeContent .radio5 {
     display      : inline-block;
     border       : 1px solid #999;
     padding      : 5px 15px;
@@ -97,43 +101,64 @@ h3{
     margin-bottom: 35px;
 }
 
-.line60{
+#timeContent .radio1 div,
+#timeContent .radio2 div,
+#timeContent .radio3 div,
+#timeContent .radio4 div,
+#timeContent .radio5 div,
+.haveChecked div {
+    text-align: center;
+    padding   : 0;
+}
+
+#timeContent .radio1 input,
+#timeContent .radio2 input,
+#timeContent .radio3 input,
+#timeContent .radio4 input,
+#timeContent .radio5 input,
+.haveChecked input {
+    position: relative;
+    left    : -3px;
+    top     : 1px;
+}
+
+.line60 {
     line-height: 60px;
 }
 
-#addMan{
+#addMan {
     width : 145px;
     height: 35px;
 }
 
-#patientMan{
+#patientMan {
     padding: 25px 40px;
 }
 
-#ruleContent{
+#ruleContent {
     padding: 25px 40px;
 }
 
-#ruleContent>div{
+#ruleContent>div {
     display: block;
 }
 
-.haveChecked{
+.haveChecked {
     padding: 20px 0 40px 44px;
     color  : #4fbec1;
 }
 
-.rulePass{
+.rulePass {
     padding: 20px 0 40px 44px;
 }
 
-.authCode{
+.authCode {
     width      : 136px;
     height     : 30px;
     margin-left: 22px;
 }
 
-.rulePass>div{
+.rulePass>div {
     width       : 80px;
     height      : 30px;
     line-height : 26px;
@@ -144,17 +169,17 @@ h3{
     padding-left: 13px;
 }
 
-.rulePass>span{
+.rulePass>span {
     color : #4fbec1;
     cursor: pointer;
 }
 
-.submitForm{
+.submitForm {
     padding-left : 44px;
     margin-bottom: 75px;
 }
 
-.submit{
+.submit {
     width      : 305px;
     height     : 46px;
     font-size  : 26px;

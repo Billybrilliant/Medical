@@ -25,7 +25,8 @@ export default class Appointment extends Component {
       radioValue : '',
       inputValue : '',
       docUser    : '',
-      customer   : ''
+      customer   : '',
+      did        : ''
     };
   }
 
@@ -46,29 +47,61 @@ export default class Appointment extends Component {
   }
 
   handerSubmit = e => {
-    // console.log(this.state.selectedDay.toLocaleDateString());
-    // console.log(this.state.radioValue);
-    //console.log(this.state.inputValue);
-    e.preventDefault();
-    //this.props.history.push('apposuccess/?cid=1');
+    if (
+      this.state.selectedDay !== undefined &&
+      this.state.radioValue !== '' &&
+      this.state.code == this.state.inputValue
+    ) {
+      // console.log(this.state.selectedDay.toLocaleDateString());
+      // console.log(this.state.radioValue);
+      // e.preventDefault();
+      Axios({
+        url   : 'http://47.92.98.104:8080/jkwy/AddOrderServlet',
+        method: 'post',
+        data  : {
+          uid  : this.state.customer.uid,
+          did  : this.state.did,
+          date : this.state.selectedDay,
+          time : this.state.radioValue,
+          dname: this.state.docUser.dname,
+          uname: this.state.customer.uname
+        }
+      }).then(res=>{
+        console.log(res.data);
+        // var message = res.data;
+        // var oid     = message.oid;
+        // var uid     = this.state.customer.uid;
+        // var did     = this.state.did;
+        // this.props.history.push(`/home/apposuccess?oid=${oid}&uid=${uid}&did=${did}`);
+      });
+    }
   };
 
-  componentWillMount(){
+  componentWillMount() {
     //获取医生信息
     var docid = this.props.location.search.split('=')[1];
+    this.setState({
+      did: docid
+    })
     Axios({
       url   : 'http://47.92.98.104:8080/jkwy/doctor',
       method: 'get',
       params: {
         did: docid
       }
-    }).then(res=>{
+    }).then(res => {
       //console.log(res.data);
       this.setState({
         docUser: res.data
-      })
-    })
+      });
+    });
     //获取用户信息
+    var userMessage = sessionStorage.getItem('user');
+    var userEntry   = JSON.parse(userMessage);
+    //console.log(userEntry);
+    this.setState({
+      customer: userEntry
+    });
   }
 
   componentDidMount() {
@@ -120,8 +153,9 @@ export default class Appointment extends Component {
   }
 
   render() {
-    const { selectedDay }                       = this.state;
-    const {dname,dimage,hospital,level,section} = this.state.docUser;
+    const { selectedDay }                             = this.state;
+    const { dname, dimage, hospital, level, section } = this.state.docUser;
+    const { uname, address, sex, age, phone, email }  = this.state.customer;
     return (
       <Form onSubmit={this.handerSubmit}>
         {/* 医生信息 */}
@@ -137,7 +171,9 @@ export default class Appointment extends Component {
                 </div>
                 <div id="headContent">
                   <h4>{dname}</h4>
-                  <p>{section} {level}</p>
+                  <p>
+                    {section} {level}
+                  </p>
                   <p>{hospital}</p>
                 </div>
               </Col>
@@ -251,7 +287,9 @@ export default class Appointment extends Component {
               </Col>
             </Row>
             <Row className="commonContent" id="patientMan">
-              朱佳杰 男 身份证 330************0315 1996-01-01 178**** 8073
+              <span>姓名：{uname}</span> <span>年龄：{age}</span>&nbsp;
+              <span>性别：{sex}</span> <span>住址：{address}</span>&nbsp;
+              <span>联系电话：{phone}</span> <span>邮箱：{email}</span>
             </Row>
           </Container>
         </div>
@@ -286,15 +324,6 @@ export default class Appointment extends Component {
               <div>
                 6.医生接诊速度受患者病情等诸多因素影响，实际就诊时间可能提前或推后，敬请知悉！
               </div>
-            </Row>
-
-            <Row className="haveChecked">
-              <FormGroup check>
-                <Label check>
-                  <Input type="checkbox" ref="ifChecked" />{' '}
-                  我已认真了解此医院的预约规则
-                </Label>
-              </FormGroup>
             </Row>
 
             <Row className="rulePass">
