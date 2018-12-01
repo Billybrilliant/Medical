@@ -12,6 +12,8 @@ import {
 } from 'reactstrap';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
+import Axios from 'axios';
+
 export default class Appointment extends Component {
   constructor(props) {
     super(props);
@@ -47,12 +49,26 @@ export default class Appointment extends Component {
     // console.log(this.state.selectedDay.toLocaleDateString());
     // console.log(this.state.radioValue);
     //console.log(this.state.inputValue);
-    //e.preventDefault();
-    this.props.history.push('apposuccess/?cid=1');
+    e.preventDefault();
+    //this.props.history.push('apposuccess/?cid=1');
   };
 
   componentWillMount(){
-
+    //获取医生信息
+    var docid = this.props.location.search.split('=')[1];
+    Axios({
+      url   : 'http://47.92.98.104:8080/jkwy/doctor',
+      method: 'get',
+      params: {
+        did: docid
+      }
+    }).then(res=>{
+      //console.log(res.data);
+      this.setState({
+        docUser: res.data
+      })
+    })
+    //获取用户信息
   }
 
   componentDidMount() {
@@ -104,7 +120,8 @@ export default class Appointment extends Component {
   }
 
   render() {
-    const { selectedDay } = this.state;
+    const { selectedDay }                       = this.state;
+    const {dname,dimage,hospital,level,section} = this.state.docUser;
     return (
       <Form onSubmit={this.handerSubmit}>
         {/* 医生信息 */}
@@ -116,18 +133,18 @@ export default class Appointment extends Component {
             <Row className="docContent commonContent" id="docInfoHead">
               <Col className="noPadding">
                 <div id="headPhoto">
-                  <img src="../../../assets/images/Yuyue.jpg" />
+                  <img src={'http://47.92.98.104:8080' + dimage} />
                 </div>
                 <div id="headContent">
-                  <h4>董军</h4>
-                  <p>骨科 主治医师</p>
-                  <p>西安交通大学医学院第二附属医院</p>
+                  <h4>{dname}</h4>
+                  <p>{section} {level}</p>
+                  <p>{hospital}</p>
                 </div>
               </Col>
               <Col className="noPadding">
                 <div id="headRight">
                   <p>
-                    门诊类型: <span id="outServerClass">骨科</span>
+                    门诊类型: <span id="outServerClass">{section}</span>
                   </p>
                   <p>
                     费用：<span id="cost">0.00元</span>
@@ -288,7 +305,7 @@ export default class Appointment extends Component {
                 value     = {this.state.inputValue}
                 onChange  = {e => this.handerInput(e)}
               />{' '}
-              <div>{this.state.code}</div>
+              <div id="stateCode">{this.state.code}</div>
               <span onClick={this.changeCode}>看不清？换一张</span>
             </Row>
 
