@@ -98,7 +98,7 @@ export default class Appointment extends Component {
   render() {
     return (
       <div>
-      <Navigator />
+      <Navigator history={this.props.history}/>
       <Container>
         {/* <Row>
           <Col id="look_title">
