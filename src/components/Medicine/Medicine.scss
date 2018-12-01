@@ -46,9 +46,28 @@ a {
       .tabs-right {
         background: #fff;
         padding: 40px 60px;
+        height:458px;
+        overflow: hidden;
         .tab-content {
+
           .active {
             background: #fff;
+          }
+          .dong_pic{
+            width: 40%;
+            margin-right:3%;
+            height: 100%;
+            float: left;
+          a{
+            color:#333;
+            #func{
+
+              display: -webkit-box;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 3;
+              overflow: hidden;
+            }
+          }
           }
           h6 {
             font-size: 13px;
@@ -90,7 +109,7 @@ a {
       margin: 70px 0;
       overflow: hidden;
       .showItem {
-        width: 202px;
+        width: 200px;
         margin-right: 32px;
         float: left;
         a {
@@ -99,9 +118,12 @@ a {
 
           .our {
             border: 1px solid #a4a4a4;
-            width: 202px;
-            height: 202px;
+            width: 198px;
+            height: 198px;
             overflow: hidden;
+            img{
+
+            }
           }
           .our > img:hover {
             transform: scale(1.2);
@@ -173,6 +195,10 @@ a {
                 width: 202px;
                 height: 202px;
                 overflow: hidden;
+                img{
+                  width:198px;
+                  height:198px;
+                }
               }
               .our > img:hover {
                 transform: scale(1.2);

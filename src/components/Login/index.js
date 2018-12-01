@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
 import './Login.scss';
-// import store from '../../store';
+import store from '../../store';
 import {getLogin} from '../../actions';
 const mapStateToProps = state => {
     return {
@@ -16,7 +16,7 @@ constructor(props) {
     this.state = {userName:"",password:"",utype:''};
  }
 componentDidMount(){
-// console.log('login组件--->',store.getState());
+
 }
 
 handleSubmit=(event) =>{
@@ -42,14 +42,18 @@ handleSubmit=(event) =>{
 
           }).then(res=>{
 
-                console.log(res.data);
-                if(res.data.msg=="1"){
-                    alert('恭喜你登录成功！');
-                    this.props.getLogin({ loginin: true });
 
-                    this.props.history.push('/');
-                }else if(res.data.msg=="0"){
-                alert('用户名或密码错误！或 用户不存在');
+                if(res.data.msg=="0"){
+                    // this.setState({loginin:false});
+                    alert('用户名或密码错误！或 用户不存在');
+                }else {
+                    this.setState({loginin:true});
+
+                alert('恭喜你登录成功！');
+                this.props.history.push('/');
+                var userEntity=res.data;
+                sessionStorage.setItem('user', JSON.stringify(userEntity));
+
 
                 }
           })
@@ -80,7 +84,7 @@ return (<div className="Login">
                     <input type="submit" value="登&nbsp;&nbsp;录" id="loginBtn"/><br/>
 
                 </form>
-                <div className="login-foo"><a href="javascript:;">&gt;立即注册</a></div>
+                <div className="login-foo"><a href="#/register">&gt;立即注册</a></div>
             </div>
 
 
