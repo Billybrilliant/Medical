@@ -111,6 +111,7 @@ class Medicine extends Component {
             inres:res.data
           })
         })
+        console.log(this.state.inres)
       });
       $('.guide-tabs.tab-content').on('click','.tab-pane',function(){
         $(this)
@@ -160,27 +161,34 @@ class Medicine extends Component {
       }
   };
   showTabsMain = () => {
+    var  _that=this;
+    // console.log(this.state.inres);
+    if (this.state.inres.length>0) {
+      var Len      = this.state.inres.length;
+      var Res      = this.state.inres;
 
-    // if (this.state.result) {
-    //   var Len      = this.state.result.length;
-    //   var Res      = this.state.result;
-    //   var classJSX = [];
-    //   for (let i = 0; i < Len; i++) {
+      var classJSX = [];
 
-    //     classJSX.push(
-    //       <TabPane tabId={i + 1} key={i}>
-    //         <Row>
-    //           <Col sm="12">
-    //             <div>
-    //               <h2>{this.showinner()}</h2>
-    //             </div>
-    //           </Col>
-    //         </Row>
-    //       </TabPane>
-    //     );
-    //   }
-    //   return classJSX;
-    // }
+
+      for (let i = 0; i <8; i++) {
+        function jump(e){
+
+          _that.props.history.push(`/home/medicine/mid=${Res[i].mid}`);
+        }
+        classJSX.push(
+          <div className="showItem" onClick={jump}>
+            <a href="javascript:void(0);">
+              <div className="our">
+                <img src={'http://47.92.98.104:8080'+Res[i].image}/>
+              </div>
+              <p>{Res[i].name}</p>
+            </a>
+          </div>
+
+        );
+      }
+      return classJSX;
+    }
   }
 
   showPageitem = () => {
@@ -208,9 +216,10 @@ class Medicine extends Component {
       var sLen    = this.props.pages.length;
       var ss      = this.props.pages;
       var showJSX = [];
+
       for (let i = 0; i < sLen - 1; i++) {
         showJSX.push(
-          <div className="showItem" key={i}>
+          <div className="showItem" key={i} >
             <a href="#">
               <div className="our">
                 <img src={ss[i].imageNo} />
@@ -239,7 +248,7 @@ class Medicine extends Component {
   };
   showinner=()=>{
 
-    console.log('--->',this.state.inres);
+
     if(this.state.inres.length>0){
       var vLen=this.state.inres.length;
       var vres=this.state.inres;
@@ -247,15 +256,14 @@ class Medicine extends Component {
 
       for(let i=0;i<2;i++){
         classJSX.push(
-          <div key={i}>
+          <div key={i}  className="dong_pic">
           <a href="#">
             <div >
-              wwww
             <img src={'http://47.92.98.104:8080'+vres[i].image} />
             </div>
-            <p>{vres[i].name}</p>
-            <p>{vres[i].use_methods}</p>
-            <span>{vres[i].company}</span>&nbsp;&nbsp; <span>{vres[i].data}</span>
+            <p>药品名称：{vres[i].name}</p>
+            <div id="func">药品用法：{vres[i].use_methods}</div>
+            <span>{vres[i].company}</span>&nbsp;&nbsp; <span> 保质期：{vres[i].data}</span>
           </a>
         </div>
         )
@@ -348,19 +356,12 @@ class Medicine extends Component {
               </Col>
               <Col md={{ size: 10 }} className="tabs-right">
                 <div className="f-top">
-                  <img src="" />
+                  <img src={require('../../../assets/images/med/mid2.png')} />
                 </div>
                 <div className="showFamily">
-                  <div className="showItem">
-                    <a href="#">
-                      <div className="our">
-                        <img src="" />
-                      </div>
-                      <p>江中 健胃消食片 0.8g</p>
-                    </a>
-                  </div>
-                  {this.showMed()}
+                {this.showTabsMain()}
                 </div>
+                {this.showMed()}
                 {/* 分页   */}
                 <Pagination
                   aria-label = "Page navigation example"
@@ -596,7 +597,7 @@ class Medicine extends Component {
               <dd>
                 <i>【神经系统】</i>
                 <span>
-                  壳脂胶囊有效ssssssssssssssssdddddddddddddddddddddddddddddddd期是多久？
+                  壳脂胶囊有效期是多久？
                 </span>
               </dd>
               <dd>
