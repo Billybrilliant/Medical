@@ -28,16 +28,7 @@ class Details extends Component {
       console.log(res.data);
       var data = res.data;
       for (var i in data) {
-        //  console.log(data[i].name);
         this.setState({
-          // name          : res.data.name,
-          // style         : res.data.style,
-          // data          : res.data.data,
-          // main_materials: res.data.main_materials,
-          // effect        : res.data.effect,
-          // use_methods   : res.data.use_methods,
-          // company       : res.data.company,
-          // attention     : res.data.attention
           myText: data[i]
         });
       }
@@ -53,15 +44,15 @@ class Details extends Component {
           <Col xs="6">
             <div id="goods_pic">
               <img
-                src       = {require('../../../assets/images/0d85ae5a637ca44ff1c9da685376612b.png')}
+                src       = {this.state.myText.image}
                 className = "demo-img pos-center"
               />
             </div>
           </Col>
           <Col xs="6" id="goods_details">
-            <h3>江中 健胃消食片(成人)0.8g*32片。</h3>
+            <h3>{this.state.myText.name}</h3>
             <p>
-              健胃消食，用于脾胃虚弱所致的食积，症见不思饮食嗳腐酸臭、脘腹胀满，消化不良见上述症候者...
+             {this.state.myText.effect}
             </p>
           {/*   <div className="goods_price">
               <span> 市 场 价 ：</span>
@@ -70,7 +61,7 @@ class Details extends Component {
     </div> */}
             <div className="goods_name">
               <span>通用名称：</span>
-              <span className="public_name">健胃消食片</span>
+              <span className="public_name">{this.state.myText.name}</span>
             </div>
             <div className="goods_number">
               <span>产品编号：</span>

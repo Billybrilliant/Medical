@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Appointment.scss';
-
 import {
   Col,
   Button,
@@ -12,17 +11,8 @@ import {
   Row
 } from 'reactstrap';
 import axios from 'axios';
+import Navigator from '../Navigator';
 export default class Appointment extends Component {
-  // constructor(props){
-  //   super();
-  //   this.state={
-  //     local:'',
-  //     hospital:'',
-  //     section:'',
-  //     doctor:''
-  //   }
-  // }
-
   constructor(props){
     super(props);
     this.state={
@@ -107,12 +97,14 @@ export default class Appointment extends Component {
 
   render() {
     return (
+      <div>
+      <Navigator />
       <Container>
-        <Row>
+        {/* <Row>
           <Col id="look_title">
             <h2 className="look_doc">" 轻松看名医 "</h2>
           </Col>
-        </Row>
+        </Row> */}
         <Row>
           <Col xs="6" id="registration">
             <h4>快速预约挂号</h4>
@@ -274,6 +266,7 @@ export default class Appointment extends Component {
           </Col>
         </Row>
       </Container>
+      </div>
     );
   }
 }
