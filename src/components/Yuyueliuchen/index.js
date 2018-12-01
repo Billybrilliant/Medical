@@ -214,7 +214,7 @@ export default class Appointment extends Component {
                         name     = "radio1"
                         value    = "09: 00-09: 30"
                         onChange = {e =>
-                          this.handerRadio(editor - icon - align - middle)
+                          this.handerRadio(e)
                         }
                       />
                       09: 00-09: 30
