@@ -48,7 +48,6 @@ export default class Appointment extends Component {
   handleSubmit=props=>{
     var userJsonStr = sessionStorage.getItem('user');
     var userEntity  = JSON.parse(userJsonStr);
-
     if (!userEntity) {
       this.props.history.push('/login');
     }
