@@ -1,73 +1,75 @@
-import React, { Component } from 'react';
-import { Row, Col } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
-import './Chart.css';
-import { connect } from 'react-redux';
-import { fetchList } from '../../../actions/counter';
-import Red from "../../../../assets/images/Red.png";
-import Green from "../../../../assets/images/Green.png";
+import React, { Component } from 'react'
+import { Row, Col } from 'react-bootstrap'
+import { NavLink } from 'react-router-dom'
+import './Chart.css'
+import { connect } from 'react-redux'
+import { fetchList, famous } from '../../../actions/counter'
+import Red from '../../../../assets/images/Red.png'
+import Green from '../../../../assets/images/Green.png'
 const mapStateToProps = state => {
-  console.log(state.chart.lists);
+  // console.log(state.chart.lists.section)
+  // console.log(state.chart.lists.MasterAndFollow)
   return {
-    lists: state.chart.lists
-  };
-};
-
+    lists : state.chart.lists.section,
+    follow: state.chart.lists.MasterAndFollow
+  }
+}
 class Chart extends Component {
   componentDidMount() {
-    this.props.fetchList();
+    this.props.fetchList()
   }
   showList = () => {
-    var jsx    = [];
-    var lst    = this.props.lists;
-    var lstLen = lst.length;
+    var jsx    = []
+    var lst    = this.props.lists
+    var lstLen = lst.length
     for (var i = 0; i <= lstLen; i++) {
       if (i == lstLen) {
         jsx.push(
           <NavLink
             className       = "li-list"
             key             = {i}
-            to              = {`/chart/其他`}
+            to              = {`/home/chart/其他`}
             activeClassName = "active"
           >
             其他
           </NavLink>
-        );
+        )
       } else {
         jsx.push(
           <NavLink
             className       = "li-list"
             key             = {i}
-            to              = {`/chart/${lst[i].dname}`}
+            to              = {`/home/chart/${lst[i].sid}`}
             activeClassName = "active"
+            onClick         = {this.props.fetchList.bind(this,this.props.msg)}
           >
-            {lst[i].dname}
+            {lst[i].section}
           </NavLink>
-        );
+        )
       }
     }
-    return jsx;
-  };
+    return jsx
+  }
   constructor() {
-    super();
+    super()
     this.state = {
       defaultImage: true
-    };
+    }
   }
   changeImage() {
     this.setState({
       defaultImage: !this.state.defaultImage
-    });
+    })
   }
 
   render() {
     var styleObj = {
       backgroundImage: this.state.defaultImage ? `url(${Green})`: `url(${Red})`
-    };
-    var siteElements = [];
-    this.props.lists.forEach(item => {
+    }
+    var siteElements = []
+    this.props.follow.forEach(item => {
       siteElements.push(
-        <li className="content-li" key={item.did}>
+        <li className="content-li" key={item.tid}>
           <Row>
             <Col xs="6">
               <Row>
@@ -75,19 +77,20 @@ class Chart extends Component {
                   <span className="ask">问</span>
                 </Col>
                 <Col xs="9">
-                  <h4 className="ask-h4">{item.dname}</h4>
+                  <h3 className="ask-h4" className="conner">{item.tContents}</h3>
                 </Col>
               </Row>
             </Col>
             <Col xs="6">
               <ul className="dz">
                 <li
+                  ref       = "listss"
                   className = "dz-list"
                   style     = {styleObj}
-                  onClick = {this.changeImage.bind(this)}
+                  onClick   = {this.changeImage.bind(this)}
                 />
                 <li>
-                  <i>123</i>
+                  <i>{item.tClickCount}</i>
                   个赞
                 </li>
               </ul>
@@ -96,20 +99,22 @@ class Chart extends Component {
           <Row>
             <Col xs="2">
               <span className="ask">
-              <img src={require("../../../../assets/images/Green (1).jpg")} />
+                <img src={require('../../../../assets/images/Green (1).jpg')} />
               </span>
             </Col>
-            <Col xs="10">
+            <Col xs="10" className="conner">
               <div>
                 <h4>刘医生</h4>
                 <span>副主任医师 骨科 宁夏大学附属医院 已帮助710人</span>
               </div>
-              <span>asdasdasdasd</span>
+              <NavLink  to={`/home/liuyan/${item.tid}`} >
+                {item.tContents}
+              </NavLink>
             </Col>
           </Row>
         </li>
-      );
-    });
+      )
+    })
     return (
       <div className="mains">
         <div className="mains-search">
@@ -118,7 +123,7 @@ class Chart extends Component {
             <ul className="ul-list">
               <NavLink
                 className       = "li-list"
-                to              = "/chart/不限"
+                to              = "/home/chart/不限"
                 activeClassName = "active"
               >
                 不限
@@ -128,54 +133,52 @@ class Chart extends Component {
           </div>
           <div className="content">
             <h3>科室</h3>
-            <ul className="content-ul">
-              {siteElements}
-            </ul>
+            <ul className="content-ul">{siteElements}</ul>
           </div>
         </div>
         <div className="doctors">
           <div className="doctor-list">
             <div className="picture">
-              <img src={require("../../../../assets/images/Green (1).jpg")} />
+              <img src={require('../../../../assets/images/Green (1).jpg')} />
             </div>
             <div className="list-name">
               <h4>胡医生 主治医生</h4>
-              <h6>asdasd</h6>
+              <h6>杭州市第一人民医院</h6>
             </div>
           </div>
           <div className="doctor-list">
             <div className="picture">
-               <img src={require("../../../../assets/images/Green (1).jpg")} />
+              <img src={require('../../../../assets/images/Green (1).jpg')} />
             </div>
             <div className="list-name">
               <h4>胡医生 主治医生</h4>
-              <h6>asdasd</h6>
+              <h6>杭州市第一人民医院</h6>
             </div>
           </div>
           <div className="doctor-list">
             <div className="picture">
-               <img src={require("../../../../assets/images/Green (1).jpg")} />
+              <img src={require('../../../../assets/images/Green (1).jpg')} />
             </div>
             <div className="list-name">
               <h4>胡医生 主治医生</h4>
-              <h6>asdasd</h6>
+              <h6>杭州市第一人民医院</h6>
             </div>
           </div>
           <div className="doctor-list">
             <div className="picture">
-               <img src={require("../../../../assets/images/Green (1).jpg")} />
+              <img src={require('../../../../assets/images/Green (1).jpg')} />
             </div>
             <div className="list-name">
               <h4>胡医生 主治医生</h4>
-              <h6>asdasd</h6>
+              <h6>杭州市第一人民医院</h6>
             </div>
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 export default connect(
   mapStateToProps,
-  {  fetchList }
-)(Chart);
+  { fetchList }
+)(Chart)
