@@ -68,11 +68,11 @@ export default class Appointment extends Component {
         }
       }).then(res=>{
         console.log(res.data);
-        // var message = res.data;
-        // var oid     = message.oid;
-        // var uid     = this.state.customer.uid;
-        // var did     = this.state.did;
-        // this.props.history.push(`/home/apposuccess?oid=${oid}&uid=${uid}&did=${did}`);
+        var message = res.data;
+        var oid     = message.oid;
+        var uid     = this.state.customer.uid;
+        var did     = this.state.did;
+        this.props.history.push(`apposuccess?oid=${oid}&uid=${uid}&did=${did}`);
       });
     }
   };
@@ -157,7 +157,7 @@ export default class Appointment extends Component {
     const { dname, dimage, hospital, level, section } = this.state.docUser;
     const { uname, address, sex, age, phone, email }  = this.state.customer;
     return (
-      <Form onSubmit={this.handerSubmit}>
+      <Form>
         {/* 医生信息 */}
         <div className="commonMarginTop">
           <Container>
@@ -339,7 +339,7 @@ export default class Appointment extends Component {
             </Row>
 
             <Row className="submitForm">
-              <Button color="primary" className="submit" type="submit">
+              <Button color="primary" className="submit" onClick={this.handerSubmit}>
                 提交订单
               </Button>
             </Row>
