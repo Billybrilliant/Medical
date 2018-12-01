@@ -44,16 +44,17 @@ handleSubmit=(event) =>{
 
 
                 if(res.data.msg=="0"){
-                    this.setState({loginin:false});
+                    // this.setState({loginin:false});
                     alert('用户名或密码错误！或 用户不存在');
                 }else {
                     this.setState({loginin:true});
 
                 alert('恭喜你登录成功！');
+                this.props.history.push('/');
                 var userEntity=res.data;
                 sessionStorage.setItem('user', JSON.stringify(userEntity));
 
-                this.props.history.push('/');
+
                 }
           })
     }
