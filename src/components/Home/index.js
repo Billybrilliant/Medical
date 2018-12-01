@@ -180,7 +180,7 @@ export default class Home extends Component {
   doctorClick(a) {
     // console.log(a);
     // console.log(this);
-    let url = `${this.props.match.url}/introduced?did=${a}`;
+    let url = `${this.props.match.url}introduced?did=${a}`;
     // this.toDoctor(this);
     this.props.history.push(url);
   }
