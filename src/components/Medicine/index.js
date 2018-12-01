@@ -58,58 +58,131 @@ class Medicine extends Component {
     }
   }
   componentWillMount() {
-    $('#ul')
-      .children()
-      .eq(0)
-      .addClass('act');
+      $('#ul')
+        .children()
+        .eq(0)
+        .addClass('act');
 
-    axios({
-      url   : 'http://47.92.98.104:8080/jkwy/medicinalType',
-      method: 'get'
-    }).then(res => {
-      this.setState({
-        result: res.data
+      axios({
+        url   : 'http://47.92.98.104:8080/jkwy/medicinalType',
+        method: 'get'
+      }).then(res => {
+
+       this.setState({
+          result: res.data
+        });
       });
-    });
+      axios({
+        url:'http://47.92.98.104:8080/jkwy/typeMedicinals?type-id='+1,
+        method:'get',
+      }).then(res=>{
+        this.setState({
+          inres:res.data
+        })
+      })
 
   }
   componentDidMount() {
+      // console.log('med组件--->',store.getState());
+      // 取值时：把获取到的Json字符串转换回对象
+      // var userJsonStr = sessionStorage.getItem('user');
+      // var userEntity = JSON.parse(userJsonStr);
+      this.toggle(1);
+      this.props.fetchPageList();
+      var _that=this;
+      setTimeout(function() {
+        $('#ul li')
+          .eq(0)
+          .addClass('act');
+          $('.guide-tabs .tab-content .tab-pane').eq(0).addClass('active');
+      }, 500);
+      $('#ul').on('click', 'li', function() {
+        $(this)
+          .siblings()
+          .removeClass('act');
+        $(this).addClass('act');
+        var _index=$(this).index()+1;
 
-    this.toggle(1);
-    this.props.fetchPageList();
-    setTimeout(function() {
-      $('#ul li')
-        .eq(0)
-        .addClass('act');
-        $('.guide-tabs .tab-content .tab-pane').eq(0).addClass('active');
-    }, 500);
-    $('#ul').on('click', 'li', function() {
-      $(this)
+        axios({
+          url:'http://47.92.98.104:8080/jkwy/typeMedicinals?type-id='+_index,
+          method:'get',
+        }).then(res=>{
+          _that.setState({
+            inres:res.data
+          })
+        })
+      });
+      $('.guide-tabs.tab-content').on('click','.tab-pane',function(){
+        $(this)
         .siblings()
-        .removeClass('act');
-      $(this).addClass('act');
-    });
-    $('.guide-tabs.tab-content').on('click','.tab-pane',function(){
-      $(this)
-      .siblings()
-      .removeClass('active');
-    $(this).addClass('active');
-    })
-    axios({
-      url:'http://47.92.98.104:8080/jkwy/family',
-      method:'get',
-    }).then(res=>{
-
-      this.setState({
-        fmed:res.data
+        .removeClass('active');
+      $(this).addClass('active');
       })
-    })
+      axios({
+        url:'http://47.92.98.104:8080/jkwy/family',
+        method:'get',
+      }).then(res=>{
+
+        this.setState({
+          fmed:res.data
+        })
+      })
   }
 
   changePage = e => {
     var page = e.target.getAttribute('data-page');
     this.props.fetchPageList({ page: page });
   };
+  showTabs = () => {
+
+    if (this.state.result) {
+
+      var Len      = this.state.result.length;
+      var Res      = this.state.result;
+      var classJSX = [];
+      for (let i = 0; i < Len; i++) {
+          classJSX.push(
+            <NavItem key={i}>
+              <NavLink
+                onClick={e => {
+                  this.toggle(i + 1);
+                }}
+              >
+                <span>{Res[i].type}</span>
+                <i>&gt;</i>
+              </NavLink>
+            </NavItem>
+          );
+        }
+
+        return classJSX;
+
+      }
+  };
+  showTabsMain = () => {
+
+    // if (this.state.result) {
+    //   var Len      = this.state.result.length;
+    //   var Res      = this.state.result;
+    //   var classJSX = [];
+    //   for (let i = 0; i < Len; i++) {
+
+    //     classJSX.push(
+    //       <TabPane tabId={i + 1} key={i}>
+    //         <Row>
+    //           <Col sm="12">
+    //             <div>
+    //               <h2>{this.showinner()}</h2>
+    //             </div>
+    //           </Col>
+    //         </Row>
+    //       </TabPane>
+    //     );
+    //   }
+    //   return classJSX;
+    // }
+  }
+
   showPageitem = () => {
     var pLen  = 22;
     var pages = Math.ceil(pLen / 8);
@@ -150,70 +223,7 @@ class Medicine extends Component {
       return showJSX;
     }
   };
-  showTabs = () => {
 
-    if (this.state.result) {
-      for (let i = 0; i < Len; i++) {
-        axios({
-          url:'http://47.92.98.104:8080/jkwy/typeMedicinals?type-id='+1,
-          method:'get',
-        }).then(res=>{
-
-          this.setState({
-            inres:res.data
-          })
-        });
-        console.log('inres',inres);
-      var Len      = this.state.result.length;
-      var Res      = this.state.result;
-      var classJSX = [];
-      for (let i = 0; i < Len; i++) {
-        classJSX.push(
-          <NavItem key={i}>
-            <NavLink
-              onClick={e => {
-                this.toggle(i + 1);
-              }}
-            >
-              <span>{Res[i].type}</span>
-              <i>&gt;</i>
-            </NavLink>
-          </NavItem>
-        );
-      }
-      return classJSX;
-    }
-  };
-  // showTabsMain = () => {
-  //   if (this.state.result) {
-  //     var Len      = this.state.result.length;
-  //     var Res      = this.state.result;
-  //     var classJSX = [];
-  //     for (let i = 0; i < Len; i++) {
-  //       axios({
-  //         url:'http://47.92.98.104:8080/jkwy/typeMedicinals?type-id='+i,
-  //         method:'get',
-  //       }).then(res=>{
-
-  //         this.setState({
-  //           inres:res.data
-  //         })
-  //       })
-  //       classJSX.push(
-  //         <TabPane tabId={i + 1} key={i}>
-  //           <Row>
-  //             <Col sm="12">
-  //               <div>
-  //                 <h2>{this.showinner()}</h2>
-  //               </div>
-  //             </Col>
-  //           </Row>
-  //         </TabPane>
-  //       );
-  //     }
-  //     return classJSX;
-  //   }
-  };
 
   showFamily=()=>{
     if(this.state.fmed){
@@ -221,24 +231,38 @@ class Medicine extends Component {
       var fMed=this.state.fmed;
       for(let i=0;i<fMed.length;i++){
         classJSX.push(
-          <li>{fMed[i].ftype} &nbsp;&nbsp;&nbsp;&gt;</li>
+          <li key={i}>{fMed[i].ftype} &nbsp;&nbsp;&nbsp;&gt;</li>
         )
       }
       return classJSX;
     }
   };
   showinner=()=>{
-    console.log('ssssssssss',this.state);
-    if(this.state.inres){
+
+    console.log('--->',this.state.inres);
+    if(this.state.inres.length>0){
       var vLen=this.state.inres.length;
       var vres=this.state.inres;
       var classJSX=[];
 
-      // for(let i=0;i<vLen.length;i++){
-      //   classJSX.push()
-      // }
+      for(let i=0;i<2;i++){
+        classJSX.push(
+          <div key={i}>
+          <a href="#">
+            <div >
+              wwww
+            <img src={'http://47.92.98.104:8080'+vres[i].image} />
+            </div>
+            <p>{vres[i].name}</p>
+            <p>{vres[i].use_methods}</p>
+            <span>{vres[i].company}</span>&nbsp;&nbsp; <span>{vres[i].data}</span>
+          </a>
+        </div>
+        )
+      }
+      return classJSX;
     }
-    return;
+
   }
   render() {
     const { fetchPageList, pages } = this.props;
