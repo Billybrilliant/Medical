@@ -18,51 +18,31 @@ export default class Chart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tsid      : '',
-      uid       : '',
-      source    : '',
-      imgList   : [],
+      tsid      : 'xz010',
+      uid       : 'uhy78839b',
       inputValue: ''
     };
   }
 
   submitData = e => {
-    // console.log(this.state.imgList);
     // console.log(this.state.inputValue);
     // e.preventDefault();
-    if (
-      this.state.tsid !== '' &&
-      this.state.uid !== '' &&
-      this.state.inputValue !== '' &&
-      this.state.imgList !== ''
-    ) {
+    if (this.state.inputValue !== '') {
       //提交数据
-    } else {
-      //阻止默认事件
+      var url = `http://47.92.98.104:8080/jkwy/InsertMaster_pasteServlet`;
+      Axios({
+        url   : url,
+        method: 'post',
+        data  : {
+          tsid     : this.state.tsid,
+          tContents: this.state.inputValue,
+          tuid     : this.state.uid
+        }
+      }).then(res => {
+        //返回值为空
+        this.props.history.push(`/home/chart`);
+      });
     }
-
-    var imgValue = this.state.imgList;
-    var baseList = [];
-    var len      = imgValue.length;
-    for (var i = 0; i < len; i++) {
-      baseList.push(imgValue[i].base64);
-    }
-    console.log(baseList);
-    e.preventDefault();
-    // var url = `http://47.92.98.104:8080/jkwy/InsertMaster_pasteServlet`;
-    // if(this.state.did !== '' && this.state.imgList.length > 0 && this.state.inputValue !== ''){
-    //   Axios({
-    //     url   : url,
-    //     method: 'post',
-    //     data  : {
-    //       did       : this.state.did,
-    //       imgList   : this.state.imgList,
-    //       inputValue: this.state.inputValue
-    //     }
-    //   }).then(res=>{
-    //     //后端实现跳转，这里我们就不做什么操作了
-    //   })
-    // }
   };
 
   handleInputChange = e => {
@@ -72,54 +52,20 @@ export default class Chart extends Component {
   };
 
   componentWillMount() {
-    //判断是否有id传过来
-    if (this.props.location.search.slice(1).split('=')[1] !== '') {
-      var d = this.props.location.search.slice(1).split('=')[1];
-      this.setState({
-        //医生id
-        did: d
-      });
-    }
+    //获取用户信息
+    // var userMessage = sessionStorage.getItem('user');
+    // var userEntry = JSON.parse(userMessage);
+    // console.log(userEntry);
+    // this.setState({
+    //   uid: userEntry
+    // });
   }
 
-  componentDidMount() {
-    //发送ajax请求获取医生信息,返回一个对象赋值给source
-    //假定的后端地址，通过医生id获得医生信息
-    var url = `http://localhost:3000/posts/${this.state.did}`;
-    Axios({
-      url   : url,
-      method: 'get'
-    }).then(res => {
-      this.setState({
-        source: res.data
-      });
-    });
-  }
+  componentDidMount() {}
 
   render() {
-    let Header;
-    if (this.state.did !== undefined) {
-      Header = (
-        <Row className="questionHead">
-          <Col xs="1" className="letfHeadImg">
-            <img src="../../../static/images/questions/3302838893724077580-22.jpg" />
-          </Col>
-          <Col xs="10">
-            <Row>
-              <h5>{this.state.source.name}</h5>
-            </Row>
-            <Row>{this.state.source.title}</Row>
-            <Row>{this.state.source.content}</Row>
-          </Col>
-          <Col xs="1" className="rightButton" />
-        </Row>
-      );
-    } else {
-      Header = '';
-    }
     return (
       <Container className="contentQuestion">
-        {Header}
         <Row className="questionContent">
           <Col>
             <Form>
@@ -140,21 +86,7 @@ export default class Chart extends Component {
                   }}
                 />
               </FormGroup>
-              <hr />
-              <div>
-                <FileInputComponent
-                  labelText        = "选择文件（注：要上传多张图片请一次性选中多张图片上传，最多九张）"
-                  labelStyle       = {{ fontSize: 14 }}
-                  multiple         = {true}
-                  callbackFunction = {file_arr => {
-                    //console.log(file_arr)
-                    this.setState({
-                      imgList: file_arr
-                    });
-                  }}
-                  accept = "image/*"
-                />
-              </div>
+
               <FormGroup className="grayBack" style={{ marginTop: '10px' }} />
               <FormGroup style={{ marginTop: '10px' }}>
                 <FormText color="muted">
@@ -166,7 +98,6 @@ export default class Chart extends Component {
                   className = "submitQuestion"
                   color     = "primary"
                   onClick   = {e => this.submitData(e)}
-                  type      = "submit"
                 >
                   提交问题
                 </Button>
