@@ -12,6 +12,8 @@ import {
 } from 'reactstrap';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
+import Axios from 'axios';
+
 export default class Appointment extends Component {
   constructor(props) {
     super(props);
@@ -23,7 +25,8 @@ export default class Appointment extends Component {
       radioValue : '',
       inputValue : '',
       docUser    : '',
-      customer   : ''
+      customer   : '',
+      did        : ''
     };
   }
 
@@ -44,15 +47,61 @@ export default class Appointment extends Component {
   }
 
   handerSubmit = e => {
-    // console.log(this.state.selectedDay.toLocaleDateString());
-    // console.log(this.state.radioValue);
-    //console.log(this.state.inputValue);
-    //e.preventDefault();
-    this.props.history.push('apposuccess/?cid=1');
+    if (
+      this.state.selectedDay !== undefined &&
+      this.state.radioValue !== '' &&
+      this.state.code == this.state.inputValue
+    ) {
+      // console.log(this.state.selectedDay.toLocaleDateString());
+      // console.log(this.state.radioValue);
+      // e.preventDefault();
+      Axios({
+        url   : 'http://47.92.98.104:8080/jkwy/AddOrderServlet',
+        method: 'post',
+        data  : {
+          uid  : this.state.customer.uid,
+          did  : this.state.did,
+          date : this.state.selectedDay,
+          time : this.state.radioValue,
+          dname: this.state.docUser.dname,
+          uname: this.state.customer.uname
+        }
+      }).then(res=>{
+        console.log(res.data);
+        var message = res.data;
+        var oid     = message.oid;
+        var uid     = this.state.customer.uid;
+        var did     = this.state.did;
+        this.props.history.push(`apposuccess?oid=${oid}&uid=${uid}&did=${did}`);
+      });
+    }
   };
 
-  componentWillMount(){
-
+  componentWillMount() {
+    //获取医生信息
+    var docid = this.props.location.search.split('=')[1];
+    this.setState({
+      did: docid
+    })
+    Axios({
+      url   : 'http://47.92.98.104:8080/jkwy/doctor',
+      method: 'get',
+      params: {
+        did: docid
+      }
+    }).then(res => {
+      //console.log(res.data);
+      this.setState({
+        docUser: res.data
+      });
+    });
+    //获取用户信息
+    var userMessage = sessionStorage.getItem('user');
+    var userEntry   = JSON.parse(userMessage);
+    //console.log(userEntry);
+    this.setState({
+      customer: userEntry
+    });
   }
 
   componentDidMount() {
@@ -104,9 +153,11 @@ export default class Appointment extends Component {
   }
 
   render() {
-    const { selectedDay } = this.state;
+    const { selectedDay }                             = this.state;
+    const { dname, dimage, hospital, level, section } = this.state.docUser;
+    const { uname, address, sex, age, phone, email }  = this.state.customer;
     return (
-      <Form onSubmit={this.handerSubmit}>
+      <Form>
         {/* 医生信息 */}
         <div className="commonMarginTop">
           <Container>
@@ -116,18 +167,20 @@ export default class Appointment extends Component {
             <Row className="docContent commonContent" id="docInfoHead">
               <Col className="noPadding">
                 <div id="headPhoto">
-                  <img src="../../../assets/images/Yuyue.jpg" />
+                  <img src={'http://47.92.98.104:8080' + dimage} />
                 </div>
                 <div id="headContent">
-                  <h4>董军</h4>
-                  <p>骨科 主治医师</p>
-                  <p>西安交通大学医学院第二附属医院</p>
+                  <h4>{dname}</h4>
+                  <p>
+                    {section} {level}
+                  </p>
+                  <p>{hospital}</p>
                 </div>
               </Col>
               <Col className="noPadding">
                 <div id="headRight">
                   <p>
-                    门诊类型: <span id="outServerClass">骨科</span>
+                    门诊类型: <span id="outServerClass">{section}</span>
                   </p>
                   <p>
                     费用：<span id="cost">0.00元</span>
@@ -234,7 +287,9 @@ export default class Appointment extends Component {
               </Col>
             </Row>
             <Row className="commonContent" id="patientMan">
-              朱佳杰 男 身份证 330************0315 1996-01-01 178**** 8073
+              <span>姓名：{uname}</span> <span>年龄：{age}</span>&nbsp;
+              <span>性别：{sex}</span> <span>住址：{address}</span>&nbsp;
+              <span>联系电话：{phone}</span> <span>邮箱：{email}</span>
             </Row>
           </Container>
         </div>
@@ -271,15 +326,6 @@ export default class Appointment extends Component {
               </div>
             </Row>
 
-            <Row className="haveChecked">
-              <FormGroup check>
-                <Label check>
-                  <Input type="checkbox" ref="ifChecked" />{' '}
-                  我已认真了解此医院的预约规则
-                </Label>
-              </FormGroup>
-            </Row>
-
             <Row className="rulePass">
               验证码{' '}
               <Input
@@ -288,12 +334,12 @@ export default class Appointment extends Component {
                 value     = {this.state.inputValue}
                 onChange  = {e => this.handerInput(e)}
               />{' '}
-              <div>{this.state.code}</div>
+              <div id="stateCode">{this.state.code}</div>
               <span onClick={this.changeCode}>看不清？换一张</span>
             </Row>
 
             <Row className="submitForm">
-              <Button color="primary" className="submit" type="submit">
+              <Button color="primary" className="submit" onClick={this.handerSubmit}>
                 提交订单
               </Button>
             </Row>

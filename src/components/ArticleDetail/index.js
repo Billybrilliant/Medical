@@ -31,13 +31,7 @@ class ArticleDetail extends Component {
   }
 
   componentDidMount() {
-    // var bigArray = this.props.match.params.cid.split('&');
-    // var oneArray = bigArray[0];
-    // var twoArray = bigArray[1];
-    // console.log(oneArray.split('=')[1]);
-    // console.log(twoArray.split('=')[1]);
-    // var type = twoArray.split('=')[1];
-    // var wid  = oneArray.split('=')[1];
+    //发送ajax请求获取数据
     var url = `${this.state.commonUrl}/jkwy/${this.state.type}`;
     Axios({
       url   : url,
@@ -91,9 +85,6 @@ class ArticleDetail extends Component {
                 <p>求解：炒菜里大蒜变蓝究竟是好是坏？是加了醋的缘故吗？</p>
                 <p>
                   请问，我想控制饮食怕体重增加，可是晚饭不敢少吃，因为少吃肉吃的清淡晚上就饿....
-                </p>
-                <p>
-                  于医生您好，我想咨询一下：本人46岁，身高155，体重61公斤.....
                 </p>
               </Row>
             </div>
