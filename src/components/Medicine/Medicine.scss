@@ -60,6 +60,10 @@ a {
             float: left;
           a{
             color:#333;
+            img{
+              width: 198px;
+              height:198px;
+            }
             #func{
 
               display: -webkit-box;
@@ -192,8 +196,8 @@ a {
 
               .our {
                 border: 1px solid #a4a4a4;
-                width: 202px;
-                height: 202px;
+                width: 198px;
+                height: 198px;
                 overflow: hidden;
                 img{
                   width:198px;

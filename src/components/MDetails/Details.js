@@ -44,7 +44,7 @@ class Details extends Component {
           <Col xs="6">
             <div id="goods_pic">
               <img
-                src       = {this.state.myText.image}
+                src       = {"http://47.92.98.104:8080"+this.state.myText.image}
                 className = "demo-img pos-center"
               />
             </div>
