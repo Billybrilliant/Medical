@@ -5,13 +5,16 @@ export const getListData = data => {
     data
   };
 }
-export function fetchList() {
+export function fetchList(a,b,c) {
+
   return dispatch => {
-    var url = `http://localhost:3000/ordermsg`;
+    var url = `http://47.92.98.104:8080/jkwy/order`;
     return axios({
       url: url,
-      method: 'get',
+      params:{a,b,c},
+      method: 'post',
     }).then(res => {
+      console.log('-->',res);
       dispatch(getListData(res.data));
     })
   }

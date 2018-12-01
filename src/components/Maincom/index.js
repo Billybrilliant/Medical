@@ -46,7 +46,8 @@ export default class MainCOM extends Component {
           <Route path="/home/medicine" component={Medicine} exact />
           <Route path="/home/medicine/:id" component={MDetails} />
           <Route path="/home/yuyueliuchen" component={Yuyueliuchen} />
-          <Route path="/home/apposuccess" component={AppoSuccess} />
+          <Route path="/home/apposuccess" component={AppoSuccess}  exact />
+          {/* <Route path="/home/apposuccess/:id" component={AppoSuccess} /> */}
           <Route path="/home/personal" component={Personal} />
         </Switch>
         <Footer />
