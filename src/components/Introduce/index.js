@@ -2,56 +2,53 @@ import React, { Component } from 'react';
 import './Introduce.scss';
 // import axios from 'axios';
 // import store from '../../store/index';
-import { hosAjax,hosMsgAjax } from '../../actions/counter';
+import { hosAjax, hosMsgAjax } from '../../actions/counter';
 import { connect } from 'react-redux';
 // import {pure} from 'recompose';
-
+import { NavLink } from 'react-router-dom';
 const mapStateToProps = state => {
   return Object.assign(state, {
-     hosreducer: {
-       list: state.hosreducer.list,
-       hospital:state.hosreducer.hospital
+    hosreducer: {
+      list    : state.hosreducer.list,
+      hospital: state.hosreducer.hospital
     },
-    chart:{
-      hostipal:state.chart.hospital
+    chart: {
+      hostipal: state.chart.hospital
     }
-   });
+  });
 };
-
 
 //医院介绍的主组建
 class Introduce extends Component {
   componentWillMount() {
     this.props.hosAjax();
     // this.props.hosMsgAjax();
-
   }
-
 
   render() {
     // console.log("render时调用",this.props.hosreducer.list);
     return (
       <div className="introduce-box">
         <div className="container mcontain hospital-top ">
-          <h2>{"复旦大学附属华山医院-传染科"}</h2>
+          <h2>{'复旦大学附属华山医院-传染科'}</h2>
         </div>
         <div className="container mcontain hospital-top2">
           <p>
             <img
-              src       = "../../../assets/images/icon-hospital/address.png"
-              alt       = "地址"
+              src = "../../../assets/images/icon-hospital/address.png"
+              alt = "地址"
             />{' '}
             <span>地址 上海市乌鲁木齐中路12号</span>
             <br />
             <img
-              src       = "../../../assets/images/icon-hospital/phone.png"
-              alt       = "地址"
+              src = "../../../assets/images/icon-hospital/phone.png"
+              alt = "地址"
             />{' '}
             <span>电话 021-52889999</span>
             <br />
             <img
-              src       = "../../../assets/images/icon-hospital/introduce.png"
-              alt       = "地址"
+              src = "../../../assets/images/icon-hospital/introduce.png"
+              alt = "地址"
             />{' '}
             <span>
               简介
@@ -125,9 +122,11 @@ class Tab extends Component {
                     className = "h-mid2-nr col-xs-12 col-sm-6 col-md-4 col-lg-4"
                     key       = {index}
                   >
-                    <span className="intro-dname">{data.dname}</span>
-                    <span className="intro-dlevel">{data.level}</span>
-                    <p className="intro-dape">擅长 ：{data.apecial}</p>
+                    <NavLink to="/home/introduced">
+                      <span className="intro-dname">{data.dname}</span>
+                      <span className="intro-dlevel">{data.level}</span>
+                      <p className="intro-dape">擅长 ：{data.apecial}</p>
+                    </NavLink>
                   </div>
                 );
               })
@@ -145,7 +144,7 @@ class Tab extends Component {
 
 // Introduce=pure(Introduce);
 
-export default Introduce = connect(
+export default (Introduce = connect(
   mapStateToProps,
-  { hosAjax,hosMsgAjax }
-)(Introduce);
+  { hosAjax, hosMsgAjax }
+)(Introduce));

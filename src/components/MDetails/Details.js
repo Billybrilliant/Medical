@@ -18,11 +18,13 @@ class Details extends Component {
       myText: ''
     };
   }
-  getData=(props)=> {
-    console.log(this.props)
+  getData = props => {
+    console.log(this.props);
     console.log(this.props.match.params.id.split('=')[1]);
     axios({
-      url   : `http://47.92.98.104:8080/jkwy/medicinal?mid=${this.props.match.params.id.split('=')[1]}`,
+      url: `http://47.92.98.104:8080/jkwy/medicinal?mid=${
+        this.props.match.params.id.split('=')[1]
+      }`,
       method: 'get'
     }).then(res => {
       console.log(res.data);
@@ -33,7 +35,7 @@ class Details extends Component {
         });
       }
     });
-  }
+  };
   componentWillMount() {
     this.getData();
   }
@@ -44,17 +46,15 @@ class Details extends Component {
           <Col xs="6">
             <div id="goods_pic">
               <img
-                src       = {this.state.myText.image}
+                src       = {'http://47.92.98.104:8080' + this.state.myText.image}
                 className = "demo-img pos-center"
               />
             </div>
           </Col>
           <Col xs="6" id="goods_details">
             <h3>{this.state.myText.name}</h3>
-            <p>
-             {this.state.myText.effect}
-            </p>
-          {/*   <div className="goods_price">
+            <p>{this.state.myText.effect}</p>
+            {/*   <div className="goods_price">
               <span> 市 场 价 ：</span>
               <span>￥</span>
               <span>11.00</span>
@@ -71,7 +71,7 @@ class Details extends Component {
               <span>批准文号：</span>
               <span>国药准字号Z20013220</span>
             </div>
-           {/*  <div className="goods_vender">
+            {/*  <div className="goods_vender">
               <span>生产厂家：</span>
               <span className="company">江中药业股份有限公司</span>
   </div> */}
