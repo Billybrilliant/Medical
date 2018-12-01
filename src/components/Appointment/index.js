@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Appointment.scss';
+
 import {
   Col,
   Button,
@@ -51,7 +52,20 @@ export default class Appointment extends Component {
       this.setState({
         doctorList: jsx
       })
-      console.log(this.state.doctorList);
+      // console.log(this.state.doctorList);
+    })
+  }
+  handleSubmit=props=>{
+    console.log(this.props);
+    axios({
+      url   : 'http://47.92.98.104:8080/jkwy/doctor',
+      method: 'post',
+      params: {
+        hospital: $('#categoryTwo option:selected').val()
+      }
+    }).then(res=>{
+      console.log(res.data);
+      this.props.history.push(`/home/yuyueliuchen?mid=${res.data[0].did}`);
     })
   }
   componentWillMount() {
