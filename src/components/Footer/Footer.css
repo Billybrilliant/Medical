@@ -1,6 +1,5 @@
 .footer {
   background: #353633;
-  height: 380px;
   padding-top: 53px;
   color: #fffffe;
 }
@@ -60,5 +59,10 @@
 
 .footer .btm-btm {
   text-align: center;
-  font-size: 12px;
+  padding-bottom: 20px;
+}
+
+.footer .btm-btm > p {
+  margin: 0;
+  font-size: 12px !important;
 }

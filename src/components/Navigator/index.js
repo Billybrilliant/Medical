@@ -32,7 +32,10 @@ class Navigator extends React.Component {
     this.toggle = this.toggle.bind(this);
     this.state  = {
       isOpen     : false,
-      loginButton: '登录/注册'
+      loginButton: '登录/注册',
+      buttonStyle: {
+        background: '#84c225'
+      }
     };
   }
   toggle() {
@@ -60,9 +63,14 @@ class Navigator extends React.Component {
   };
   componentWillMount = () => {
     // console.log(this.state.loginButton);
-    if (this.props.loginin) {
+    var userJsonStr = sessionStorage.getItem('user');
+    var userEntity  = JSON.parse(userJsonStr);
+    if (userEntity) {
       this.setState({
-        loginButton: '个人中心'
+        loginButton: '个人中心',
+        buttonStyle: {
+          background: '#fd9115'
+        }
       });
     }
   };
@@ -99,6 +107,7 @@ class Navigator extends React.Component {
                 id      = "sign"
                 onClick = {this.loginClick}
                 value   = {this.state.loginButton}
+                style   = {this.state.buttonStyle}
               >
                 {this.state.loginButton}
               </Button>
