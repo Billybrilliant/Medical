@@ -73,7 +73,7 @@ return (<div className="Login">
             <div id="formLogin">
                 <h5>账户登录</h5>
                 <form  onSubmit={this.handleSubmit}>
-                    <input type="text" id="userName" placeholder="手机号/用户名/邮箱" value={this.state.userName} onChange={this.usernameChange}/><br/>
+                    <input type="text" id="userName" placeholder="请输入手机号" value={this.state.userName} onChange={this.usernameChange}/><br/>
                     <input type="password" id="userpwd" placeholder="密码" value={this.state.password}  onChange={this.passwordChange} /><br/>
                     <select id="select">
                             <option value ="1">普通用户</option>
