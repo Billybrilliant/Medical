@@ -73,14 +73,17 @@ export default class Liuyan extends Component {
                     请问轻度脆骨病怎么治疗{' '}
                   </span>
                 </div>
-                <img src="../../../assets/images/cgal-2-img15.png" alt="健康" />
+                <img
+                  src = {require('../../../assets/images/cgal-2-img15.png')}
+                  alt = "健康"
+                />
               </div>
 
               {/* 医生回答帮助 */}
               <div className="row c-ly-left-top2">
                 <div className="col-1">
                   <img
-                    src = "../../../assets/images/icon-liuyan/u34.jpg"
+                    src = {require('../../../assets/images/icon-liuyan/u34.jpg')}
                     alt = "头像"
                   />
                 </div>
@@ -138,7 +141,7 @@ export default class Liuyan extends Component {
                 <h4 className="col-12">您可能感兴趣的</h4>
                 <NavLink to="/home/article" className="col-3 footer-4">
                   <img
-                    src = "../../../assets/images/icon-liuyan/ucbegso8.jpg"
+                    src = {require('../../../assets/images/icon-liuyan/ucbegso8.jpg')}
                     alt = "食物"
                   />
                   <p>
@@ -147,7 +150,7 @@ export default class Liuyan extends Component {
                 </NavLink>
                 <NavLink to="/home/article" className="col-3 footer-4">
                   <img
-                    src = "../../../assets/images/icon-liuyan/ucbegso8.jpg"
+                    src = {require('../../../assets/images/icon-liuyan/ucbegso8.jpg')}
                     alt = "食物"
                   />
                   <p>
@@ -156,7 +159,7 @@ export default class Liuyan extends Component {
                 </NavLink>
                 <NavLink to="/home/article" className="col-3 footer-4">
                   <img
-                    src = "../../../assets/images/icon-liuyan/ucbegso8.jpg"
+                    src = {require('../../../assets/images/icon-liuyan/ucbegso8.jpg')}
                     alt = "食物"
                   />
                   <p>
@@ -165,7 +168,7 @@ export default class Liuyan extends Component {
                 </NavLink>
                 <NavLink to="/home/article" className="col-3 footer-4">
                   <img
-                    src = "../../../assets/images/icon-liuyan/ucbegso8.jpg"
+                    src = {require('../../../assets/images/icon-liuyan/ucbegso8.jpg')}
                     alt = "食物"
                   />
                   <p>

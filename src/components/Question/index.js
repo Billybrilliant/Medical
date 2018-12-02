@@ -40,7 +40,12 @@ export default class Chart extends Component {
         }
       }).then(res => {
         //返回值为空
-        this.props.history.push(`/home/chart`);
+        confirm('提交成功');
+        if (confirm) {
+          this.props.history.push(`/home/chart`);
+        } else {
+          alert('提交失败');
+        }
       });
     }
   };
@@ -123,7 +128,7 @@ export default class Chart extends Component {
                 }}
               >
                 <Col>
-                  <img src="../../../assets/images/Doctor.png" />
+                  <img src={require('../../../assets/images/Doctor.png')} />
                   找医生
                 </Col>
               </Row>
@@ -141,7 +146,7 @@ export default class Chart extends Component {
                 }}
               >
                 <Col>
-                  <img src="../../../assets/images/My.png" />
+                  <img src={require('../../../assets/images/My.png')} />
                   我的
                 </Col>
               </Row>

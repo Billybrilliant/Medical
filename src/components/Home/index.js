@@ -21,17 +21,17 @@ import { Navigator, Footer } from '../../components';
 // import bg from "../../../assets/images/预约挂号.png"
 const items = [
   {
-    src: '/assets/images/微信图片_20181122161423.png'
+    src: `${require('../../../assets/images/微信图片_20181122161423.png')}`
     // altText: 'Slide 1',
     // caption: 'Slide 1'
   },
   {
-    src: '/assets/images/微信图片_20181122161435.png'
+    src: `${require('../../../assets/images/微信图片_20181122161435.png')}`
     // altText: 'Slide 2',
     // caption: 'Slide 2'
   },
   {
-    src: '/assets/images/20150608884.jpg'
+    src: `${require('../../../assets/images/20150608884.jpg')}`
     // altText: 'Slide 3',
     // caption: 'Slide 3'
   }
@@ -301,7 +301,7 @@ export default class Home extends Component {
               </Col>
               <Col style={{ padding: 0 }} lg="4">
                 <img
-                  src   = "../../../assets/images/true (2).jpg"
+                  src   = {require('../../../assets/images/true (2).jpg')}
                   style = {{ height: 180 }}
                 />
                 <ul className="articlList">{this.state.articl}</ul>

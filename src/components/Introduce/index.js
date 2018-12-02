@@ -35,19 +35,19 @@ class Introduce extends Component {
         <div className="container mcontain hospital-top2">
           <p>
             <img
-              src = "../../../assets/images/icon-hospital/address.png"
+              src = {require('../../../assets/images/icon-hospital/address.png')}
               alt = "地址"
             />{' '}
             <span>地址 上海市乌鲁木齐中路12号</span>
             <br />
             <img
-              src = "../../../assets/images/icon-hospital/phone.png"
+              src = {require('../../../assets/images/icon-hospital/phone.png')}
               alt = "地址"
             />{' '}
             <span>电话 021-52889999</span>
             <br />
             <img
-              src = "../../../assets/images/icon-hospital/introduce.png"
+              src = {require('../../../assets/images/icon-hospital/introduce.png')}
               alt = "地址"
             />{' '}
             <span>
@@ -59,7 +59,10 @@ class Introduce extends Component {
           </p>
         </div>
         <div className="container mcontain hospital-mid">
-          <img src="../../../assets/images/icon-hospital/doctor.png" alt="" />
+          <img
+            src = {require('../../../assets/images/icon-hospital/doctor.png')}
+            alt = ""
+          />
           <div className="h-mid-r">
             <h2>科室专家</h2>
             <input type="text" placeholder="查找专家" disabled />
@@ -71,7 +74,7 @@ class Introduce extends Component {
           <div className="row">
             <div className="col-12 text-center">
               <img
-                src = "('../../assets/images/icon-hospital/notice.png"
+                src = {require('../../../assets/images/icon-hospital/notice.png')}
                 alt = "就诊须知"
               />
               <h2>就诊须知</h2>
