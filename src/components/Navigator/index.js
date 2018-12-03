@@ -18,6 +18,7 @@ import {
 import { NavLink } from 'react-router-dom';
 import './Navigator.scss';
 import { connect } from 'react-redux';
+import Axios from 'axios';
 // const mapStateToProps = state => {
 //   // console.log(state.order);
 //   return {
@@ -47,8 +48,14 @@ class Navigator extends React.Component {
     // console.log(this.props.history.location.pathname);
     // console.log(this.refs.medicine.value);
     if (this.refs.medicine.value) {
-      let url = `/home/medicine/search=${this.refs.medicine.value}`;
-      this.props.history.push(url);
+      Axios({
+        url: `http://47.92.98.104:8080/jkwy/typeMedicinals?name=${
+          this.refs.medicine.value
+        }`,
+        method: 'get'
+      }).then(res => {
+        this.props.history.push(`/home/medicine/mid=${res.data[0].mid}`);
+      });
     }
   };
   loginClick = e => {

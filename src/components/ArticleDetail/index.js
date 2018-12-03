@@ -5,16 +5,15 @@ import './detail.css';
 import { Container, Row, Col } from 'reactstrap';
 import Axios from 'axios';
 
-
 class ArticleDetail extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state={
+    this.state = {
       type          : '',
       cid           : '',
       articalContent: '',
       commonUrl     : 'http://47.92.98.104:8080'
-    }
+    };
   }
 
   componentWillMount() {
@@ -26,7 +25,7 @@ class ArticleDetail extends Component {
       this.setState({
         type: twoArray.split('=')[1],
         cid : oneArray.split('=')[1]
-      })
+      });
     }
   }
 
@@ -39,25 +38,23 @@ class ArticleDetail extends Component {
       params: {
         id: this.state.cid
       }
-    }).then(res=>{
+    }).then(res => {
       console.log(res.data.data[0]);
       this.setState({
         articalContent: res.data.data[0]
-      })
-    })
+      });
+    });
   }
 
   render() {
-    const {title,cimage,desc} = this.state.articalContent;
+    const { title, cimage, desc } = this.state.articalContent;
     return (
       <Container className="bigContent">
         <Row>
           {/* 左边 */}
           <Col xs="9" className="leftContent">
             <h3>{title}</h3>
-            <p>
-              作者：于仁文
-            </p>
+            <p>作者：于仁文</p>
             <div>
               <img src={'http://47.92.98.104:8080' + cimage} />
             </div>
@@ -68,7 +65,7 @@ class ArticleDetail extends Component {
             <div className="rightContent">
               <Row>
                 <div id="docImg">
-                  <img src="../../../assets/images/tnnfzeob.jpg" />
+                  <img src={require('../../../assets/images/tnnfzeob.jpg')} />
                 </div>
               </Row>
               <Row>

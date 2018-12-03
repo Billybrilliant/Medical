@@ -12,7 +12,7 @@ export default class IntroduceD extends Component {
             <div className="col-2">
               <img
                 className = "doc-touxiang"
-                src       = "../../../assets/images/icon-liuyan/u34.jpg"
+                src       = {require('../../../assets/images/icon-liuyan/u34.jpg')}
                 alt       = "医生"
               />
             </div>

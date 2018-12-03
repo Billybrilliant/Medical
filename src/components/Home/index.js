@@ -180,19 +180,19 @@ export default class Home extends Component {
   doctorClick(a) {
     // console.log(a);
     // console.log(this);
-    let url = `${this.props.match.url}introduced?did=${a}`;
+    let url = `/home/introduced?did=${a}`;
     // this.toDoctor(this);
     this.props.history.push(url);
   }
   articlClick(a) {
     // console.log(a);
-    let url = `${this.props.match.url}article/detail/cid=${a}`;
+    let url = `/home/article/detail/cid=${a}&topic=gaoxueyaDetail`;
     // this.toDoctor(this);
     this.props.history.push(url);
   }
   answerClick(a) {
     // console.log(this.props.match.url);
-    let url = `${this.props.match.url}liuyan?tid=${a}`;
+    let url = `home/liuyan?tid=${a}`;
     // console.log(url);
     this.props.history.push(url);
   }
